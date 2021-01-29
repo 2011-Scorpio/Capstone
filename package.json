@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
+  "name": "scorpio-capstone",
   "version": "2.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Capstone project for team scorpio",
   "engines": {
     "node": "~12.11.1"
   },
@@ -10,7 +10,6 @@
     "build-client": "webpack",
     "build-client-watch": "webpack -w",
     "deploy": "script/deploy",
-    "heroku-token": "script/encrypt-heroku-auth-token.js",
     "lint": "eslint ./ --ignore-path .gitignore",
     "lint-fix": "npm run lint -- --fix",
     "prepare": "if [ -d .git ]; then npm-merge-driver install; fi",
@@ -60,8 +59,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "sequelize": "^5.3.1",
-    "socket.io": "^2.2.0"
+    "sequelize": "^5.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
