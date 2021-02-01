@@ -1,14 +1,10 @@
 const router = require('express').Router()
 const request = require('request')
+const SpotifyWebApi = require('spotify-web-api-node')
 module.exports = router
 
-const SpotifyWebApi = require('spotify-web-api-node')
-
-const spotifyApi = new SpotifyWebApi({
-  clientId: process.env.CLIENTID,
-  clientSecret: process.env.SECRET,
-  redirectUri: 'localhost:8080'
-})
+const spotifyApi = new SpotifyWebApi()
+let apiToken = ''
 
 router.get('/token', function(req, resp) {
   resp.header('Access-Control-Allow-Origin', '*')
@@ -33,7 +29,20 @@ router.get('/token', function(req, resp) {
 
   request.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
+      spotifyApi.setAccessToken(body.access_token)
+      apiToken = body.access_token
       resp.json({token: body.access_token})
     }
   })
+})
+
+router.get('/albums', async (req, res, next) => {
+  try {
+    spotifyApi.setAccessToken(apiToken)
+    const {data} = spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
+    console.log(data)
+    res.json(data)
+  } catch (error) {
+    console.error(error)
+  }
 })

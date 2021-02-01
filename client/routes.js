@@ -4,7 +4,7 @@ import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import {me} from './store'
-import TestButton from './components/TestButton'
+import WelcomePage from './components/Welcome'
 
 /**
  * COMPONENT
@@ -33,7 +33,7 @@ class Routes extends Component {
           <Route component={Login} />
         </Switch>
         <div>
-          <TestButton />
+          <WelcomePage />
         </div>
       </div>
     )
