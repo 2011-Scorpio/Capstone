@@ -4,6 +4,7 @@ const SpotifyWebApi = require('spotify-web-api-node')
 module.exports = router
 
 const spotifyApi = new SpotifyWebApi()
+
 let apiToken = ''
 
 router.get('/token', function(req, resp) {
@@ -29,7 +30,8 @@ router.get('/token', function(req, resp) {
 
   request.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
-      spotifyApi.setAccessToken(body.access_token)
+      spotifyApi.setAccessToken(apiToken)
+      console.log(body.access_token)
       apiToken = body.access_token
       resp.json({token: body.access_token})
     }
@@ -39,9 +41,9 @@ router.get('/token', function(req, resp) {
 router.get('/albums', async (req, res, next) => {
   try {
     spotifyApi.setAccessToken(apiToken)
-    const {data} = spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
+    const data = await spotifyApi.getAlbum('3KyVcddATClQKIdtaap4bV')
     console.log(data)
-    res.json(data)
+    res.json(data.body)
   } catch (error) {
     console.error(error)
   }

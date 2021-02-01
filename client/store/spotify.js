@@ -30,8 +30,13 @@ export const fetchAlbum = token => {
   return async dispatch => {
     try {
       console.log(token)
-      const {data} = await axios.get('https://api.spotify.com/v1/albums/', {
-        headers: {Authorization: 'Bearer' + token, id: '4aawyAB9vmqN3uQ7FjRGTy'}
+      const {data} = await axios({
+        url: 'https://api.spotify.com/v1/albums/',
+        method: 'get',
+        headers: {
+          id: '4aawyAB9vmqN3uQ7FjRGTy',
+          Authorization: 'Bearer ' + token
+        }
       })
       dispatch(getAlbum(data))
     } catch (error) {
