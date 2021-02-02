@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User} = require('../db/models')
+const {User, Playlist} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -13,5 +13,14 @@ router.get('/', async (req, res, next) => {
     res.json(users)
   } catch (err) {
     next(err)
+  }
+})
+
+router.get('/:songId', async (req, res, next) => {
+  try {
+    const song = await `https://api.spotify.com/v1/tracks/${req.params.songId}`
+    res.json(song)
+  } catch (error) {
+    next(error)
   }
 })
