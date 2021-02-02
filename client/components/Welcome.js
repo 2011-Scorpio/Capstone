@@ -12,7 +12,6 @@ export class WelcomePage extends React.Component {
   }
 
   onClick() {
-    console.log('props token', this.props.token)
     this.props.getAlbum(this.props.token)
   }
 
@@ -20,8 +19,16 @@ export class WelcomePage extends React.Component {
     return (
       <div>
         <button type="button" onClick={this.onClick}>
-          Test
+          Get Album
         </button>
+        <p>
+          {console.log('ALBUM', this.props)}
+          {this.props.album ? (
+            <img src={this.props.album.images[0].url} alt="" />
+          ) : (
+            <></>
+          )}
+        </p>
       </div>
     )
   }
@@ -29,7 +36,8 @@ export class WelcomePage extends React.Component {
 
 const mapState = state => {
   return {
-    token: state.spotify.token
+    token: state.spotify.token,
+    album: state.spotify.album
   }
 }
 
