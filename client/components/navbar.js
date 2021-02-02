@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 const Navbar = () => (
   <header>
     <div>
-      <h1>Omakase</h1>
+      <h3 className="navbar-name">Omakase</h3>
     </div>
     <nav>
       <ul>

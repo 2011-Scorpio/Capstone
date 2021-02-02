@@ -1,7 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'utilities.scss';
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 body {
-  font-family: 'poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
 }
 
@@ -39,6 +47,11 @@ form div {
   display: inline-block;
 }
 
+.navbar-name {
+  font-family: 'Montserrat';
+  margin: 0.75em 0;
+}
+
 .landing-img-wrapper {
   height: 648px;
 }
@@ -48,4 +61,36 @@ form div {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.landing-quote {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.explore-btn-container {
+  height: 415px;
+}
+
+.button-one {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  background-color: black;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  padding: 0.5em 1.25em;
+}
+
+.explore-page-container {
+  height: 40em;
+}
+
+.player {
+  background-color: grey;
+  height: 20em;
+  width: 15em;
+  margin-top: 7em;
 }

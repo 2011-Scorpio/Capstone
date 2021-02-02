@@ -26,6 +26,7 @@ export class WelcomePage extends React.Component {
           {this.props.album ? (
             <img
               className="album-art"
+              style={{width: '200px', height: '200px'}}
               src={this.props.album.images[0].url}
               alt=""
             />
