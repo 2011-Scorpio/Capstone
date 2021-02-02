@@ -26,6 +26,12 @@ const User = db.define('user', {
   },
   googleId: {
     type: Sequelize.STRING
+  },
+  spotifyId: {
+    type: Sequelize.STRING
+  },
+  token: {
+    type: Sequelize.TEXT
   }
 })
 

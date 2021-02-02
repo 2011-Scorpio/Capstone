@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const GET_ALBUM = 'GET_ALBUM'
 const GET_TOKEN = 'GET_TOKEN'
+const GET_PLAYLIST = 'GET_PLAYLIST'
 
 const getAlbum = album => ({
   type: GET_ALBUM,
@@ -14,6 +15,11 @@ const getToken = token => {
     token
   }
 }
+
+const getUserPlaylist = playlist => ({
+  type: GET_PLAYLIST,
+  playlist
+})
 
 export const fetchToken = () => {
   return async dispatch => {
@@ -43,6 +49,23 @@ export const fetchAlbum = token => {
   }
 }
 
+export const fetchUserPlaylist = token => {
+  return async dispatch => {
+    try {
+      const {data} = await axios({
+        url: 'https://api.spotify.com/v1/me/top/tracks',
+        method: 'get',
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      })
+      dispatch(getUserPlaylist(data))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
 let initialState = {
   token: null,
   album: null
@@ -54,6 +77,8 @@ export default function(state = initialState, action) {
       return {...state, token: action.token}
     case GET_ALBUM:
       return {...state, album: action.album}
+    case GET_PLAYLIST:
+      return {...state, playlist: action.playlist}
     default:
       return state
   }
