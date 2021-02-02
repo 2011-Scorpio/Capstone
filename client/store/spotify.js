@@ -19,7 +19,7 @@ export const fetchToken = () => {
   return async dispatch => {
     try {
       const {data} = await axios.get('/api/spotify/token')
-      dispatch(getToken(data))
+      dispatch(getToken(data.token))
     } catch (error) {
       console.error(error)
     }
@@ -29,12 +29,10 @@ export const fetchToken = () => {
 export const fetchAlbum = token => {
   return async dispatch => {
     try {
-      console.log(token)
       const {data} = await axios({
-        url: 'https://api.spotify.com/v1/albums/',
+        url: 'https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy',
         method: 'get',
         headers: {
-          id: '4aawyAB9vmqN3uQ7FjRGTy',
           Authorization: 'Bearer ' + token
         }
       })
@@ -45,14 +43,17 @@ export const fetchAlbum = token => {
   }
 }
 
-let initialState = {}
+let initialState = {
+  token: null,
+  album: null
+}
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_TOKEN:
-      return action.token
+      return {...state, token: action.token}
     case GET_ALBUM:
-      return action.album
+      return {...state, album: action.album}
     default:
       return state
   }

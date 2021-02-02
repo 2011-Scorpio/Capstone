@@ -40,10 +40,10 @@ router.get('/token', function(req, resp) {
 
 router.get('/albums', async (req, res, next) => {
   try {
-    spotifyApi.setAccessToken(apiToken)
-    const data = await spotifyApi.getAlbum('3KyVcddATClQKIdtaap4bV')
-    console.log(data)
-    res.json(data.body)
+    // spotifyApi.setAccessToken(apiToken)
+    // const data = await spotifyApi.getAlbum('3KyVcddATClQKIdtaap4bV')
+    // console.log(data)
+    // res.json(data.body)
   } catch (error) {
     console.error(error)
   }
