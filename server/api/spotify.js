@@ -7,44 +7,44 @@ const spotifyApi = new SpotifyWebApi()
 
 let apiToken = ''
 
-router.get('/token', function(req, resp) {
-  resp.header('Access-Control-Allow-Origin', '*')
-  resp.header('Access-Control-Allow-Headers', 'X-Requested-With')
+// router.get('/token', function(req, resp) {
+//   resp.header('Access-Control-Allow-Origin', '*')
+//   resp.header('Access-Control-Allow-Headers', 'X-Requested-With')
 
-  var client_id = process.env.CLIENTID
-  var client_secret = process.env.SECRET
+//   var client_id = process.env.CLIENTID
+//   var client_secret = process.env.SECRET
 
-  // your application requests authorization
-  var authOptions = {
-    url: 'https://accounts.spotify.com/api/token',
-    headers: {
-      Authorization:
-        'Basic ' +
-        new Buffer(client_id + ':' + client_secret).toString('base64')
-    },
-    form: {
-      grant_type: 'client_credentials'
-    },
-    json: true
-  }
+//   // your application requests authorization
+//   var authOptions = {
+//     url: 'https://accounts.spotify.com/api/token',
+//     headers: {
+//       Authorization:
+//         'Basic ' +
+//         new Buffer(client_id + ':' + client_secret).toString('base64')
+//     },
+//     form: {
+//       grant_type: 'client_credentials'
+//     },
+//     json: true
+//   }
 
-  request.post(authOptions, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      spotifyApi.setAccessToken(apiToken)
-      console.log(body.access_token)
-      apiToken = body.access_token
-      resp.json({token: body.access_token})
-    }
-  })
-})
+//   request.post(authOptions, function(error, response, body) {
+//     if (!error && response.statusCode === 200) {
+//       spotifyApi.setAccessToken(apiToken)
+//       console.log(body.access_token)
+//       apiToken = body.access_token
+//       resp.json({token: body.access_token})
+//     }
+//   })
+// })
 
-router.get('/albums', async (req, res, next) => {
-  try {
-    // spotifyApi.setAccessToken(apiToken)
-    // const data = await spotifyApi.getAlbum('3KyVcddATClQKIdtaap4bV')
-    // console.log(data)
-    // res.json(data.body)
-  } catch (error) {
-    console.error(error)
-  }
-})
+// router.get('/albums', async (req, res, next) => {
+//   try {
+//     // spotifyApi.setAccessToken(apiToken)
+//     // const data = await spotifyApi.getAlbum('3KyVcddATClQKIdtaap4bV')
+//     // console.log(data)
+//     // res.json(data.body)
+//   } catch (error) {
+//     console.error(error)
+//   }
+// })

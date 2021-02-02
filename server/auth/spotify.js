@@ -81,8 +81,8 @@ passport.use(
       User.findOrCreate({
         where: {spotifyId: profile.id},
         defaults: {email: profile._json.email}
-      }).then(function(err, user) {
-        return done(err, user)
+      }).then(function([user]) {
+        return done(null, user)
       })
     }
   )
