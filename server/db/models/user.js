@@ -29,6 +29,9 @@ const User = db.define('user', {
   },
   spotifyId: {
     type: Sequelize.STRING
+  },
+  token: {
+    type: Sequelize.TEXT
   }
 })
 
