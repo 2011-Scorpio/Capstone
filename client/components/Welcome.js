@@ -22,7 +22,6 @@ export class WelcomePage extends React.Component {
           Get Album
         </button>
         <p>
-          {console.log('ALBUM', this.props)}
           {this.props.album ? (
             <img
               className="album-art"

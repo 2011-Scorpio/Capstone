@@ -5,6 +5,6 @@
  */
 export {default as NavBar} from './NavBar'
 export {default as LandingPage} from './LandingPage'
-export {default as ExplorePage} from './ExplorePage'
+export {default as PlayerPage} from './PlayerPage'
 export {default as UserHome} from './user-home'
 export {Login, Signup} from './auth-form'
