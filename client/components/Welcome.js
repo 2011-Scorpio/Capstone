@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchAlbum, fetchToken, fetchUserPlaylist} from '../store/spotify'
+import {fetchAlbum, fetchUserPlaylist} from '../store/spotify'
 
 export class WelcomePage extends React.Component {
   constructor() {
@@ -8,9 +8,7 @@ export class WelcomePage extends React.Component {
     this.onClick = this.onClick.bind(this)
     this.onClickPlaylists = this.onClickPlaylists.bind(this)
   }
-  componentDidMount() {
-    this.props.getToken()
-  }
+  componentDidMount() {}
 
   onClick() {
     this.props.getAlbum(this.props.token)
@@ -44,14 +42,13 @@ export class WelcomePage extends React.Component {
 
 const mapState = state => {
   return {
-    token: state.spotify.token,
+    token: state.user.token,
     album: state.spotify.album,
     playlist: state.spotify.playlist
   }
 }
 
 const mapDispatch = dispatch => ({
-  getToken: () => dispatch(fetchToken()),
   getAlbum: token => dispatch(fetchAlbum(token)),
   getPlaylist: token => dispatch(fetchUserPlaylist(token))
 })
