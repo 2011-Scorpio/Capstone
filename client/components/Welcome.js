@@ -24,7 +24,11 @@ export class WelcomePage extends React.Component {
         <p>
           {console.log('ALBUM', this.props)}
           {this.props.album ? (
-            <img src={this.props.album.images[0].url} alt="" />
+            <img
+              className="album-art"
+              src={this.props.album.images[0].url}
+              alt=""
+            />
           ) : (
             <></>
           )}
