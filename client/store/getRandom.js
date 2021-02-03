@@ -22,3 +22,5 @@ export default function getRandomSearch() {
 
   return randomSearch
 }
+
+export const randomOffset = () => Math.floor(Math.random() * 10000)

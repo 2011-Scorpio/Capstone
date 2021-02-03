@@ -1,5 +1,5 @@
 import axios from 'axios'
-import getRandomSearch from './getRandom'
+import getRandomSearch, {randomOffset} from './getRandom'
 
 const GET_ALBUM = 'GET_ALBUM'
 const GET_PLAYLIST = 'GET_PLAYLIST'
@@ -23,7 +23,8 @@ const getUserPlaylist = playlist => ({
 export const fetchRPlaylist = token => {
   return async dispatch => {
     try {
-      let returnList = []
+      const q = getRandomSearch()
+      const offset = Math.floor(Math.random() * 1000)
       const {data} = await axios({
         url: 'https://api.spotify.com/v1/search',
         method: 'get',
@@ -32,10 +33,11 @@ export const fetchRPlaylist = token => {
         },
         params: {
           type: 'track',
-          q: getRandomSearch()
+          q,
+          offset,
+          market: 'US'
         }
       })
-      returnList.push(data)
       dispatch(getRandomPlaylist(data))
     } catch (error) {
       console.error(error)
