@@ -24,21 +24,19 @@ export const fetchRPlaylist = token => {
   return async dispatch => {
     try {
       let returnList = []
-      for (let i = 0; i < 16; i++) {
-        const {data} = await axios({
-          url: 'https://api.spotify.com/v1/search',
-          method: 'get',
-          headers: {
-            Authorization: 'Bearer ' + token
-          },
-          params: {
-            type: 'track',
-            q: getRandomSearch()
-          }
-        })
-        returnList.push(data)
-        dispatch(getRandomPlaylist(returnList))
-      }
+      const {data} = await axios({
+        url: 'https://api.spotify.com/v1/search',
+        method: 'get',
+        headers: {
+          Authorization: 'Bearer ' + token
+        },
+        params: {
+          type: 'track',
+          q: getRandomSearch()
+        }
+      })
+      returnList.push(data)
+      dispatch(getRandomPlaylist(data))
     } catch (error) {
       console.error(error)
     }
