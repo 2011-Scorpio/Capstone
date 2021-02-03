@@ -5,8 +5,9 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import spotify from './spotify'
 import allPlaylists from './allPlaylists'
+import singlePlaylist from './singlePlaylist'
 
-const reducer = combineReducers({user, spotify, allPlaylists})
+const reducer = combineReducers({user, spotify, allPlaylists, singlePlaylist})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
