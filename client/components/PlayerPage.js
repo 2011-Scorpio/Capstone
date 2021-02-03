@@ -13,9 +13,7 @@ class PlayerPage extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.token)
     this.props.getPlaylist(this.props.token)
-    console.log(this.props.token)
   }
 
   togglePlay = () => {
@@ -32,7 +30,7 @@ class PlayerPage extends Component {
   render() {
     let currentSong = this.props.album
       ? this.props.album.tracks.items[0].preview_url
-      : 'nothing here'
+      : ''
     return (
       <div className="explore-page-container f jcc">
         <div className="player f jcc aie">
