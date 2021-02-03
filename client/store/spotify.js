@@ -81,7 +81,8 @@ export const fetchUserPlaylist = token => {
 
 let initialState = {
   token: null,
-  album: null
+  album: null,
+  playlist: null
 }
 
 export default function(state = initialState, action) {
