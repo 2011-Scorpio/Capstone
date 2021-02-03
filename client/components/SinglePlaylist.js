@@ -11,3 +11,9 @@ export class SinglePlaylist extends React.Component {
     )
   }
 }
+
+const mapState = state => ({playlist: state.playlist})
+const mapDispatch = dispatch => ({
+  getSinglePlaylist: id => dispatch(fetchSinglePlaylist(id))
+})
+export default connect(mapState, mapDispatch)(SinglePlaylist)
