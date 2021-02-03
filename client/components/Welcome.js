@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchAlbum, fetchUserPlaylist} from '../store/spotify'
+import {fetchAlbum, fetchRPlaylist, fetchUserPlaylist} from '../store/spotify'
 
 export class WelcomePage extends React.Component {
   constructor() {
@@ -54,7 +54,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => ({
   getAlbum: token => dispatch(fetchAlbum(token)),
-  getPlaylist: token => dispatch(fetchUserPlaylist(token))
+  getPlaylist: token => dispatch(fetchRPlaylist(token))
 })
 
 export default connect(mapState, mapDispatch)(WelcomePage)

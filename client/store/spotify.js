@@ -1,7 +1,14 @@
 import axios from 'axios'
+import getRandomSearch from './getRandom'
 
 const GET_ALBUM = 'GET_ALBUM'
 const GET_PLAYLIST = 'GET_PLAYLIST'
+const GET_RANDOM_PLAYLIST = 'GET_RANDOM_PLAYLIST'
+
+const getRandomPlaylist = rPlaylist => ({
+  type: GET_RANDOM_PLAYLIST,
+  rPlaylist
+})
 
 const getAlbum = album => ({
   type: GET_ALBUM,
@@ -12,6 +19,29 @@ const getUserPlaylist = playlist => ({
   type: GET_PLAYLIST,
   playlist
 })
+
+export const fetchRPlaylist = token => {
+  return async dispatch => {
+    try {
+      let returnList = []
+      const {data} = await axios({
+        url: 'https://api.spotify.com/v1/search',
+        method: 'get',
+        headers: {
+          Authorization: 'Bearer ' + token
+        },
+        params: {
+          type: 'track',
+          q: getRandomSearch()
+        }
+      })
+      returnList.push(data)
+      dispatch(getRandomPlaylist(data))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
 
 export const fetchAlbum = token => {
   return async dispatch => {
@@ -58,6 +88,8 @@ export default function(state = initialState, action) {
       return {...state, album: action.album}
     case GET_PLAYLIST:
       return {...state, playlist: action.playlist}
+    case GET_RANDOM_PLAYLIST:
+      return {...state, rPlaylist: action.rPlaylist}
     default:
       return state
   }

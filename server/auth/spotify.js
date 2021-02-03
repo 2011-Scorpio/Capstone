@@ -13,14 +13,6 @@ passport.use(
       callbackURL: 'http://localhost:8080/auth/spotify/callback'
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
-      console.log(
-        'profile',
-        profile,
-        'accessToken',
-        accessToken,
-        'refreshToken',
-        refreshToken
-      )
       User.findOrCreate({
         where: {spotifyId: profile.id},
         defaults: {email: profile._json.email, token: accessToken}
