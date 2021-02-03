@@ -31,11 +31,13 @@ export const fetchRPlaylist = token => {
           headers: {
             Authorization: 'Bearer ' + token
           },
-          type: 'track',
-          q: getRandomSearch()
+          params: {
+            type: 'track',
+            q: getRandomSearch()
+          }
         })
         returnList.push(data)
-        dispatch(getRandomPlaylist(data))
+        dispatch(getRandomPlaylist(returnList))
       }
     } catch (error) {
       console.error(error)
@@ -89,7 +91,7 @@ export default function(state = initialState, action) {
     case GET_PLAYLIST:
       return {...state, playlist: action.playlist}
     case GET_RANDOM_PLAYLIST:
-      return {...state, rPlaylist: action.playlist}
+      return {...state, rPlaylist: action.rPlaylist}
     default:
       return state
   }
