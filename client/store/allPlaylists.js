@@ -9,6 +9,19 @@ export const getAllPlaylists = playlists => ({
   playlists
 })
 
+//thunk creator
+export const fetchAllPlaylists = () => {
+  return async dispatch => {
+    try {
+      const {data} = await axios.get()
+      dispatch(getAllPlaylists(data))
+    } catch (error) {
+      console.log('Unable to fetch all playlists', error)
+      console.error(error)
+    }
+  }
+}
+
 //initial state
 const initialState = []
 

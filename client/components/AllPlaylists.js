@@ -4,9 +4,15 @@ import {fetchAllPlaylists} from '../store/allPlaylists'
 
 export class AllPlaylists extends React.Component {
   render() {
+    const {playlists} = this.props
     return (
       <React.Fragment>
         <div>Listing All Playlists:</div>
+        {playlists.map(playlist => (
+          <div key={playlist.id}>
+            <div>Hello world</div>
+          </div>
+        ))}
       </React.Fragment>
     )
   }
