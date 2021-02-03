@@ -1,19 +1,38 @@
 import React, {Component} from 'react'
 import {Play, FastForward, Pause, Plus} from 'react-feather'
 import {connect} from 'react-redux'
-import {fetchUserPlaylist} from '../store/spotify'
+import {fetchRPlaylist} from '../store/spotify'
+import {me} from '../store'
 
 class PlayerPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
       isPlaying: false,
-      playQueue: []
+      queue: [],
+      loaded: false
     }
   }
 
-  componentDidMount() {
-    this.props.getPlaylist(this.props.token)
+  async componentDidMount() {
+    await this.props.loadInitialData()
+    await this.props.getRPlaylist(this.props.token)
+    const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
+      track => track.preview_url !== null
+    )
+    console.log(songsWithUrl)
+    this.setState({
+      queue: songsWithUrl,
+      loaded: true
+    })
+  }
+
+  fastForward = () => {
+    this.setState(prevState => ({
+      queue: prevState.queue.slice(1)
+    }))
+    this.togglePlay()
+    this.togglePlay()
   }
 
   togglePlay = () => {
@@ -28,9 +47,8 @@ class PlayerPage extends Component {
     }
   }
   render() {
-    let currentSong = this.props.album
-      ? this.props.album.tracks.items[0].preview_url
-      : ''
+    let currentSong = this.state.loaded ? this.state.queue[0].preview_url : ''
+
     return (
       <div className="explore-page-container f jcc">
         <div className="player f jcc aie">
@@ -46,7 +64,11 @@ class PlayerPage extends Component {
             >
               {this.state.isPlaying ? <Pause /> : <Play />}
             </button>
-            <button type="button" className="player-btn f">
+            <button
+              type="button"
+              className="player-btn f"
+              onClick={() => this.fastForward()}
+            >
               <FastForward />
             </button>
           </div>
@@ -60,12 +82,13 @@ const mapState = state => {
   return {
     token: state.user.token,
     album: state.spotify.album,
-    playlist: state.spotify.playlist
+    rPlaylist: state.spotify.rPlaylist
   }
 }
 
 const mapDispatch = dispatch => ({
-  getPlaylist: token => dispatch(fetchUserPlaylist(token))
+  loadInitialData: () => dispatch(me()),
+  getRPlaylist: token => dispatch(fetchRPlaylist(token))
 })
 
 export default connect(mapState, mapDispatch)(PlayerPage)
