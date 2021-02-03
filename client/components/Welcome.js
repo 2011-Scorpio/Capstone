@@ -28,9 +28,13 @@ export class WelcomePage extends React.Component {
           Get Playlists
         </button>
         <p>
-          {console.log('ALBUM', this.props)}
           {this.props.album ? (
-            <img src={this.props.album.images[0].url} alt="" />
+            <img
+              className="album-art"
+              style={{width: '200px', height: '200px'}}
+              src={this.props.album.images[0].url}
+              alt=""
+            />
           ) : (
             <></>
           )}
