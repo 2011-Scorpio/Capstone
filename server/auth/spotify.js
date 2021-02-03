@@ -24,7 +24,8 @@ passport.use(
       User.findOrCreate({
         where: {spotifyId: profile.id},
         defaults: {email: profile._json.email, token: accessToken}
-      }).then(function([user]) {
+      }).then(async function([user]) {
+        await user.update({token: accessToken})
         return done(null, user)
       })
     }
