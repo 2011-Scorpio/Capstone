@@ -4,8 +4,9 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import spotify from './spotify'
+import userPlaylist from './userPlaylist'
 
-const reducer = combineReducers({user, spotify})
+const reducer = combineReducers({user, spotify, userPlaylist})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
