@@ -64,7 +64,7 @@ class PlayerPage extends Component {
   addToPlaylist() {
     const trackURI = this.state.queue[0].uri
     this.props.addToPlaylist(
-      this.props.userPlaylist,
+      this.props.currentPlaylistId.id,
       trackURI,
       this.props.token
     )
@@ -122,7 +122,7 @@ const mapState = state => {
   return {
     token: state.user.token,
     rPlaylist: state.spotify.rPlaylist,
-    userPlaylist: state.userPlaylist.id
+    currentPlaylistId: state.userPlaylist.currentPlaylist
   }
 }
 
