@@ -83,9 +83,9 @@ export default function(state = initialState, action) {
     case CREATE_PLAYLIST:
       return {...state, currentPlaylist: action.playlistId}
     case ADD_TO_PLAYLIST:
-      return action.trackId
+      return {...state, addedTrack: action.trackId}
     case GET_ALL_PLAYLISTS:
-      return action.allPlaylists
+      return {...state, allUserPlaylists: action.allPlaylists}
     default:
       return state
   }
