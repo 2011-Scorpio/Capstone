@@ -3,6 +3,7 @@ import {Play, FastForward, Pause, Plus} from 'react-feather'
 import {connect} from 'react-redux'
 import {fetchRPlaylist} from '../store/spotify'
 import {me} from '../store'
+import {addPlaylist} from '../store/userPlaylist'
 
 class PlayerPage extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class PlayerPage extends Component {
       queue: [],
       loaded: false
     }
+    this.addToPlaylist = this.addToPlaylist.bind(this)
   }
 
   async componentDidMount() {
@@ -58,6 +60,16 @@ class PlayerPage extends Component {
       playerAudio.play()
     }
   }
+
+  addToPlaylist() {
+    const trackURI = this.state.queue[0].uri
+    this.props.addToPlaylist(
+      this.props.userPlaylist,
+      trackURI,
+      this.props.token
+    )
+  }
+
   render() {
     const {queue, loaded} = this.state
     let currentSong = loaded ? queue[0].preview_url : ''
@@ -78,7 +90,11 @@ class PlayerPage extends Component {
             onEnded={this.fastForward}
           />
           <div className="f jcb">
-            <button type="button" className="player-btn f">
+            <button
+              type="button"
+              className="player-btn f"
+              onClick={this.addToPlaylist}
+            >
               <Plus />
             </button>
             <button
@@ -105,13 +121,16 @@ class PlayerPage extends Component {
 const mapState = state => {
   return {
     token: state.user.token,
-    rPlaylist: state.spotify.rPlaylist
+    rPlaylist: state.spotify.rPlaylist,
+    userPlaylist: state.userPlaylist.id
   }
 }
 
 const mapDispatch = dispatch => ({
   loadInitialData: () => dispatch(me()),
-  getRPlaylist: token => dispatch(fetchRPlaylist(token))
+  getRPlaylist: token => dispatch(fetchRPlaylist(token)),
+  addToPlaylist: (playlistId, trackURI, token) =>
+    dispatch(addPlaylist(playlistId, trackURI, token))
 })
 
 export default connect(mapState, mapDispatch)(PlayerPage)
