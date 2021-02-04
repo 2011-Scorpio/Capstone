@@ -18,21 +18,32 @@ class PlayerPage extends Component {
     await this.props.loadInitialData()
     await this.props.getRPlaylist(this.props.token)
     const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
-      track => track.preview_url !== null
+      track => track.preview_url
     )
-    console.log(songsWithUrl)
     this.setState({
       queue: songsWithUrl,
       loaded: true
     })
   }
 
+  async componentDidUpdate() {
+    if (this.state.queue.length === 3 && this.state.loaded === true) {
+      this.setState({loaded: false})
+      await this.props.getRPlaylist(this.props.token)
+      const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
+        track => track.preview_url !== null
+      )
+      this.setState({
+        queue: songsWithUrl,
+        loaded: true
+      })
+    }
+  }
+
   fastForward = () => {
     this.setState(prevState => ({
       queue: prevState.queue.slice(1)
     }))
-    this.togglePlay()
-    this.togglePlay()
   }
 
   togglePlay = () => {
@@ -48,10 +59,15 @@ class PlayerPage extends Component {
   }
   render() {
     let currentSong = this.state.loaded ? this.state.queue[0].preview_url : ''
+    let artistName = this.state.loaded
+      ? this.state.queue[0].artists[0].name
+      : ''
+    console.log(artistName)
 
     return (
       <div className="explore-page-container f jcc">
-        <div className="player f jcc aie">
+        <div className="player">
+          <h4>{artistName}</h4>
           <audio id="player-audio" src={currentSong} />
           <div className="f jcb">
             <button type="button" className="player-btn f">
