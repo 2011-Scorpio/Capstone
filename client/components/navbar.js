@@ -1,24 +1,23 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {User, Menu} from 'react-feather'
 
 const Navbar = () => (
   <header>
-    <div>
-      <Link to="/" className="no-under">
-        <h3 className="navbar-name">Omakase</h3>
-      </Link>
-    </div>
+    <Link to="/" className="no-under">
+      <h3 className="navbar-name">Omakase</h3>
+    </Link>
     <nav>
       <ul>
         <li>
           <Link to="/login" className="nav-links">
-            Account
+            <User />
           </Link>
         </li>
         <li>
-          <a href="#" className="nav-links">
-            ☰
-          </a>
+          <button type="button" className="nav-links">
+            <Menu />
+          </button>
         </li>
       </ul>
     </nav>

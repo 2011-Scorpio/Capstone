@@ -13,7 +13,7 @@ const LandingPage = () => {
         />
         <h3 className="landing-quote">A Simpler Way to Discover Music</h3>
       </div>
-      <div className="explore-btn-container f jcc aic">
+      <div className="landing-btn-container f jcc aic">
         <Link to="/explore">
           <ButtonOne text="Explore" />
         </Link>

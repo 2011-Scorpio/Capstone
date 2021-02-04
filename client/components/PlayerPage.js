@@ -15,8 +15,9 @@ class PlayerPage extends Component {
   }
 
   async componentDidMount() {
-    await this.props.loadInitialData()
-    await this.props.getRPlaylist(this.props.token)
+    const {loadInitialData, getRPlaylist} = this.props
+    await loadInitialData()
+    await getRPlaylist(this.props.token)
     const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
       track => track.preview_url
     )
@@ -58,17 +59,24 @@ class PlayerPage extends Component {
     }
   }
   render() {
-    let currentSong = this.state.loaded ? this.state.queue[0].preview_url : ''
-    let artistName = this.state.loaded
-      ? this.state.queue[0].artists[0].name
-      : ''
-    console.log(artistName)
+    const {queue, loaded} = this.state
+    let currentSong = loaded ? queue[0].preview_url : ''
+    let artistName = loaded ? queue[0].artists[0].name : ''
+    let songName = loaded ? queue[0].name : ''
 
     return (
       <div className="explore-page-container f jcc">
         <div className="player">
-          <h4>{artistName}</h4>
-          <audio id="player-audio" src={currentSong} />
+          <div>
+            <h4>{artistName}</h4>
+            <p>{songName}</p>
+          </div>
+          <audio
+            id="player-audio"
+            src={currentSong}
+            autoPlay
+            onEnded={this.fastForward}
+          />
           <div className="f jcb">
             <button type="button" className="player-btn f">
               <Plus />
@@ -97,7 +105,6 @@ class PlayerPage extends Component {
 const mapState = state => {
   return {
     token: state.user.token,
-    album: state.spotify.album,
     rPlaylist: state.spotify.rPlaylist
   }
 }
