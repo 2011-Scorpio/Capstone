@@ -28,7 +28,7 @@ class PlayerPage extends Component {
   }
 
   async componentDidUpdate() {
-    if (this.state.queue.length === 3 && this.state.loaded === true) {
+    if (this.state.queue.length === 2 && this.state.loaded === true) {
       this.setState({loaded: false})
       await this.props.getRPlaylist(this.props.token)
       const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
