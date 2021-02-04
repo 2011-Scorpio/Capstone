@@ -9,7 +9,7 @@ class PlayerPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isPlaying: false,
+      isPlaying: true,
       queue: [],
       loaded: false
     }
@@ -30,7 +30,7 @@ class PlayerPage extends Component {
   }
 
   async componentDidUpdate() {
-    if (this.state.queue.length === 3 && this.state.loaded === true) {
+    if (this.state.queue.length === 2 && this.state.loaded === true) {
       this.setState({loaded: false})
       await this.props.getRPlaylist(this.props.token)
       const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
@@ -75,6 +75,7 @@ class PlayerPage extends Component {
     let currentSong = loaded ? queue[0].preview_url : ''
     let artistName = loaded ? queue[0].artists[0].name : ''
     let songName = loaded ? queue[0].name : ''
+    console.log('test')
 
     return (
       <div className="explore-page-container f jcc">
