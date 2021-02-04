@@ -8,7 +8,7 @@ class PlayerPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isPlaying: false,
+      isPlaying: true,
       queue: [],
       loaded: false
     }
