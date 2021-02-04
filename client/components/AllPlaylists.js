@@ -1,25 +1,29 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchAllPlaylists} from '../store/allPlaylists'
+import {fetchAllPlaylists} from '../store/userPlaylist'
 
-export class AllPlaylists extends React.Component {
+class AllPlaylists extends React.Component {
+  componentDidMount() {}
+
   render() {
-    const {playlists} = this.props
     return (
-      <React.Fragment>
+      <div>
         <div>Listing All Playlists:</div>
-        {playlists.map(playlist => (
+        {/* {this.props.playlists.map(playlist => (
           <div key={playlist.id}>
-            <div>Hello world</div>
+            <div>{playlist.name}</div>
           </div>
-        ))}
-      </React.Fragment>
+        ))} */}
+      </div>
     )
   }
 }
 
-const mapState = state => ({playlists: state.playlists})
+const mapState = state => ({
+  token: state.user.token,
+  playlists: state.userPlaylist.items
+})
 const mapDispatch = dispatch => ({
-  getPlaylists: () => dispatch(fetchAllPlaylists())
+  getPlaylists: token => dispatch(fetchAllPlaylists(token))
 })
 export default connect(mapState, mapDispatch)(AllPlaylists)

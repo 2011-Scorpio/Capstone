@@ -8,11 +8,11 @@ import {
   UserHome,
   LandingPage,
   PlayerPage,
-  SinglePlaylist,
-  AllPlaylists
+  SinglePlaylist
 } from './components'
 import {me} from './store'
 import WelcomePage from './components/Welcome'
+import AllPlaylists from './components/AllPlaylists'
 
 /**
  * COMPONENT
@@ -35,6 +35,7 @@ class Routes extends Component {
           <Route path="/explore" component={PlayerPage} />
           <Route path="/playlists" component={AllPlaylists} />
           <Route path="/playlists/:playlistId" component={SinglePlaylist} />
+
           {isLoggedIn && (
             <Switch>
               {/* Routes placed here are only available after logging in */}
