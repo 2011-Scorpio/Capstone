@@ -63,6 +63,7 @@ class PlayerPage extends Component {
     let currentSong = loaded ? queue[0].preview_url : ''
     let artistName = loaded ? queue[0].artists[0].name : ''
     let songName = loaded ? queue[0].name : ''
+    console.log('test')
 
     return (
       <div className="explore-page-container f jcc">
