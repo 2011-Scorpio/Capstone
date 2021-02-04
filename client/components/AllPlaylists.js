@@ -1,25 +1,61 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchAllPlaylists} from '../store/allPlaylists'
+import {me} from '../store'
+import {fetchAllPlaylists, setCurrent} from '../store/userPlaylist'
 
-export class AllPlaylists extends React.Component {
+class AllPlaylists extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      ranOnce: false
+    }
+    this.setCurrent = this.setCurrent.bind(this)
+  }
+  async componentDidMount() {
+    await this.props.loadUser()
+    await this.props.getPlaylists(this.props.token)
+    this.setState({
+      ranOnce: true
+    })
+  }
+
+  setCurrent(event) {
+    this.props.setCurrentPlaylist(event.target.value)
+  }
+
   render() {
-    const {playlists} = this.props
     return (
-      <React.Fragment>
-        <div>Listing All Playlists:</div>
-        {playlists.map(playlist => (
-          <div key={playlist.id}>
-            <div>Hello world</div>
+      <div>
+        <div>Please Choose One of Your Playlists:</div>
+        {this.state.ranOnce ? (
+          <div>
+            {this.props.playlists.items.map(playlist => (
+              <div key={playlist.id}>
+                <button
+                  type="button"
+                  value={[playlist.name, playlist.id]}
+                  onClick={e => this.setCurrent(e)}
+                >
+                  {playlist.name}
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
-      </React.Fragment>
+        ) : (
+          ''
+        )}
+      </div>
     )
   }
 }
 
-const mapState = state => ({playlists: state.playlists})
+const mapState = state => ({
+  token: state.user.token,
+  playlists: state.userPlaylist.allUserPlaylists
+})
 const mapDispatch = dispatch => ({
-  getPlaylists: () => dispatch(fetchAllPlaylists())
+  loadUser: () => dispatch(me()),
+  getPlaylists: token => dispatch(fetchAllPlaylists(token)),
+  setCurrentPlaylist: nameAndId => dispatch(setCurrent(nameAndId))
 })
 export default connect(mapState, mapDispatch)(AllPlaylists)

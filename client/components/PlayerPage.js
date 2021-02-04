@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {fetchRPlaylist} from '../store/spotify'
 import {me} from '../store'
 import {addPlaylist} from '../store/userPlaylist'
+import AllPlaylists from './AllPlaylists'
 
 class PlayerPage extends Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class PlayerPage extends Component {
   addToPlaylist() {
     const trackURI = this.state.queue[0].uri
     this.props.addToPlaylist(
-      this.props.userPlaylist,
+      this.props.currentPlaylistId.id,
       trackURI,
       this.props.token
     )
@@ -78,42 +79,50 @@ class PlayerPage extends Component {
     console.log('test')
 
     return (
-      <div className="explore-page-container f jcc">
-        <div className="player">
+      <div>
+        {this.props.currentPlaylistId ? (
+          <div className="explore-page-container f jcc">
+            <div className="player">
+              <div>
+                <h4>{artistName}</h4>
+                <p>{songName}</p>
+              </div>
+              <audio
+                id="player-audio"
+                src={currentSong}
+                autoPlay
+                onEnded={this.fastForward}
+              />
+              <div className="f jcb">
+                <button
+                  type="button"
+                  className="player-btn f"
+                  onClick={this.addToPlaylist}
+                >
+                  <Plus />
+                </button>
+                <button
+                  className="player-btn f"
+                  type="button"
+                  onClick={() => this.togglePlay()}
+                >
+                  {this.state.isPlaying ? <Pause /> : <Play />}
+                </button>
+                <button
+                  type="button"
+                  className="player-btn f"
+                  onClick={() => this.fastForward()}
+                >
+                  <FastForward />
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
           <div>
-            <h4>{artistName}</h4>
-            <p>{songName}</p>
+            <AllPlaylists />
           </div>
-          <audio
-            id="player-audio"
-            src={currentSong}
-            autoPlay
-            onEnded={this.fastForward}
-          />
-          <div className="f jcb">
-            <button
-              type="button"
-              className="player-btn f"
-              onClick={this.addToPlaylist}
-            >
-              <Plus />
-            </button>
-            <button
-              className="player-btn f"
-              type="button"
-              onClick={() => this.togglePlay()}
-            >
-              {this.state.isPlaying ? <Pause /> : <Play />}
-            </button>
-            <button
-              type="button"
-              className="player-btn f"
-              onClick={() => this.fastForward()}
-            >
-              <FastForward />
-            </button>
-          </div>
-        </div>
+        )}
       </div>
     )
   }
@@ -123,7 +132,7 @@ const mapState = state => {
   return {
     token: state.user.token,
     rPlaylist: state.spotify.rPlaylist,
-    userPlaylist: state.userPlaylist.id
+    currentPlaylistId: state.userPlaylist.currentPlaylist
   }
 }
 
