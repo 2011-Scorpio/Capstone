@@ -3,6 +3,7 @@ import axios from 'axios'
 const CREATE_PLAYLIST = 'CREATE_PLAYLIST'
 const ADD_TO_PLAYLIST = 'ADD_TO_PLAYLIST'
 const GET_ALL_PLAYLISTS = 'GET_ALL_PLAYLISTS'
+const UPDATE_CURRENT_PLAYLIST = 'UPDATE_CURRENT_PLAYLIST'
 
 const createPlaylist = playlistId => ({
   type: CREATE_PLAYLIST,
@@ -19,6 +20,11 @@ const getAllPlaylists = allPlaylists => ({
   allPlaylists
 })
 
+const updateCurrent = newCurrent => ({
+  type: UPDATE_CURRENT_PLAYLIST,
+  newCurrent
+})
+
 export const makePlaylist = (userId, token) => {
   return async dispatch => {
     try {
@@ -32,7 +38,7 @@ export const makePlaylist = (userId, token) => {
           name: 'Omakase'
         }
       })
-      dispatch(createPlaylist(data))
+      dispatch(createPlaylist({name: data.name, id: data.id}))
     } catch (error) {
       console.error(error)
     }
@@ -76,6 +82,13 @@ export const fetchAllPlaylists = token => {
   }
 }
 
+export const setCurrent = nameAndId => {
+  return dispatch => {
+    const values = nameAndId.split(',')
+    dispatch(updateCurrent({name: values[0], id: values[1]}))
+  }
+}
+
 let initialState = {}
 
 export default function(state = initialState, action) {
@@ -86,6 +99,8 @@ export default function(state = initialState, action) {
       return {...state, addedTrack: action.trackId}
     case GET_ALL_PLAYLISTS:
       return {...state, allUserPlaylists: action.allPlaylists}
+    case UPDATE_CURRENT_PLAYLIST:
+      return {...state, currentPlaylist: action.newCurrent}
     default:
       return state
   }
