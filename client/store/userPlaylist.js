@@ -16,7 +16,7 @@ export const makePlaylist = (userId, token) => {
         headers: {
           Authorization: 'Bearer ' + token
         },
-        params: {
+        jsonParams: {
           name: 'Omakase'
         }
       })
