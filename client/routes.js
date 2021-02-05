@@ -27,7 +27,6 @@ class Routes extends Component {
           <Route exact path="/" component={LandingPage} />
           <Route path="/explore" component={PlayerPage} />
           {/* <Route path="/playlists" component={AllPlaylists} /> */}
-          <Route path="/playlists/:playlistId" component={SinglePlaylist} />
 
           {isLoggedIn && (
             <Switch>
