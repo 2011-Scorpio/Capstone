@@ -119,7 +119,13 @@ class PlayerPage extends Component {
           </div>
         ) : (
           <div>
-            {this.props.isLoggedIn ? <AllPlaylists /> : 'Please log in'}
+            {this.props.isLoggedIn ? (
+              <AllPlaylists />
+            ) : (
+              <div>
+                Please <a href="/login">log in</a>
+              </div>
+            )}
           </div>
         )}
       </div>
