@@ -79,49 +79,49 @@ class PlayerPage extends Component {
 
     return (
       <div>
-        {/* {this.props.currentPlaylistId ? ( */}
-        <div className="explore-page-container f jcc">
-          <div className="player">
-            <div>
-              <h4>{artistName}</h4>
-              <p>{songName}</p>
-            </div>
-            <audio
-              id="player-audio"
-              src={currentSong}
-              autoPlay
-              onEnded={this.fastForward}
-            />
-            <div className="f jcb">
-              <button
-                type="button"
-                className="player-btn f"
-                onClick={this.addToPlaylist}
-              >
-                <Plus />
-              </button>
-              <button
-                className="player-btn f"
-                type="button"
-                onClick={() => this.togglePlay()}
-              >
-                {this.state.isPlaying ? <Pause /> : <Play />}
-              </button>
-              <button
-                type="button"
-                className="player-btn f"
-                onClick={() => this.fastForward()}
-              >
-                <FastForward />
-              </button>
+        {this.props.currentPlaylistId ? (
+          <div className="explore-page-container f jcc">
+            <div className="player">
+              <div>
+                <h4>{artistName}</h4>
+                <p>{songName}</p>
+              </div>
+              <audio
+                id="player-audio"
+                src={currentSong}
+                autoPlay
+                onEnded={this.fastForward}
+              />
+              <div className="f jcb">
+                <button
+                  type="button"
+                  className="player-btn f"
+                  onClick={this.addToPlaylist}
+                >
+                  <Plus />
+                </button>
+                <button
+                  className="player-btn f"
+                  type="button"
+                  onClick={() => this.togglePlay()}
+                >
+                  {this.state.isPlaying ? <Pause /> : <Play />}
+                </button>
+                <button
+                  type="button"
+                  className="player-btn f"
+                  onClick={() => this.fastForward()}
+                >
+                  <FastForward />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        {/* ) : (
+        ) : (
           <div>
-             <AllPlaylists /> 
+            {this.props.isLoggedIn ? <AllPlaylists /> : 'Please log in'}
           </div>
-        )} */}
+        )}
       </div>
     )
   }
@@ -131,7 +131,8 @@ const mapState = state => {
   return {
     token: state.user.token,
     rPlaylist: state.spotify.rPlaylist,
-    currentPlaylistId: state.userPlaylist.currentPlaylist
+    currentPlaylistId: state.userPlaylist.currentPlaylist,
+    isLoggedIn: !!state.user.id
   }
 }
 
