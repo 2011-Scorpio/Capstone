@@ -31,7 +31,7 @@ label {
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   padding: 0em 1em;
   background: #1b1a1a;
   color: whitesmoke;
@@ -45,6 +45,7 @@ header {
   font-family: 'Montserrat' sans-serif;
   background: #1b1a1a;
   color: whitesmoke;
+  padding: 0;
 }
 
 nav ul {
