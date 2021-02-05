@@ -11,9 +11,9 @@ class LandingPage extends React.Component {
     this.makePlaylistOnClick = this.makePlaylistOnClick.bind(this)
   }
 
-  makePlaylistOnClick() {
-    this.props.createPlaylist(this.props.userId, this.props.token)
-    this.props.getPlaylists(this.props.token)
+  async makePlaylistOnClick() {
+    await this.props.createPlaylist(this.props.userId, this.props.token)
+    await this.props.getPlaylists(this.props.token)
   }
 
   render() {
