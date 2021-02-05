@@ -76,23 +76,23 @@ class PlayerPage extends Component {
     let currentSong = loaded ? queue[0].preview_url : ''
     let artistName = loaded ? queue[0].artists[0].name : ''
     let songName = loaded ? queue[0].name : ''
+    let albumImg = loaded ? queue[0].album.images[1].url : ''
 
     return (
       <div>
         {this.props.currentPlaylistId ? (
           <div className="explore-page-container f jcc">
             <div className="player">
-              <div>
-                <h4>{artistName}</h4>
-                <p>{songName}</p>
-              </div>
+              <h4 className="player-artist crop">{artistName}</h4>
+              <p className="player-song crop">{songName}</p>
+              <img src={albumImg} className="player-album-cover" />
               <audio
                 id="player-audio"
                 src={currentSong}
                 autoPlay
                 onEnded={this.fastForward}
               />
-              <div className="f jcb">
+              <div className="f jcc">
                 <button
                   type="button"
                   className="player-btn f"
