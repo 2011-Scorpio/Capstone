@@ -102,18 +102,35 @@ form div {
 
 .player {
   background-color: grey;
-  height: 20em;
-  width: 12em;
+  height: auto;
   margin-top: 7em;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 1em 3em;
+  border-radius: 0.5rem;
+}
+
+.player-artist {
+  margin: 1rem 0 0 2rem;
+}
+
+.player-song {
+  margin: 0 0 1rem 2rem;
+}
+
+.crop {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 19rem;
+}
+
+.player-album-cover {
+  margin: 0 1em 2.5em 1em;
 }
 
 .player-btn {
   border: 2px solid black;
   border-radius: 50%;
-  padding: 0.5em;
-  margin-bottom: 1em;
+  padding: 1em;
+  margin: 0 1.5em 0 1.5em;
 }
