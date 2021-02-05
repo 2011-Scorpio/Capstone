@@ -10,7 +10,10 @@ passport.use(
     {
       clientID: process.env.CLIENTID,
       clientSecret: process.env.SECRET,
-      callbackURL: 'http://localhost:8080/auth/spotify/callback'
+      callbackURL: [
+        'http://localhost:8080/auth/spotify/callback',
+        'http://omakasemusic.herokuapp.com/auth/spotify/callback'
+      ]
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
       User.findOrCreate({
