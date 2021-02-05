@@ -1,7 +1,7 @@
 import React from 'react'
 import ButtonOne from './ButtonOne'
 import {Link} from 'react-router-dom'
-import {makePlaylist} from '../store/userPlaylist'
+import {makePlaylist, fetchAllPlaylists} from '../store/userPlaylist'
 import {connect} from 'react-redux'
 import AllPlaylists from './AllPlaylists'
 
@@ -13,6 +13,7 @@ class LandingPage extends React.Component {
 
   makePlaylistOnClick() {
     this.props.createPlaylist(this.props.userId, this.props.token)
+    this.props.getPlaylists(this.props.token)
   }
 
   render() {
@@ -56,7 +57,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  createPlaylist: (userId, token) => dispatch(makePlaylist(userId, token))
+  createPlaylist: (userId, token) => dispatch(makePlaylist(userId, token)),
+  getPlaylists: token => dispatch(fetchAllPlaylists(token))
 })
 
 export default connect(mapState, mapDispatch)(LandingPage)
