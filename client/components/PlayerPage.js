@@ -5,6 +5,7 @@ import {fetchRPlaylist} from '../store/spotify'
 import {me} from '../store'
 import {addPlaylist} from '../store/userPlaylist'
 import AllPlaylists from './AllPlaylists'
+import NowPlaying from './NowPlaying'
 
 class PlayerPage extends Component {
   constructor(props) {
@@ -80,6 +81,7 @@ class PlayerPage extends Component {
 
     return (
       <div>
+        <NowPlaying />
         {this.props.currentPlaylistId ? (
           <div className="explore-page-container f jcc">
             <div className="player">
@@ -88,6 +90,7 @@ class PlayerPage extends Component {
               <img src={albumImg} className="player-album-cover" />
               <audio
                 id="player-audio"
+                volume="0.1"
                 src={currentSong}
                 autoPlay
                 onEnded={this.fastForward}

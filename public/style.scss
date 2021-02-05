@@ -96,41 +96,49 @@ form div {
   padding: 0.5em 1.25em;
 }
 
+.now-playing {
+  padding: 0.75em 0;
+  text-align: center;
+  font-weight: 300;
+  background-color: #f0f0f0;
+  color: #363636;
+}
+
 .explore-page-container {
   height: 40em;
 }
 
 .player {
   background-color: grey;
-  height: auto;
-  margin-top: 7em;
-  display: flex;
-  flex-direction: column;
+  margin-top: 4em;
+  margin-bottom: 3em;
   border-radius: 0.5rem;
 }
 
 .player-artist {
-  margin: 2rem 0 0 2rem;
+  margin: 1.5rem 0 0 1.5rem;
 }
 
 .player-song {
-  margin: 0 0 1rem 2rem;
+  margin: 0 0 1.5rem 1.5rem;
 }
 
 .crop {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 17rem;
+  width: 15rem;
 }
 
 .player-album-cover {
   margin: 0 1em 2.5em 1em;
+  height: 17em;
+  width: 17em;
 }
 
 .player-btn {
   border: 2px solid black;
   border-radius: 50%;
   padding: 1em;
-  margin: 0 1.5em 0 1.5em;
+  margin: 0 1em 0 1em;
 }
