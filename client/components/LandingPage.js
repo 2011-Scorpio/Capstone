@@ -26,13 +26,19 @@ class LandingPage extends React.Component {
           />
           <h3 className="landing-quote">A Simpler Way to Discover Music</h3>
         </div>
-        <div>
-          New To Omakase? Create a playlist:{' '}
-          <button type="button" onClick={this.makePlaylistOnClick}>
-            Create
-          </button>
-          {this.props.isLoggedIn ? <AllPlaylists /> : 'Please log in'}
-        </div>
+        {this.props.isLoggedIn ? (
+          <div>
+            New To Omakase? Create a playlist:{' '}
+            <button type="button" onClick={this.makePlaylistOnClick}>
+              Create
+            </button>
+            <AllPlaylists />
+          </div>
+        ) : (
+          <div>
+            Please <a href="/login">log in</a>
+          </div>
+        )}
         <div className="landing-btn-container f jcc aic">
           <Link to="/explore">
             <ButtonOne text="Explore" />
