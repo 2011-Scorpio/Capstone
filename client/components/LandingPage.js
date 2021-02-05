@@ -3,7 +3,7 @@ import ButtonOne from './ButtonOne'
 import {Link} from 'react-router-dom'
 import {makePlaylist} from '../store/userPlaylist'
 import {connect} from 'react-redux'
-// import AllPlaylists from './AllPlaylists'
+import AllPlaylists from './AllPlaylists'
 
 class LandingPage extends React.Component {
   constructor() {
@@ -31,7 +31,7 @@ class LandingPage extends React.Component {
           <button type="button" onClick={this.makePlaylistOnClick}>
             Create
           </button>
-          {/* <AllPlaylists /> */}
+          {this.props.isLoggedIn ? <AllPlaylists /> : 'Please log in'}
         </div>
         <div className="landing-btn-container f jcc aic">
           <Link to="/explore">
@@ -45,7 +45,8 @@ class LandingPage extends React.Component {
 
 const mapState = state => ({
   token: state.user.token,
-  userId: state.user.spotifyId
+  userId: state.user.spotifyId,
+  isLoggedIn: !!state.user.id
 })
 
 const mapDispatch = dispatch => ({
