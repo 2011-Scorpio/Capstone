@@ -83,10 +83,10 @@ class PlayerPage extends Component {
       <div>
         <NowPlaying />
         {this.props.currentPlaylistId ? (
-          <div className="explore-page-container f jcc">
+          <div className="player-page-container f jcc">
             <div className="player">
-              <h4 className="player-artist crop">{artistName}</h4>
-              <p className="player-song crop">{songName}</p>
+              <h4 className="player-artist player-crop">{artistName}</h4>
+              <p className="player-song player-crop">{songName}</p>
               <img src={albumImg} className="player-album-cover" />
               <audio
                 id="player-audio"

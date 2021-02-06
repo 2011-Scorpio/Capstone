@@ -8,10 +8,32 @@
   align-items: center;
 }
 
+/*****************
+      GLOBAL   
+******************/
+
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   height: 100vh;
+}
+
+/*****************
+      NAVBAR   
+******************/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0em 1em;
+  background: #1b1a1a;
+  color: whitesmoke;
+}
+
+nav ul {
+  display: inline-flex;
+  align-items: baseline;
 }
 
 nav {
@@ -21,19 +43,6 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: whitesmoke;
-}
-
-label {
-  display: block;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 0em 1em;
-  background: #1b1a1a;
   color: whitesmoke;
 }
 
@@ -48,21 +57,15 @@ header {
   padding: 0;
 }
 
-nav ul {
-  display: inline-flex;
-  align-items: baseline;
-}
-
-form div {
-  margin: 1em;
-  display: inline-block;
-}
-
 .navbar-name {
   font-family: 'Montserrat';
   margin: 0.5em 0em;
   font-size: 2rem;
 }
+
+/*****************
+   LANDING PAGE   
+******************/
 
 .landing-img-wrapper {
   height: 648px;
@@ -96,16 +99,20 @@ form div {
   padding: 0.5em 1.25em;
 }
 
+/*****************
+    PLAYER PAGE   
+******************/
+
+.player-page-container {
+  height: 40em;
+}
+
 .now-playing {
   padding: 0.75em 0;
   text-align: center;
   font-weight: 300;
   background-color: #f0f0f0;
   color: #363636;
-}
-
-.explore-page-container {
-  height: 40em;
 }
 
 .player {
@@ -123,7 +130,7 @@ form div {
   margin: 0 0 1.5rem 1.5rem;
 }
 
-.crop {
+.player-crop {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
