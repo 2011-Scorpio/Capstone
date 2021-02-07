@@ -42,6 +42,11 @@ body {
   height: 100vh;
 }
 
+a {
+  text-decoration: none;
+  color: $light-peach;
+}
+
 /*****************
       NAVBAR   
 ******************/
@@ -52,7 +57,7 @@ header {
   align-items: baseline;
   padding: 0.25em 1.5em;
   background: $soft-black;
-  color: whitesmoke;
+  color: $light-peach;
 }
 
 nav ul {
@@ -65,11 +70,6 @@ nav {
   align-items: flex-end;
 }
 
-nav a {
-  text-decoration: none;
-  color: whitesmoke;
-}
-
 .nav-links {
   margin-left: 1em;
   text-decoration: none;
@@ -77,7 +77,7 @@ nav a {
   font-size: 1.25rem;
   font-family: 'Montserrat' sans-serif;
   background: $soft-black;
-  color: whitesmoke;
+  color: $light-peach;
   padding: 0;
 }
 
@@ -93,7 +93,7 @@ nav a {
 ******************/
 
 .landing-top-block-wrapper {
-  height: 36em;
+  height: 35em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,7 +110,7 @@ nav a {
 }
 
 .chevron-container {
-  height: 6em;
+  height: 7em;
 }
 
 .chevron-down {
@@ -164,16 +164,21 @@ nav a {
 footer {
   background-color: $soft-black;
   color: $light-peach;
-  padding: 2.25em 2em;
+  padding: 2.25em 2.25em;
+  font-weight: 500;
   font-size: 0.8rem;
   line-height: 230%;
 }
 
 .footer-github {
-  color: $light-peach;
-  padding: 0.5em;
-  border: 2px solid $light-peach;
+  color: $soft-black;
+  background-color: $light-peach;
+  padding: 0.75em;
   border-radius: 50%;
+}
+
+.footer a {
+  text-decoration: none;
 }
 
 /*****************

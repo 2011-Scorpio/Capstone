@@ -7,11 +7,15 @@ const Footer = () => {
     <footer className="f jcb aic">
       <ul>
         <li>About</li>
-        <li>Email Us</li>
+        <a href="mailto: emailomakase@gmail.com">Email Us</a>
       </ul>
-      <div className="footer-github f jcc aic">
+
+      <a
+        href="https://github.com/2011-Scorpio/Capstone"
+        className="footer-github f jcc aic"
+      >
         <GitHub />
-      </div>
+      </a>
     </footer>
   )
 }
