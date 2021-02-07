@@ -2,16 +2,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import 'utilities.scss';
 
-$glass-back: linear-gradient(
-  180deg,
-  rgba(255, 255, 255, 0.16) 0%,
+$soft-black: #282828;
+$light-peach: #fff8f5;
+$blue: #75d2ff;
+$purple: #b2acf9;
+$glass-no-blur: linear-gradient(
+  -45deg,
+  rgba(255, 255, 255, 0.16) 30%,
   rgba(255, 255, 255, 0.64) 100%
 );
+
+@mixin glass-back {
+  background: $glass-no-blur;
+  backdrop-filter: blur(200px);
+}
 
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin cutout-gradient {
+  background: linear-gradient(200deg, #b6e7ff, #ffffff, #d5d1ff);
+  background-size: 180%;
+  background-position: center;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /*****************
@@ -32,8 +50,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 0.25em 1.25em;
-  background: #1b1a1a;
+  padding: 0.25em 1.5em;
+  background: $soft-black;
   color: whitesmoke;
 }
 
@@ -58,7 +76,7 @@ nav a {
   font-weight: 500;
   font-size: 1.25rem;
   font-family: 'Montserrat' sans-serif;
-  background: #1b1a1a;
+  background: $soft-black;
   color: whitesmoke;
   padding: 0;
 }
@@ -66,7 +84,8 @@ nav a {
 .navbar-name {
   font-family: 'Montserrat';
   margin: 0.5em 0em;
-  font-size: 1.5rem;
+  font-size: 1.625rem;
+  @include cutout-gradient();
 }
 
 /*****************
@@ -74,7 +93,7 @@ nav a {
 ******************/
 
 .landing-top-block-wrapper {
-  height: 648px;
+  height: 36em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,6 +101,7 @@ nav a {
 
 .landing-quote {
   text-align: center;
+  color: $soft-black;
   font-weight: 800;
   font-size: 2.5rem;
   line-height: 115%;
@@ -89,19 +109,52 @@ nav a {
   letter-spacing: 0.03em;
 }
 
+.chevron-container {
+  height: 6em;
+}
+
+.chevron-down {
+  position: relative;
+  background-color: whitesmoke;
+  color: $soft-black;
+  padding: 0.5em;
+  border-radius: 50%;
+  bottom: 0;
+  animation: UpDownChevron 2s ease-in-out infinite;
+}
+
+@keyframes UpDownChevron {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .landing-btn-container {
   height: 415px;
-  background: $glass-back;
+  @include glass-back;
 }
 
 .button-one {
   font-family: 'Montserrat';
   font-weight: 700;
-  background-color: black;
+  background-color: $soft-black;
   color: whitesmoke;
   font-size: 1.5rem;
   padding: 0.5em 1.25em;
   border-radius: 30px;
+  transition: all 0.5s ease-in-out;
+}
+
+.button-one:hover,
+.button-one:focus {
+  background-color: whitesmoke;
+  color: $soft-black;
 }
 
 /*****************

@@ -3,8 +3,9 @@ import ButtonOne from './ButtonOne'
 import {Link} from 'react-router-dom'
 import {makePlaylist, fetchAllPlaylists} from '../store/userPlaylist'
 import {connect} from 'react-redux'
-import {ArrowDown} from '../svgs/ArrowDown.svg'
+import {ChevronDown} from 'react-feather'
 import AllPlaylists from './AllPlaylists'
+import Footer from './Footer'
 
 class LandingPage extends React.Component {
   constructor() {
@@ -22,7 +23,9 @@ class LandingPage extends React.Component {
       <>
         <div className="landing-top-block-wrapper">
           <h3 className="landing-quote">A Simpler Way to Discover Music</h3>
-          <ArrowDown />
+        </div>
+        <div className="chevron-container f jcc">
+          <ChevronDown className="chevron-down" />
         </div>
         {/* {this.props.isLoggedIn ? (
           <div>
@@ -42,6 +45,7 @@ class LandingPage extends React.Component {
             <ButtonOne text="Explore" />
           </Link>
         </div>
+        <Footer />
       </>
     )
   }

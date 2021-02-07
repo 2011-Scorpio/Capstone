@@ -7,18 +7,20 @@
     229deg,
     #75d2ff,
     #b2acf9,
-    #fff1eb,
     #75d2ff,
     #b2acf9,
+    #75d2ff,
+    #b2acf9,
+    #fff1eb,
     #b2acf9,
     #75d2ff,
     #b2acf9
   );
-  background-size: 800% 800%;
+  background-size: 1200% 1200%;
 
-  -webkit-animation: big-gradient-crawl 50s ease infinite;
-  -moz-animation: big-gradient-crawl 50s ease infinite;
-  animation: big-gradient-crawl 50s ease infinite;
+  -webkit-animation: big-gradient-crawl 70s ease infinite;
+  -moz-animation: big-gradient-crawl 70s ease infinite;
+  animation: big-gradient-crawl 70s ease infinite;
 }
 
 @-webkit-keyframes big-gradient-crawl {
