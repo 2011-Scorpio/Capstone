@@ -3,7 +3,9 @@ import ButtonOne from './ButtonOne'
 import {Link} from 'react-router-dom'
 import {makePlaylist, fetchAllPlaylists} from '../store/userPlaylist'
 import {connect} from 'react-redux'
+import {ChevronDown} from 'react-feather'
 import AllPlaylists from './AllPlaylists'
+import Footer from './Footer'
 
 class LandingPage extends React.Component {
   constructor() {
@@ -17,17 +19,16 @@ class LandingPage extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <>
-        <div className="landing-img-wrapper">
-          <img
-            className="landing-img"
-            src="https://i.stack.imgur.com/y9DpT.jpg"
-            alt=""
-          />
+        <div className="landing-top-block-wrapper">
           <h3 className="landing-quote">A Simpler Way to Discover Music</h3>
         </div>
-        {this.props.isLoggedIn ? (
+        <div className="chevron-container f jcc">
+          <ChevronDown className="chevron-down" />
+        </div>
+        {/* {this.props.isLoggedIn ? (
           <div>
             New To Omakase? Create a playlist:{' '}
             <button type="button" onClick={this.makePlaylistOnClick}>
@@ -39,12 +40,13 @@ class LandingPage extends React.Component {
           <div>
             Please <a href="/login">log in</a>
           </div>
-        )}
-        <div className="landing-btn-container f jcc aic">
-          <Link to="/explore">
+        )} */}
+        <div className="landing-btn-container glass f jcc aic">
+          <Link to="/login">
             <ButtonOne text="Explore" />
           </Link>
         </div>
+        <Footer />
       </>
     )
   }

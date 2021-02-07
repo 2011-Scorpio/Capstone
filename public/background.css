@@ -1,0 +1,58 @@
+/*****************
+  BIG GRADIENT   
+******************/
+
+.big-gradient {
+  background: linear-gradient(
+    229deg,
+    #75d2ff,
+    #b2acf9,
+    #75d2ff,
+    #b2acf9,
+    #75d2ff,
+    #b2acf9,
+    #fff1eb,
+    #b2acf9,
+    #75d2ff,
+    #b2acf9
+  );
+  background-size: 1200% 1200%;
+
+  -webkit-animation: big-gradient-crawl 70s ease infinite;
+  -moz-animation: big-gradient-crawl 70s ease infinite;
+  animation: big-gradient-crawl 70s ease infinite;
+}
+
+@-webkit-keyframes big-gradient-crawl {
+  0% {
+    background-position: 0% 5%;
+  }
+  50% {
+    background-position: 100% 96%;
+  }
+  100% {
+    background-position: 0% 5%;
+  }
+}
+@-moz-keyframes big-gradient-crawl {
+  0% {
+    background-position: 0% 5%;
+  }
+  50% {
+    background-position: 100% 96%;
+  }
+  100% {
+    background-position: 0% 5%;
+  }
+}
+@keyframes big-gradient-crawl {
+  0% {
+    background-position: 0% 5%;
+  }
+  50% {
+    background-position: 100% 96%;
+  }
+  100% {
+    background-position: 0% 5%;
+  }
+}
