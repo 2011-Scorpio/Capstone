@@ -19,6 +19,7 @@ class LandingPage extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <>
         <div className="landing-top-block-wrapper">
@@ -41,7 +42,7 @@ class LandingPage extends React.Component {
           </div>
         )} */}
         <div className="landing-btn-container glass f jcc aic">
-          <Link to="/explore">
+          <Link to="/login">
             <ButtonOne text="Explore" />
           </Link>
         </div>

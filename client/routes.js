@@ -22,6 +22,7 @@ class Routes extends Component {
       <main>
         <Switch>
           {/* Routes placed here are available to all visitors */}
+          <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route exact path="/" component={LandingPage} />

@@ -14,7 +14,7 @@ $glass-no-blur: linear-gradient(
 
 @mixin glass-back {
   background: $glass-no-blur;
-  backdrop-filter: blur(200px);
+  backdrop-filter: blur(100px);
 }
 
 @mixin flex-center {
@@ -164,9 +164,9 @@ nav {
 footer {
   background-color: $soft-black;
   color: $light-peach;
-  padding: 2.25em 2.25em;
+  padding: 2em 2.25em;
   font-weight: 500;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   line-height: 230%;
 }
 

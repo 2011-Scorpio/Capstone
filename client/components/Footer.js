@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="f jcb aic">
       <ul>
-        <li>About</li>
+        <Link to="/about">About</Link>
         <a href="mailto: emailomakase@gmail.com">Email Us</a>
       </ul>
 
