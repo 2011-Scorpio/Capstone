@@ -1,14 +1,14 @@
 import React from 'react'
 import {GitHub} from 'react-feather'
-import {Link} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
     <footer className="f jcb aic">
-      <ul>
+      <div className="footer-links">
         <Link to="/about">About</Link>
         <a href="mailto: emailomakase@gmail.com">Email Us</a>
-      </ul>
+      </div>
 
       <a
         href="https://github.com/2011-Scorpio/Capstone"

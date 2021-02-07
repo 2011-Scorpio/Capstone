@@ -181,6 +181,11 @@ footer {
   text-decoration: none;
 }
 
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
 /*****************
     PLAYER PAGE   
 ******************/

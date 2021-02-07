@@ -6,7 +6,7 @@ import '../public/style.scss'
 const App = () => {
   return (
     <div>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <NavBar />
       <Routes />
     </div>
