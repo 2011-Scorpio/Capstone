@@ -158,6 +158,25 @@ nav a {
 }
 
 /*****************
+     FOOTER   
+******************/
+
+footer {
+  background-color: $soft-black;
+  color: $light-peach;
+  padding: 2.25em 2em;
+  font-size: 0.8rem;
+  line-height: 230%;
+}
+
+.footer-github {
+  color: $light-peach;
+  padding: 0.5em;
+  border: 2px solid $light-peach;
+  border-radius: 50%;
+}
+
+/*****************
     PLAYER PAGE   
 ******************/
 

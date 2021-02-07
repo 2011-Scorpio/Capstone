@@ -4,12 +4,14 @@ import {Link} from 'react-redux'
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="f jcb aic">
       <ul>
         <li>About</li>
-        <li>Email Use</li>
+        <li>Email Us</li>
       </ul>
-      <GitHub />
+      <div className="footer-github f jcc aic">
+        <GitHub />
+      </div>
     </footer>
   )
 }
