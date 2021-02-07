@@ -16,11 +16,6 @@ class PlayerPage extends Component {
       loaded: false
     }
 
-    this.state = {
-      ...this.state,
-      currentSong: this.state.queue
-    }
-
     this.addToPlaylist = this.addToPlaylist.bind(this)
   }
 
@@ -80,7 +75,6 @@ class PlayerPage extends Component {
 
   render() {
     const {queue, loaded} = this.state
-    console.log(this.state.currentSong)
     let currentSong = loaded ? queue[0].preview_url : ''
     let artistName = loaded ? queue[0].artists[0].name : ''
     let songName = loaded ? queue[0].name : ''
