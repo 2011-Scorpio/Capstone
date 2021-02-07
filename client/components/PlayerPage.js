@@ -4,8 +4,7 @@ import {connect} from 'react-redux'
 import {fetchRPlaylist} from '../store/spotify'
 import {me} from '../store'
 import {addPlaylist} from '../store/userPlaylist'
-import AllPlaylists from './AllPlaylists'
-import NowPlaying from './NowPlaying'
+import {AllPlaylists, NowPlaying} from './index'
 
 class PlayerPage extends Component {
   constructor(props) {
