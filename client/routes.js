@@ -2,14 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {
-  Login,
-  UserHome,
-  LandingPage,
-  PlayerPage,
-  About,
-  WelcomePage
-} from './components'
+import {Login, UserHome, LandingPage, PlayerPage, About} from './components'
 import {me} from './store'
 // import AllPlaylists from './components/AllPlaylists'
 
@@ -31,7 +24,6 @@ class Routes extends Component {
           <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
           <Route exact path="/" component={LandingPage} />
-
           {/* <Route path="/playlists" component={AllPlaylists} /> */}
 
           {isLoggedIn && (

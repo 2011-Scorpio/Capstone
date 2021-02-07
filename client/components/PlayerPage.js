@@ -19,6 +19,7 @@ class PlayerPage extends Component {
 
   async componentDidMount() {
     const {loadInitialData, getRPlaylist} = this.props
+    console.log(this.props)
     await loadInitialData()
     await getRPlaylist(this.props.token)
     const songsWithUrl = this.props.rPlaylist.tracks.items.filter(

@@ -1,9 +1,6 @@
 import React from 'react'
 import ButtonOne from './ButtonOne'
 
-/**
- * COMPONENT
- */
 const Login = () => {
   return (
     <div className="login-container">
