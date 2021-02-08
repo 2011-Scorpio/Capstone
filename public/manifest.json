@@ -1,5 +1,6 @@
 {
-  "name": "Omakase",
+  "short_name": "Omakase",
+  "name": "Omakase App",
   "icons": [
     {
       "src": "/images/la_spotify.png",
