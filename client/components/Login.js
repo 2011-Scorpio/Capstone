@@ -1,14 +1,11 @@
 import React from 'react'
-import ButtonOne from './ButtonOne'
 
 const Login = () => {
   return (
-    <div className="login-container">
-      <div className="login-form glass mxa">
-        <a href="/auth/spotify">
-          <ButtonOne text="Login" href="/auth/spotify" />
-        </a>
-      </div>
+    <div className="login-form f jcc aie">
+      <a href="/auth/spotify" className="button-two">
+        Log In
+      </a>
     </div>
   )
 }

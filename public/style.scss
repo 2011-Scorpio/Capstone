@@ -6,14 +6,31 @@ $soft-black: #282828;
 $light-peach: #fff8f5;
 $blue: #75d2ff;
 $purple: #b2acf9;
+$radius-one: 1.25em;
+
 $glass-no-blur: linear-gradient(
   -45deg,
   rgba(255, 255, 255, 0.16) 30%,
   rgba(255, 255, 255, 0.64) 100%
 );
 
-@mixin glass-back {
+$glass-border: linear-gradient(
+  -45deg,
+  rgb(255, 255, 255, 0.8) 30%,
+  rgb(255, 255, 255, 0.2) 70%
+);
+
+@mixin glass-back-1 {
   background: $glass-no-blur;
+  backdrop-filter: blur(100px);
+}
+
+@mixin glass-back-2 {
+  background: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.5) 80%
+  );
   backdrop-filter: blur(100px);
 }
 
@@ -137,7 +154,7 @@ nav {
 
 .landing-btn-container {
   height: 415px;
-  @include glass-back;
+  @include glass-back-1;
 }
 
 .button-one {
@@ -158,6 +175,29 @@ nav {
 }
 
 /*****************
+    LOGIN PAGE   
+******************/
+
+.login-form {
+  margin: 0 auto;
+  margin-top: 8em;
+  max-width: 20em;
+  height: 10em;
+  border-radius: $radius-one;
+  @include glass-back-2();
+}
+
+.button-two {
+  font-family: 'Montserrat';
+  font-weight: 600;
+  background-color: $soft-black;
+  color: whitesmoke;
+  font-size: 1rem;
+  padding: 0.5em 1.25em;
+  border-radius: 30px;
+  margin-bottom: 1em;
+}
+/*****************
      FOOTER   
 ******************/
 
@@ -173,7 +213,7 @@ footer {
 .footer-github {
   color: $soft-black;
   background-color: $light-peach;
-  padding: 0.75em;
+  padding: 0.625em;
   border-radius: 50%;
 }
 
