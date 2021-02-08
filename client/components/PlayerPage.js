@@ -15,11 +15,12 @@ class PlayerPage extends Component {
       queue: [],
       loaded: false
     }
+
     this.addToPlaylist = this.addToPlaylist.bind(this)
   }
 
   async componentDidMount() {
-    const {loadInitialData, getRPlaylist} = this.propsç
+    const {loadInitialData, getRPlaylist} = this.props
     await loadInitialData()
     await getRPlaylist(this.props.token)
     const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
@@ -83,10 +84,10 @@ class PlayerPage extends Component {
       <div>
         <NowPlaying />
         {this.props.currentPlaylistId ? (
-          <div className="player-page-container f jcc">
+          <div className="explore-page-container f jcc">
             <div className="player">
-              <h4 className="player-artist player-crop">{artistName}</h4>
-              <p className="player-song player-crop">{songName}</p>
+              <h4 className="player-artist crop">{artistName}</h4>
+              <p className="player-song crop">{songName}</p>
               <img src={albumImg} className="player-album-cover" />
               <audio
                 id="player-audio"
