@@ -4,7 +4,8 @@ import {connect} from 'react-redux'
 import {fetchRPlaylist} from '../store/spotify'
 import {me} from '../store'
 import {addPlaylist} from '../store/userPlaylist'
-import {AllPlaylists, NowPlaying} from './index'
+import AllPlaylists from './AllPlaylists'
+import NowPlaying from './NowPlaying'
 
 class PlayerPage extends Component {
   constructor(props) {
@@ -18,8 +19,7 @@ class PlayerPage extends Component {
   }
 
   async componentDidMount() {
-    const {loadInitialData, getRPlaylist} = this.props
-    console.log(this.props)
+    const {loadInitialData, getRPlaylist} = this.propsç
     await loadInitialData()
     await getRPlaylist(this.props.token)
     const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
