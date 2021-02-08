@@ -1,0 +1,15 @@
+{
+  "short_name": "Omakase",
+  "name": "Omakase App",
+  "icons": [
+    {
+      "src": "/images/la_spotify.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#b2acf9",
+  "background_color": "#75d2ff"
+}
