@@ -3,7 +3,7 @@
   "name": "Omakase App",
   "icons": [
     {
-      "src": "/images/la_spotify.png",
+      "src": "/images/apple-touch-icon.png",
       "type": "image/png",
       "sizes": "144x144"
     }
