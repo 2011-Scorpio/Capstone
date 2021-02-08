@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width initial-scale=1.0'>
-    <title>Omakase</title>
-    <link rel="stylesheet" href="./background.css">
-    <script defer src="/bundle.js"></script>
-  </head>
-  <body class="big-gradient">
-    <div id="app"></div>
-  </body>
-</html>
 
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width initial-scale=1.0'>
+  <link rel="manifest" href="./manifest.json" />
+  <title>Omakase</title>
+  <link rel="stylesheet" href="./background.css">
+  <script defer src="/bundle.js"></script>
+</head>
+
+<body class="big-gradient">
+  <div id="app"></div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./serviceworker.js').then((reg) => console.log('Success: ', reg.scope)).catch((err) => console.log('Failure: ', err));
+      })
+    }
+  </script>
+</body>
+
+</html>
