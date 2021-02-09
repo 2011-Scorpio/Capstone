@@ -26,7 +26,7 @@ const getAudioFeat = featArr => ({
   featArr
 })
 
-export const fetchAudioFeat = (trackId, token) => {
+export const fetchAudioFeat = (token, trackId) => {
   return async dispatch => {
     try {
       const {data} = await axios({
@@ -36,7 +36,7 @@ export const fetchAudioFeat = (trackId, token) => {
           Authorization: 'Bearer ' + token
         },
         params: {
-          ids: trackId
+          ids: trackId.toString()
         }
       })
       dispatch(getAudioFeat(data))
@@ -100,7 +100,7 @@ export const fetchUserPlaylist = token => {
       })
       dispatch(getUserPlaylist(data))
     } catch (error) {
-      history.push('/login')
+      console.error(error)
     }
   }
 }
