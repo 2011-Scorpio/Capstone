@@ -45,6 +45,7 @@ class RdrChart extends React.Component {
     template.map(attribute => {
       attribute.A /= chartDataArr.length
     })
+    console.log(template)
 
     this.setState({
       data: template
@@ -58,29 +59,32 @@ class RdrChart extends React.Component {
       return track.id
     })
     await this.props.getAudioFeat(this.props.token, trackId)
+    this.processChartData(this.props.audioFeat.audio_features)
   }
 
   render() {
     return (
-      <RadarChart
-        cx={300}
-        cy={250}
-        outerRadius={150}
-        width={500}
-        height={500}
-        data={this.state.data}
-      >
-        <PolarGrid />
-        <PolarAngleAxis dataKey="attribute" />
-        <PolarRadiusAxis />
-        <Radar
-          name="Mike"
-          dataKey="A"
-          stroke="#8884d8"
-          fill="#8884d8"
-          fillOpacity={0.6}
-        />
-      </RadarChart>
+      <div>
+        <RadarChart
+          cx={300}
+          cy={250}
+          outerRadius={150}
+          width={500}
+          height={500}
+          data={this.state.data}
+        >
+          <PolarGrid />
+          <PolarAngleAxis dataKey="attribute" />
+          <PolarRadiusAxis />
+          <Radar
+            name="Mike"
+            dataKey="A"
+            stroke="#8884d8"
+            fill="#8884d8"
+            fillOpacity={0.6}
+          />
+        </RadarChart>
+      </div>
     )
   }
 }
