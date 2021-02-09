@@ -78,27 +78,28 @@ class RdrChart extends React.Component {
     return (
       <div>
         {this.props.token ? (
-          <RadarChart
-            cx={300}
-            cy={250}
-            outerRadius={150}
-            width={500}
-            height={500}
-            data={this.state.data}
-          >
-            <PolarGrid />
-            <PolarAngleAxis dataKey="attribute" />
-            <PolarRadiusAxis />
-            <Radar
-              name="Mike"
-              dataKey="A"
-              stroke="#8884d8"
-              fill="#8884d8"
-              fillOpacity={0.6}
-            />
-          </RadarChart>
+          <div>
+            <h3>Your taste this week:</h3>
+            <RadarChart
+              cx={300}
+              cy={300}
+              outerRadius={150}
+              width={500}
+              height={500}
+              data={this.state.data}
+            >
+              <PolarAngleAxis dataKey="attribute" />
+              <Radar
+                name="Taste"
+                dataKey="A"
+                stroke="#8884d8"
+                fill="#8884d8"
+                fillOpacity={0.6}
+              />
+            </RadarChart>
+          </div>
         ) : (
-          ''
+          'Loading...'
         )}
       </div>
     )
