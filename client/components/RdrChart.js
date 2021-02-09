@@ -58,13 +58,13 @@ class RdrChart extends React.Component {
   }
 
   async componentDidMount() {
-    await this.props.getUser()
-    await this.props.getUserPlaylist(this.props.token)
-    const trackId = this.props.userTopTracks.items.map(track => {
-      return track.id
-    })
-    await this.props.getAudioFeat(this.props.token, trackId)
-    this.processChartData(this.props.audioFeat.audio_features)
+    // await this.props.getUser()
+    // await this.props.getUserPlaylist(this.props.token)
+    // const trackId = this.props.userTopTracks.items.map(track => {
+    //   return track.id
+    // })
+    // await this.props.getAudioFeat(this.props.token, trackId)
+    // this.processChartData(this.props.audioFeat.audio_features)
   }
 
   render() {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Play, FastForward, Pause, Plus} from 'react-feather'
 import {connect} from 'react-redux'
-import {fetchRPlaylist} from '../store/spotify'
+import {fetchAudioFeatPlayer, fetchRPlaylist} from '../store/spotify'
 import {me} from '../store'
 import {addPlaylist} from '../store/userPlaylist'
 import AllPlaylists from './AllPlaylists'
@@ -13,7 +13,8 @@ class PlayerPage extends Component {
     this.state = {
       isPlaying: true,
       queue: [],
-      loaded: false
+      loaded: false,
+      likedTracks: []
     }
 
     this.addToPlaylist = this.addToPlaylist.bind(this)
@@ -64,13 +65,15 @@ class PlayerPage extends Component {
     }
   }
 
-  addToPlaylist() {
+  async addToPlaylist() {
     const trackURI = this.state.queue[0].uri
-    this.props.addToPlaylist(
+    const trackId = this.state.queue[0].id
+    await this.props.addToPlaylist(
       this.props.currentPlaylistId.id,
       trackURI,
       this.props.token
     )
+    await this.props.getAudioFeatPlayer(this.props.token, trackId)
   }
 
   render() {
@@ -147,7 +150,9 @@ const mapDispatch = dispatch => ({
   loadInitialData: () => dispatch(me()),
   getRPlaylist: token => dispatch(fetchRPlaylist(token)),
   addToPlaylist: (playlistId, trackURI, token) =>
-    dispatch(addPlaylist(playlistId, trackURI, token))
+    dispatch(addPlaylist(playlistId, trackURI, token)),
+  getAudioFeatPlayer: (token, tracks) =>
+    dispatch(fetchAudioFeatPlayer(token, tracks))
 })
 
 export default connect(mapState, mapDispatch)(PlayerPage)
