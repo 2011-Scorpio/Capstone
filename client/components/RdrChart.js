@@ -1,12 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchUserPlaylist, fetchAudioFeat} from '../store/spotify'
+import {fetchUserPlaylist, fetchAudioFeat} from '../store/charting'
 import {RadarChart, PolarAngleAxis, Radar} from 'recharts'
 import {me} from '../store'
 
 class RdrChart extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       data: []
     }
@@ -72,7 +72,6 @@ class RdrChart extends React.Component {
       <div>
         {this.props.token ? (
           <div>
-            <h3>Your taste this week:</h3>
             <RadarChart
               cx={300}
               cy={300}

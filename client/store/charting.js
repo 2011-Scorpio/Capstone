@@ -26,7 +26,7 @@ export const fetchAudioFeatPlayer = (token, trackId) => {
           ids: trackId.toString()
         }
       })
-      dispatch(getAudioFeatPlayer(data))
+      dispatch(getAudioFeatPlayer(data.audio_features[0]))
     } catch (error) {
       console.error(error)
     }
@@ -53,14 +53,19 @@ export const fetchAudioFeat = (token, trackId) => {
   }
 }
 
-let initialState = {}
+let initialState = {
+  featArrPlayer: []
+}
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_AUDIO_FEAT:
       return {...state, featArr: action.featArr}
     case GET_AUDIO_FEAT_PLAYER:
-      return [...state, action.featArrPlayer]
+      return {
+        ...state,
+        featArrPlayer: [...state.featArrPlayer, action.featArrPlayer]
+      }
     default:
       return state
   }
