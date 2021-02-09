@@ -141,8 +141,7 @@ nav li {
   height: 2px;
   width: 1.5em;
   border-radius: 2px;
-  transition: transform 0.4s ease-in-out, opacity 0.1s ease-in-out 0.3s,
-    top 0.4s ease-in-out;
+  transition: 0.8s ease-in-out;
 }
 
 .nav-toggle-label span::before,
@@ -153,24 +152,28 @@ nav li {
 
 .nav-toggle-label span::before {
   bottom: 8px;
+  transition: transform 0.5s ease-in-out, bottom 0.4s ease-in-out 0.5s;
 }
 
 .nav-toggle-label span::after {
   top: 8px;
+  transition: transform 0.5s ease-in-out, top 0.4s ease-in-out 0.5s;
 }
 
 .nav-toggle:checked ~ label span {
-  transform: rotate(-135deg);
-}
-
-.nav-toggle:checked ~ label span:after {
-  transform: rotate(270deg);
-  top: 0;
+  background: transparent;
 }
 
 .nav-toggle:checked ~ label span:before {
-  opacity: 0;
-  transition: opacity 0.1s ease-in-out;
+  transform: rotate(-135deg);
+  bottom: 0;
+  transition: transform 0.5s ease-in-out 0.4s, bottom 0.4s ease-in-out;
+}
+
+.nav-toggle:checked ~ label span:after {
+  transform: rotate(135deg);
+  top: 0;
+  transition: transform 0.5s ease-in-out 0.4s, top 0.4s ease-in-out;
 }
 
 .nav-links {
