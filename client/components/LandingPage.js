@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {ChevronDown} from 'react-feather'
 import AllPlaylists from './AllPlaylists'
 import Footer from './Footer'
+import RdrChart from './RdrChart'
 
 class LandingPage extends React.Component {
   constructor() {
@@ -27,6 +28,15 @@ class LandingPage extends React.Component {
         <div className="chevron-container f jcc">
           <ChevronDown className="chevron-down" />
         </div>
+
+        {this.props.isLoggedIn ? (
+          <div>
+            <RdrChart />
+          </div>
+        ) : (
+          ''
+        )}
+
         {/* {this.props.isLoggedIn ? (
           <div>
             New To Omakase? Create a playlist:{' '}
