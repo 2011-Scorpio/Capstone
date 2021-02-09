@@ -1,13 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchUserPlaylist, fetchAudioFeat} from '../store/spotify'
-import {
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-  Radar
-} from 'recharts'
+import {RadarChart, PolarAngleAxis, Radar} from 'recharts'
 import {me} from '../store'
 
 class RdrChart extends React.Component {
@@ -34,6 +28,16 @@ class RdrChart extends React.Component {
         attribute: 'Energetic',
         A: 0,
         fullMark: 100
+      },
+      {
+        attribute: 'Acoustic',
+        A: 0,
+        fullMark: 100
+      },
+      {
+        attribute: 'Tempo',
+        A: 0,
+        fullMark: 100
       }
     ]
 
@@ -41,11 +45,12 @@ class RdrChart extends React.Component {
       template[0].A += song.danceability * 100
       template[1].A += song.loudness * -1
       template[2].A += song.energy * 100
+      template[3].A += song.acousticness * 100
+      template[4].A += song.tempo / 2
     })
     template.map(attribute => {
       attribute.A /= chartDataArr.length
     })
-    console.log(template)
 
     this.setState({
       data: template
@@ -65,25 +70,30 @@ class RdrChart extends React.Component {
   render() {
     return (
       <div>
-        <RadarChart
-          cx={300}
-          cy={250}
-          outerRadius={150}
-          width={500}
-          height={500}
-          data={this.state.data}
-        >
-          <PolarGrid />
-          <PolarAngleAxis dataKey="attribute" />
-          <PolarRadiusAxis />
-          <Radar
-            name="Mike"
-            dataKey="A"
-            stroke="#8884d8"
-            fill="#8884d8"
-            fillOpacity={0.6}
-          />
-        </RadarChart>
+        {this.props.token ? (
+          <div>
+            <h3>Your taste this week:</h3>
+            <RadarChart
+              cx={300}
+              cy={300}
+              outerRadius={150}
+              width={500}
+              height={500}
+              data={this.state.data}
+            >
+              <PolarAngleAxis dataKey="attribute" />
+              <Radar
+                name="Taste"
+                dataKey="A"
+                stroke="#8884d8"
+                fill="#8884d8"
+                fillOpacity={0.6}
+              />
+            </RadarChart>
+          </div>
+        ) : (
+          'Loading...'
+        )}
       </div>
     )
   }
