@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store'
 import {fetchAllPlaylists, setCurrent} from '../store/userPlaylist'
+import NewPlaylist from './NewPlaylist'
 
 class AllPlaylists extends React.Component {
   constructor() {
@@ -40,6 +41,7 @@ class AllPlaylists extends React.Component {
                 </button>
               </div>
             ))}
+            <NewPlaylist />
           </div>
         ) : (
           ''
