@@ -1,13 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchUserPlaylist, fetchAudioFeat} from '../store/spotify'
-import {
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-  Radar
-} from 'recharts'
+import {RadarChart, PolarAngleAxis, Radar} from 'recharts'
 import {me} from '../store'
 
 class RdrChart extends React.Component {
@@ -57,7 +51,6 @@ class RdrChart extends React.Component {
     template.map(attribute => {
       attribute.A /= chartDataArr.length
     })
-    console.log(template)
 
     this.setState({
       data: template
