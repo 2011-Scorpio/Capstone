@@ -26,7 +26,15 @@ class LandingPage extends React.Component {
           <h3 className="landing-quote">A Simpler Way to Discover Music</h3>
         </div>
         <div className="chevron-container f jcc">
-          <ChevronDown className="chevron-down" />
+          <ChevronDown
+            className="chevron-down"
+            onClick={() =>
+              window.scrollTo({
+                top: 400,
+                behavior: 'smooth'
+              })
+            }
+          />
         </div>
 
         {this.props.isLoggedIn ? (
