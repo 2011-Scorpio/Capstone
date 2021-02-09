@@ -4,6 +4,7 @@
  * having to figure out which file they belong to!
  */
 export {default as About} from './About'
+export {default as AllPlaylists} from './AllPlaylists'
 export {default as ButtonOne} from './ButtonOne'
 export {default as Footer} from './Footer'
 export {default as LandingPage} from './LandingPage'

@@ -74,7 +74,7 @@ export const fetchUserPlaylist = token => {
       })
       dispatch(getUserPlaylist(data))
     } catch (error) {
-      console.error(error)
+      history.push('/login')
     }
   }
 }
