@@ -6,7 +6,7 @@ $soft-black: #282828;
 $light-peach: #fff8f5;
 $blue: #75d2ff;
 $purple: #b2acf9;
-$radius-one: 1.25em;
+$radius-one: 1em;
 
 $glass-no-blur: linear-gradient(
   -45deg,
@@ -181,10 +181,20 @@ nav {
 .login-form {
   margin: 0 auto;
   margin-top: 8em;
-  max-width: 20em;
+  max-width: 16em;
   height: 10em;
+  text-align: center;
   border-radius: $radius-one;
   @include glass-back-2();
+}
+
+.spotify-logo {
+  height: 5em;
+  width: 5em;
+  position: relative;
+  top: -2.5em;
+  @include glass-back-2();
+  border-radius: 50%;
 }
 
 .button-two {
@@ -192,11 +202,20 @@ nav {
   font-weight: 600;
   background-color: $soft-black;
   color: whitesmoke;
-  font-size: 1rem;
+  font-size: 1.25rem;
   padding: 0.5em 1.25em;
   border-radius: 30px;
-  margin-bottom: 1em;
+  position: relative;
+  top: 0.5em;
+  transition: all 0.3s ease-in-out;
 }
+
+.button-two:hover,
+.button-two:focus {
+  background-color: whitesmoke;
+  color: $soft-black;
+}
+
 /*****************
      FOOTER   
 ******************/
