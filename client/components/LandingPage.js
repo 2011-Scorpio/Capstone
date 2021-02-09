@@ -27,7 +27,7 @@ class LandingPage extends React.Component {
         <div className="chevron-container f jcc">
           <ChevronDown className="chevron-down" />
         </div>
-        {/* {this.props.isLoggedIn ? (
+        {this.props.isLoggedIn ? (
           <div>
             New To Omakase? Create a playlist:{' '}
             <button type="button" onClick={this.makePlaylistOnClick}>
@@ -39,11 +39,17 @@ class LandingPage extends React.Component {
           <div>
             Please <a href="/login">log in</a>
           </div>
-        )} */}
+        )}
         <div className="landing-btn-container glass f jcc aic">
-          <Link to="/login">
-            <ButtonOne text="Explore" />
-          </Link>
+          {this.props.isLoggedIn ? (
+            <Link to="/explore">
+              <ButtonOne text="Explore" />
+            </Link>
+          ) : (
+            <Link to="/login">
+              <ButtonOne text="Explore" />
+            </Link>
+          )}
         </div>
         <Footer />
       </>
