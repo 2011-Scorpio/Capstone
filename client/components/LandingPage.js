@@ -31,30 +31,22 @@ class LandingPage extends React.Component {
 
         {this.props.isLoggedIn ? (
           <div>
-            <RdrChart />
+            <div>
+              <RdrChart />
+            </div>
+            <div className="landing-btn-container glass f jcc aic">
+              <Link to="/explore">
+                <ButtonOne text="Explore" />
+              </Link>
+            </div>
           </div>
         ) : (
-          ''
+          <div className="landing-btn-container glass f jcc aic">
+            <Link to="/login">
+              <ButtonOne text="Explore" />
+            </Link>
+          </div>
         )}
-
-        {/* {this.props.isLoggedIn ? (
-          <div>
-            New To Omakase? Create a playlist:{' '}
-            <button type="button" onClick={this.makePlaylistOnClick}>
-              Create
-            </button>
-            <AllPlaylists />
-          </div>
-        ) : (
-          <div>
-            Please <a href="/login">log in</a>
-          </div>
-        )} */}
-        <div className="landing-btn-container glass f jcc aic">
-          <Link to="/login">
-            <ButtonOne text="Explore" />
-          </Link>
-        </div>
         <Footer />
       </>
     )

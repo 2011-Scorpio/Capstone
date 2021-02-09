@@ -25,7 +25,7 @@ const updateCurrent = newCurrent => ({
   newCurrent
 })
 
-export const makePlaylist = (userId, token) => {
+export const makePlaylist = (userId, token, playlistName) => {
   return async dispatch => {
     try {
       const {data} = await axios({
@@ -35,7 +35,7 @@ export const makePlaylist = (userId, token) => {
           Authorization: 'Bearer ' + token
         },
         data: {
-          name: 'Omakase'
+          name: playlistName
         }
       })
       dispatch(createPlaylist({name: data.name, id: data.id}))
