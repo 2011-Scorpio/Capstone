@@ -69,40 +69,101 @@ a {
 ******************/
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 0.25em 1.5em;
+  padding: 0.75em 1.5em;
   background: $soft-black;
   color: $light-peach;
 }
 
 nav ul {
-  display: inline-flex;
   align-items: baseline;
 }
 
 nav {
-  display: flex;
-  align-items: flex-end;
+  position: absolute;
+  text-align: right;
+  padding: 1.5em 1.5em 0.75em 0em;
+  background-color: $soft-black;
+  right: 0;
+  width: 100%;
+  transform-origin: top;
+  transform: scale(1, 0);
+  transition: transform 0.4s ease-in-out;
+  z-index: 900;
 }
 
-.nav-links {
-  margin-left: 1em;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.25rem;
-  font-family: 'Montserrat' sans-serif;
-  background: $soft-black;
-  color: $light-peach;
-  padding: 0;
+nav li {
+  margin-bottom: 1em;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
 }
 
 .navbar-name {
   font-family: 'Montserrat';
+  display: inline;
   margin: 0.5em 0em;
   font-size: 1.625rem;
   @include cutout-gradient();
+}
+
+.nav-toggle {
+  top: 0.5em;
+  float: right;
+  display: none;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav li {
+  transform: scale(1, 1);
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+.nav-toggle-label {
+  color: $light-peach;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 1.5em;
+  height: 3.8em;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: $light-peach;
+  height: 2px;
+  width: 1.5em;
+  border-radius: 2px;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: relative;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 5px;
+}
+
+.nav-links {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  background: $soft-black;
+  color: $light-peach;
+  padding: 0;
 }
 
 /*****************
@@ -262,10 +323,11 @@ footer {
 }
 
 .player {
-  background-color: grey;
+  @include glass-back-2();
   margin-top: 4em;
-  margin-bottom: 3em;
-  border-radius: 0.5rem;
+  margin-bottom: 2em;
+  border-radius: $radius-one;
+  border: $glass-border;
 }
 
 .player-artist {
@@ -284,9 +346,15 @@ footer {
 }
 
 .player-album-cover {
-  margin: 0 1em 2.5em 1em;
+  margin: 0 1em 2em 1em;
   height: 17em;
   width: 17em;
+}
+
+.player-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
 }
 
 .player-btn {

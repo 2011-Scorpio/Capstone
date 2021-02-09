@@ -86,17 +86,16 @@ class PlayerPage extends Component {
         {this.props.currentPlaylistId ? (
           <div className="explore-page-container f jcc">
             <div className="player">
-              <h4 className="player-artist crop">{artistName}</h4>
-              <p className="player-song crop">{songName}</p>
+              <h4 className="player-artist player-crop">{artistName}</h4>
+              <p className="player-song player-crop">{songName}</p>
               <img src={albumImg} className="player-album-cover" />
               <audio
                 id="player-audio"
-                volume="0.1"
                 src={currentSong}
                 autoPlay
                 onEnded={this.fastForward}
               />
-              <div className="f jcc">
+              <div className="player-buttons">
                 <button
                   type="button"
                   className="player-btn f"
@@ -126,9 +125,7 @@ class PlayerPage extends Component {
             {this.props.isLoggedIn ? (
               <AllPlaylists />
             ) : (
-              <div>
-                Please <a href="/login">log in</a>
-              </div>
+              this.props.history.push('/login')
             )}
           </div>
         )}
