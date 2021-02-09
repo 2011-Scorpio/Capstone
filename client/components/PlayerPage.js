@@ -95,7 +95,7 @@ class PlayerPage extends Component {
                 autoPlay
                 onEnded={this.fastForward}
               />
-              <div className="f jcc">
+              <div className="player-buttons">
                 <button
                   type="button"
                   className="player-btn f"

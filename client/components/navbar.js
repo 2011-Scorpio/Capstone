@@ -27,7 +27,7 @@ const Navbar = () => (
       </ul>
     </nav>
     <label htmlFor="nav-toggle" className="nav-toggle-label">
-      <span>X</span>
+      <span />
     </label>
   </header>
 )
