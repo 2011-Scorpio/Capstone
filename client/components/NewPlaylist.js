@@ -18,16 +18,19 @@ class NewPlayList extends React.Component {
     })
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault()
-    this.setState({
-      playlistName: ''
-    })
-    this.props.createPlaylist(
+    this.state.playlistName === ''
+      ? window.alert('Must enter a name')
+      : this.setState({
+          playlistName: ''
+        })
+    await this.props.createPlaylist(
       this.props.userId,
       this.props.token,
       this.state.playlistName
     )
+    await this.props.getPlaylists(this.props.token)
   }
 
   render() {
