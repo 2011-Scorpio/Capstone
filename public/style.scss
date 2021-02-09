@@ -136,24 +136,41 @@ nav li {
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
   display: block;
+  position: relative;
   background: $light-peach;
   height: 2px;
   width: 1.5em;
   border-radius: 2px;
+  transition: transform 0.4s ease-in-out, opacity 0.1s ease-in-out 0.3s,
+    top 0.4s ease-in-out;
 }
 
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
   content: '';
-  position: relative;
+  position: absolute;
 }
 
 .nav-toggle-label span::before {
-  bottom: 7px;
+  bottom: 8px;
 }
 
 .nav-toggle-label span::after {
-  top: 5px;
+  top: 8px;
+}
+
+.nav-toggle:checked ~ label span {
+  transform: rotate(-135deg);
+}
+
+.nav-toggle:checked ~ label span:after {
+  transform: rotate(270deg);
+  top: 0;
+}
+
+.nav-toggle:checked ~ label span:before {
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
 }
 
 .nav-links {
