@@ -29,7 +29,7 @@ class LandingPage extends React.Component {
             className="chevron-down"
             onClick={() =>
               window.scrollTo({
-                bottom: 0,
+                top: 400,
                 behavior: 'smooth'
               })
             }
