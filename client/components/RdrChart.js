@@ -1,8 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {fetchAudioFeat} from '../store/charting'
 import {RadarChart, PolarAngleAxis, Radar} from 'recharts'
-import {me} from '../store'
 
 class RdrChart extends React.Component {
   constructor(props) {
@@ -89,11 +86,4 @@ class RdrChart extends React.Component {
   }
 }
 
-const mapState = state => ({
-  addedTrackFeatures: state.charting.featArrPlayer,
-  userTopTracks: state.spotify.playlist,
-  audioFeat: state.charting.featArr,
-  token: state.user.token
-})
-
-export default connect(mapState)(RdrChart)
+export default RdrChart
