@@ -23,7 +23,6 @@ class Routes extends Component {
       <main>
         <Switch>
           {/* Routes placed here are available to all visitors */}
-          <Route path="/shape" component={BackgroundShape} />
           <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
           <Route exact path="/" component={LandingPage} />
