@@ -74,11 +74,11 @@ class PlayerPage extends Component {
   }
 
   render() {
-    const {queue, loaded} = this.state
-    let currentSong = loaded ? queue[0].preview_url : ''
-    let artistName = loaded ? queue[0].artists[0].name : ''
-    let songName = loaded ? queue[0].name : ''
-    let albumImg = loaded ? queue[0].album.images[1].url : ''
+    const {queue} = this.state
+    let currentSong = queue[0]?.preview_url
+    let artistName = queue[0]?.artists[0].name
+    let songName = queue[0]?.name
+    let albumImg = queue[0]?.album.images[1].url
 
     return (
       <div>
