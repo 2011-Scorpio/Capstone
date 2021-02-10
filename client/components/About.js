@@ -8,7 +8,17 @@ const usersInfo = [
 ]
 
 const About = () => {
-  return <div />
+  return (
+    <div>
+      {usersInfo.map(user => (
+        <div key={user.id}>
+          <div>Name: {user.name}</div>
+          <div>Github Profile: {user.gitHub}</div>
+          <div>LinkedIn Profile: {user.linkedIn}</div>
+        </div>
+      ))}
+    </div>
+  )
 }
 
 export default About
