@@ -12,15 +12,13 @@
     #b2acf9,
     #75d2ff,
     #b2acf9,
-    #75d2ff,
-    #b2acf9,
     #75d2ff
   );
-  background-size: 2000% 240%;
+  background-size: 2000% 1000%;
 
-  -webkit-animation: big-gradient-crawl 90s ease infinite;
-  -moz-animation: big-gradient-crawl 90s ease infinite;
-  animation: big-gradient-crawl 90s ease infinite;
+  -webkit-animation: big-gradient-crawl 30s ease infinite;
+  -moz-animation: big-gradient-crawl 30s ease infinite;
+  animation: big-gradient-crawl 30s ease infinite;
 }
 
 @-webkit-keyframes big-gradient-crawl {

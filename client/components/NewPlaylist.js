@@ -36,14 +36,24 @@ class NewPlayList extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="playlistName">Enter Playlist Name:</label>
-        <input
-          type="text"
-          name="playlistName"
-          onChange={this.handleChange}
-          value={this.state.playlistName}
-        />
-        <button type="submit">Create</button>
+        <label htmlFor="playlistName" />
+        <div className="new-playlist-pill">
+          <input
+            className="new-playlist-input"
+            type="text"
+            name="playlistName"
+            onChange={this.handleChange}
+            value={this.state.playlistName}
+            placeholder="New Playlist"
+          />
+          <button
+            className="new-playlist-button"
+            id="button-override"
+            type="submit"
+          >
+            Create
+          </button>
+        </div>
       </form>
     )
   }
