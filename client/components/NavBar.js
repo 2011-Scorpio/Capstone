@@ -26,7 +26,7 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="/explore"
+              to="/playlists"
               className="nav-links"
               onClick={() => toggleCheckbox()}
             >

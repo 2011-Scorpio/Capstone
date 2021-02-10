@@ -335,6 +335,27 @@ footer {
 }
 
 /*****************
+    AUXILIARY  
+******************/
+
+.not-found-container {
+  display: flex;
+  justify-content: center;
+}
+
+.not-found-code {
+  font-family: 'Montserrat';
+  font-weight: 900;
+  font-size: 7rem;
+  margin-bottom: 0;
+  margin: 4rem auto;
+  padding: 1rem 2rem;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  mix-blend-mode: multiply;
+}
+
+/*****************
     PLAYER PAGE   
 ******************/
 
