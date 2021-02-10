@@ -11,12 +11,13 @@ const NavBar = () => {
   return (
     <header>
       <NavLink to="/" className="no-under">
-        <h3 className="navbar-name">Omakase</h3>
+        {/* <h3 className="navbar-name">Omakase</h3> */}
+        <span id="logo">
+          <BackgroundShape />
+        </span>
       </NavLink>
       <input id="nav-toggle" type="checkbox" className="nav-toggle" />
-      <div id="logo">
-        <BackgroundShape />
-      </div>
+
       <nav>
         <ul>
           <li>
