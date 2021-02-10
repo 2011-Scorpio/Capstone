@@ -58,7 +58,6 @@ class RdrChart extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(this.props)
     let playlistIn = this.props.props
     if (playlistIn !== prevProps.props) {
       this.processChartData(playlistIn)
@@ -68,29 +67,23 @@ class RdrChart extends React.Component {
   render() {
     return (
       <div>
-        {this.props.token ? (
-          <div>
-            <RadarChart
-              cx={300}
-              cy={300}
-              outerRadius={150}
-              width={500}
-              height={500}
-              data={this.state.data}
-            >
-              <PolarAngleAxis dataKey="attribute" />
-              <Radar
-                name="Taste"
-                dataKey="A"
-                stroke="#8884d8"
-                fill="#8884d8"
-                fillOpacity={0.6}
-              />
-            </RadarChart>
-          </div>
-        ) : (
-          'Loading...'
-        )}
+        <RadarChart
+          cx={300}
+          cy={300}
+          outerRadius={150}
+          width={500}
+          height={500}
+          data={this.state.data}
+        >
+          <PolarAngleAxis dataKey="attribute" />
+          <Radar
+            name="Taste"
+            dataKey="A"
+            stroke="#8884d8"
+            fill="#8884d8"
+            fillOpacity={0.6}
+          />
+        </RadarChart>
       </div>
     )
   }

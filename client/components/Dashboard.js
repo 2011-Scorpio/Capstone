@@ -7,25 +7,36 @@ import {fetchUserPlaylist} from '../store/spotify'
 import {me} from '../store'
 
 class Dashboard extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      top15: []
+    }
+  }
+
   async componentDidMount() {
     await this.props.getUser()
     await this.props.getUserPlaylist(this.props.token)
-    const trackId = this.props.userTopTracks.items.map(track => {
+    const trackId = this.props.userTopTracks.map(track => {
       return track.id
     })
     await this.props.getAudioFeat(this.props.token, trackId)
+    this.setState({
+      top15: this.props.audioFeat.audio_features
+    })
   }
 
   render() {
     return (
       <div>
-        <RdrChart props={this.props.audioFeat} />
+        <RdrChart props={this.state.top15} />
       </div>
     )
   }
 }
 
 const mapState = state => ({
+  token: state.user.token,
   userTopTracks: state.spotify.playlist,
   audioFeat: state.charting.featArr
 })
