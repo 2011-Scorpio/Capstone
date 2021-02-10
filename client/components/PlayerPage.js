@@ -139,7 +139,7 @@ const mapState = state => {
     token: state.user.token,
     rPlaylist: state.spotify.rPlaylist,
     currentPlaylistId: state.userPlaylist.currentPlaylist,
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.token
   }
 }
 

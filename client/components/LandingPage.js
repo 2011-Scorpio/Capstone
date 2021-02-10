@@ -56,7 +56,7 @@ class LandingPage extends React.Component {
 const mapState = state => ({
   token: state.user.token,
   userId: state.user.spotifyId,
-  isLoggedIn: !!state.user.id
+  isLoggedIn: !!state.user.token
 })
 
 const mapDispatch = dispatch => ({
