@@ -4,7 +4,6 @@ import getRandomSearch, {randomOffset} from './getRandom'
 const GET_ALBUM = 'GET_ALBUM'
 const GET_PLAYLIST = 'GET_PLAYLIST'
 const GET_RANDOM_PLAYLIST = 'GET_RANDOM_PLAYLIST'
-const GET_AUDIO_FEAT = 'GET_AUDIO_FEAT'
 
 const getRandomPlaylist = rPlaylist => ({
   type: GET_RANDOM_PLAYLIST,
@@ -20,31 +19,6 @@ const getUserPlaylist = playlist => ({
   type: GET_PLAYLIST,
   playlist
 })
-
-const getAudioFeat = featArr => ({
-  type: GET_AUDIO_FEAT,
-  featArr
-})
-
-export const fetchAudioFeat = (trackId, token) => {
-  return async dispatch => {
-    try {
-      const {data} = await axios({
-        url: '	https://api.spotify.com/v1/audio-features',
-        method: 'get',
-        headers: {
-          Authorization: 'Bearer ' + token
-        },
-        params: {
-          ids: trackId
-        }
-      })
-      dispatch(getAudioFeat(data))
-    } catch (error) {
-      console.error(error)
-    }
-  }
-}
 
 export const fetchRPlaylist = token => {
   return async dispatch => {
@@ -98,9 +72,9 @@ export const fetchUserPlaylist = token => {
           Authorization: 'Bearer ' + token
         }
       })
-      dispatch(getUserPlaylist(data))
+      dispatch(getUserPlaylist(data.items))
     } catch (error) {
-      history.push('/login')
+      console.error(error)
     }
   }
 }
@@ -108,7 +82,8 @@ export const fetchUserPlaylist = token => {
 let initialState = {
   token: null,
   album: null,
-  playlist: null
+  playlist: null,
+  playerFeatArray: []
 }
 
 export default function(state = initialState, action) {
@@ -119,8 +94,6 @@ export default function(state = initialState, action) {
       return {...state, playlist: action.playlist}
     case GET_RANDOM_PLAYLIST:
       return {...state, rPlaylist: action.rPlaylist}
-    case GET_AUDIO_FEAT:
-      return {...state, featArr: action.featArr}
     default:
       return state
   }

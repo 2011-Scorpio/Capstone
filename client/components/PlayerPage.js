@@ -2,10 +2,12 @@ import React, {Component} from 'react'
 import {Play, FastForward, Pause, Plus} from 'react-feather'
 import {connect} from 'react-redux'
 import {fetchRPlaylist} from '../store/spotify'
+import {fetchAudioFeatPlayer} from '../store/charting'
 import {me} from '../store'
 import {addPlaylist} from '../store/userPlaylist'
 import AllPlaylists from './AllPlaylists'
 import NowPlaying from './NowPlaying'
+import RdrChart from './RdrChart'
 
 class PlayerPage extends Component {
   constructor(props) {
@@ -64,13 +66,15 @@ class PlayerPage extends Component {
     }
   }
 
-  addToPlaylist() {
+  async addToPlaylist() {
     const trackURI = this.state.queue[0].uri
-    this.props.addToPlaylist(
+    const trackId = this.state.queue[0].id
+    await this.props.addToPlaylist(
       this.props.currentPlaylistId.id,
       trackURI,
       this.props.token
     )
+    await this.props.getAudioFeatPlayer(this.props.token, trackId)
   }
 
   render() {
@@ -84,39 +88,44 @@ class PlayerPage extends Component {
       <div>
         <NowPlaying />
         {this.props.currentPlaylistId ? (
-          <div className="explore-page-container f jcc">
-            <div className="player">
-              <h4 className="player-artist player-crop">{artistName}</h4>
-              <p className="player-song player-crop">{songName}</p>
-              <img src={albumImg} className="player-album-cover" />
-              <audio
-                id="player-audio"
-                src={currentSong}
-                autoPlay
-                onEnded={this.fastForward}
-              />
-              <div className="player-buttons">
-                <button
-                  type="button"
-                  className="player-btn f"
-                  onClick={this.addToPlaylist}
-                >
-                  <Plus />
-                </button>
-                <button
-                  className="player-btn f"
-                  type="button"
-                  onClick={() => this.togglePlay()}
-                >
-                  {this.state.isPlaying ? <Pause /> : <Play />}
-                </button>
-                <button
-                  type="button"
-                  className="player-btn f"
-                  onClick={() => this.fastForward()}
-                >
-                  <FastForward />
-                </button>
+          <div>
+            <div>
+              <RdrChart props={this.props.playlistIn} />
+            </div>
+            <div className="explore-page-container f jcc">
+              <div className="player">
+                <h4 className="player-artist player-crop">{artistName}</h4>
+                <p className="player-song player-crop">{songName}</p>
+                <img src={albumImg} className="player-album-cover" />
+                <audio
+                  id="player-audio"
+                  src={currentSong}
+                  autoPlay
+                  onEnded={this.fastForward}
+                />
+                <div className="player-buttons">
+                  <button
+                    type="button"
+                    className="player-btn f"
+                    onClick={this.addToPlaylist}
+                  >
+                    <Plus />
+                  </button>
+                  <button
+                    className="player-btn f"
+                    type="button"
+                    onClick={() => this.togglePlay()}
+                  >
+                    {this.state.isPlaying ? <Pause /> : <Play />}
+                  </button>
+                  <button
+                    type="button"
+                    className="player-btn f"
+                    onClick={() => this.fastForward()}
+                  >
+                    <FastForward />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -136,6 +145,7 @@ class PlayerPage extends Component {
 
 const mapState = state => {
   return {
+    playlistIn: state.charting.featArrPlayer,
     token: state.user.token,
     rPlaylist: state.spotify.rPlaylist,
     currentPlaylistId: state.userPlaylist.currentPlaylist,
@@ -147,7 +157,9 @@ const mapDispatch = dispatch => ({
   loadInitialData: () => dispatch(me()),
   getRPlaylist: token => dispatch(fetchRPlaylist(token)),
   addToPlaylist: (playlistId, trackURI, token) =>
-    dispatch(addPlaylist(playlistId, trackURI, token))
+    dispatch(addPlaylist(playlistId, trackURI, token)),
+  getAudioFeatPlayer: (token, tracks) =>
+    dispatch(fetchAudioFeatPlayer(token, tracks))
 })
 
 export default connect(mapState, mapDispatch)(PlayerPage)

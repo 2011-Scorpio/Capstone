@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import {makePlaylist, fetchAllPlaylists} from '../store/userPlaylist'
 import {connect} from 'react-redux'
 import {ChevronDown} from 'react-feather'
-import AllPlaylists from './AllPlaylists'
 import Footer from './Footer'
 
 class LandingPage extends React.Component {
@@ -25,26 +24,32 @@ class LandingPage extends React.Component {
           <h3 className="landing-quote">A Simpler Way to Discover Music</h3>
         </div>
         <div className="chevron-container f jcc">
-          <ChevronDown className="chevron-down" />
+          <ChevronDown
+            className="chevron-down"
+            onClick={() =>
+              window.scrollTo({
+                top: 400,
+                behavior: 'smooth'
+              })
+            }
+          />
         </div>
-        {/* {this.props.isLoggedIn ? (
+
+        {this.props.isLoggedIn ? (
           <div>
-            New To Omakase? Create a playlist:{' '}
-            <button type="button" onClick={this.makePlaylistOnClick}>
-              Create
-            </button>
-            <AllPlaylists />
+            <div className="landing-btn-container glass f jcc aic">
+              <Link to="/explore">
+                <ButtonOne text="Explore" />
+              </Link>
+            </div>
           </div>
         ) : (
-          <div>
-            Please <a href="/login">log in</a>
+          <div className="landing-btn-container glass f jcc aic">
+            <Link to="/login">
+              <ButtonOne text="Explore" />
+            </Link>
           </div>
-        )} */}
-        <div className="landing-btn-container glass f jcc aic">
-          <Link to="/login">
-            <ButtonOne text="Explore" />
-          </Link>
-        </div>
+        )}
         <Footer />
       </>
     )
