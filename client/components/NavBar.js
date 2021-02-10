@@ -12,7 +12,7 @@ const NavBar = () => {
     <header>
       <NavLink to="/" className="no-under">
         {/* <h3 className="navbar-name">Omakase</h3> */}
-        <span id="logo">
+        <span className="navbar-name" id="logo">
           <BackgroundShape />
         </span>
       </NavLink>
