@@ -2,6 +2,9 @@ import React from 'react'
 import * as THREE from 'three'
 
 class BackgroundShape extends React.Component {
+  constructor() {
+    super()
+  }
   componentDidMount() {
     let scene = new THREE.Scene()
     let camera = new THREE.PerspectiveCamera(
@@ -28,8 +31,7 @@ class BackgroundShape extends React.Component {
 
     //AUDIO ANALYSIS
     let context = new (window.AudioContext || window.webkitAudioContext)()
-    let analyser = context.createAnalyser()
-    let soundDataArray
+    let audio = document.getElementById('player-audio')
   }
 
   render() {
