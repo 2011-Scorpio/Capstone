@@ -4,9 +4,7 @@ import {Link} from 'react-router-dom'
 import {makePlaylist, fetchAllPlaylists} from '../store/userPlaylist'
 import {connect} from 'react-redux'
 import {ChevronDown} from 'react-feather'
-import AllPlaylists from './AllPlaylists'
 import Footer from './Footer'
-import RdrChart from './RdrChart'
 
 class LandingPage extends React.Component {
   constructor() {
@@ -39,9 +37,6 @@ class LandingPage extends React.Component {
 
         {this.props.isLoggedIn ? (
           <div>
-            <div>
-              <RdrChart />
-            </div>
             <div className="landing-btn-container glass f jcc aic">
               <Link to="/explore">
                 <ButtonOne text="Explore" />

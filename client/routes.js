@@ -11,6 +11,7 @@ import {
   NotFound
 } from './components'
 import {me} from './store'
+import Dashboard from './components/Dashboard'
 
 class Routes extends Component {
   componentDidMount() {
@@ -33,6 +34,7 @@ class Routes extends Component {
               <Route exact path="/explore" component={PlayerPage} />
               <Route path="/playlists" component={AllPlaylists} />
               <Route component={NotFound} />
+              <Route path="/dashboard" component={Dashboard} />
             </Switch>
           )}
           <Route component={Login} />
