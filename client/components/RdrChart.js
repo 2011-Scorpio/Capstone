@@ -1,12 +1,9 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {fetchUserPlaylist, fetchAudioFeat} from '../store/spotify'
 import {RadarChart, PolarAngleAxis, Radar} from 'recharts'
-import {me} from '../store'
 
 class RdrChart extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       data: []
     }
@@ -43,7 +40,7 @@ class RdrChart extends React.Component {
 
     chartDataArr.map(song => {
       template[0].A += song.danceability * 100
-      template[1].A += song.loudness * -1
+      template[1].A += song.loudness * -3
       template[2].A += song.energy * 100
       template[3].A += song.acousticness * 100
       template[4].A += song.tempo / 2
@@ -57,58 +54,36 @@ class RdrChart extends React.Component {
     })
   }
 
-  async componentDidMount() {
-    await this.props.getUser()
-    await this.props.getUserPlaylist(this.props.token)
-    const trackId = this.props.userTopTracks.items.map(track => {
-      return track.id
-    })
-    await this.props.getAudioFeat(this.props.token, trackId)
-    this.processChartData(this.props.audioFeat.audio_features)
+  componentDidUpdate(prevProps) {
+    let playlistIn = this.props.props
+    if (playlistIn !== prevProps.props) {
+      this.processChartData(playlistIn)
+    }
   }
 
   render() {
     return (
       <div>
-        {this.props.token ? (
-          <div>
-            <h3>Your taste this week:</h3>
-            <RadarChart
-              cx={300}
-              cy={300}
-              outerRadius={150}
-              width={500}
-              height={500}
-              data={this.state.data}
-            >
-              <PolarAngleAxis dataKey="attribute" />
-              <Radar
-                name="Taste"
-                dataKey="A"
-                stroke="#8884d8"
-                fill="#8884d8"
-                fillOpacity={0.6}
-              />
-            </RadarChart>
-          </div>
-        ) : (
-          'Loading...'
-        )}
+        <RadarChart
+          cx={300}
+          cy={300}
+          outerRadius={150}
+          width={500}
+          height={500}
+          data={this.state.data}
+        >
+          <PolarAngleAxis dataKey="attribute" />
+          <Radar
+            name="Taste"
+            dataKey="A"
+            stroke="#8884d8"
+            fill="#8884d8"
+            fillOpacity={0.6}
+          />
+        </RadarChart>
       </div>
     )
   }
 }
 
-const mapState = state => ({
-  userTopTracks: state.spotify.playlist,
-  audioFeat: state.spotify.featArr,
-  token: state.user.token
-})
-
-const mapDispatch = dispatch => ({
-  getUser: () => dispatch(me()),
-  getUserPlaylist: token => dispatch(fetchUserPlaylist(token)),
-  getAudioFeat: (token, tracks) => dispatch(fetchAudioFeat(token, tracks))
-})
-
-export default connect(mapState, mapDispatch)(RdrChart)
+export default RdrChart
