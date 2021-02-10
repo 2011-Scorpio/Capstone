@@ -21,7 +21,7 @@ class NewPlayList extends React.Component {
   async handleSubmit(e) {
     e.preventDefault()
     this.state.playlistName === ''
-      ? window.alert('Must enter a name')
+      ? window.alert('Please enter a name')
       : this.setState({
           playlistName: ''
         })
