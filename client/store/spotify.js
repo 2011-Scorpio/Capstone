@@ -72,7 +72,7 @@ export const fetchUserPlaylist = token => {
           Authorization: 'Bearer ' + token
         }
       })
-      dispatch(getUserPlaylist(data))
+      dispatch(getUserPlaylist(data.items))
     } catch (error) {
       console.error(error)
     }

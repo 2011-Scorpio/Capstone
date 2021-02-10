@@ -43,7 +43,7 @@ class RdrChart extends React.Component {
 
     chartDataArr.map(song => {
       template[0].A += song.danceability * 100
-      template[1].A += song.loudness * -1
+      template[1].A += song.loudness * -3
       template[2].A += song.energy * 100
       template[3].A += song.acousticness * 100
       template[4].A += song.tempo / 2
@@ -58,22 +58,11 @@ class RdrChart extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.addedTrackFeatures !== prevProps.addedTrackFeatures) {
-      this.processChartData(this.props.addedTrackFeatures)
+    console.log(this.props)
+    let playlistIn = this.props.props
+    if (playlistIn !== prevProps.props) {
+      this.processChartData(playlistIn)
     }
-  }
-
-  componentDidMount() {
-    // this.setState({
-    //   data:
-    // })
-    // await this.props.getUser()
-    // await this.props.getUserPlaylist(this.props.token)
-    // const trackId = this.props.userTopTracks.items.map(track => {
-    //   return track.id
-    // })
-    // await this.props.getAudioFeat(this.props.token, trackId)
-    this.processChartData(this.props.addedTrackFeatures)
   }
 
   render() {
@@ -114,10 +103,4 @@ const mapState = state => ({
   token: state.user.token
 })
 
-const mapDispatch = dispatch => ({
-  getUser: () => dispatch(me()),
-  getUserPlaylist: token => dispatch(fetchUserPlaylist(token)),
-  getAudioFeat: (token, tracks) => dispatch(fetchAudioFeat(token, tracks))
-})
-
-export default connect(mapState, mapDispatch)(RdrChart)
+export default connect(mapState)(RdrChart)

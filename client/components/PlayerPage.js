@@ -86,11 +86,11 @@ class PlayerPage extends Component {
 
     return (
       <div>
-        <NowPlaying props={this.props.addedTrackFeatures} />
+        <NowPlaying />
         {this.props.currentPlaylistId ? (
           <div>
             <div>
-              <RdrChart />
+              <RdrChart props={this.props.playlistIn} />
             </div>
             <div className="explore-page-container f jcc">
               <div className="player">
@@ -145,7 +145,7 @@ class PlayerPage extends Component {
 
 const mapState = state => {
   return {
-    addedTrackFeatures: state.charting.featArrPlayer,
+    playlistIn: state.charting.featArrPlayer,
     token: state.user.token,
     rPlaylist: state.spotify.rPlaylist,
     currentPlaylistId: state.userPlaylist.currentPlaylist,
