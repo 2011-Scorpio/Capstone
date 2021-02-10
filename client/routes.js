@@ -38,7 +38,6 @@ class Routes extends Component {
           {/* Displays our Login component as a fallback */}
           <Route component={Login} />
         </Switch>
-        <BackgroundShape id="bgShape" />
         {/* <WelcomePage /> */}
       </main>
     )

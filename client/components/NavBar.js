@@ -1,5 +1,6 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import BackgroundShape from './BackgroundShape'
 
 const NavBar = () => {
   const toggleCheckbox = () => {
@@ -13,6 +14,9 @@ const NavBar = () => {
         <h3 className="navbar-name">Omakase</h3>
       </NavLink>
       <input id="nav-toggle" type="checkbox" className="nav-toggle" />
+      <div id="logo">
+        <BackgroundShape />
+      </div>
       <nav>
         <ul>
           <li>

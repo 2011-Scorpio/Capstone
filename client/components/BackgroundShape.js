@@ -8,15 +8,15 @@ class BackgroundShape extends React.Component {
   componentDidMount() {
     let scene = new THREE.Scene()
     let camera = new THREE.PerspectiveCamera(
-      75,
+      50,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     )
     let renderer = new THREE.WebGLRenderer({alpha: true})
-    renderer.setSize(window.innerWidth, window.innerHeight)
-    document.body.appendChild(renderer.domElement)
-    const geometry = new THREE.TorusGeometry(2, 0.75, 15, 100)
+    // renderer.setSize(window.innerWidth, window.innerHeight)
+    document.getElementById('logo').appendChild(renderer.domElement)
+    const geometry = new THREE.TorusGeometry(1, 0.25, 10, 45)
     let material = new THREE.MeshNormalMaterial()
     let plane = new THREE.Mesh(geometry, material)
     scene.add(plane)
@@ -30,8 +30,8 @@ class BackgroundShape extends React.Component {
     animate()
 
     //AUDIO ANALYSIS
-    let context = new (window.AudioContext || window.webkitAudioContext)()
-    let audio = document.getElementById('player-audio')
+    // let context = new (window.AudioContext || window.webkitAudioContext)()
+    // let audio = document.getElementById('player-audio')
   }
 
   render() {
