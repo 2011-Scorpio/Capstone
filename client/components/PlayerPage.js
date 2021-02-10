@@ -7,6 +7,7 @@ import {me} from '../store'
 import {addPlaylist} from '../store/userPlaylist'
 import AllPlaylists from './AllPlaylists'
 import NowPlaying from './NowPlaying'
+import RdrChart from './RdrChart'
 
 class PlayerPage extends Component {
   constructor(props) {
@@ -14,8 +15,7 @@ class PlayerPage extends Component {
     this.state = {
       isPlaying: true,
       queue: [],
-      loaded: false,
-      likedTracks: []
+      loaded: false
     }
 
     this.addToPlaylist = this.addToPlaylist.bind(this)
@@ -86,41 +86,46 @@ class PlayerPage extends Component {
 
     return (
       <div>
-        <NowPlaying />
+        <NowPlaying props={this.props.addedTrackFeatures} />
         {this.props.currentPlaylistId ? (
-          <div className="explore-page-container f jcc">
-            <div className="player">
-              <h4 className="player-artist player-crop">{artistName}</h4>
-              <p className="player-song player-crop">{songName}</p>
-              <img src={albumImg} className="player-album-cover" />
-              <audio
-                id="player-audio"
-                src={currentSong}
-                autoPlay
-                onEnded={this.fastForward}
-              />
-              <div className="player-buttons">
-                <button
-                  type="button"
-                  className="player-btn f"
-                  onClick={this.addToPlaylist}
-                >
-                  <Plus />
-                </button>
-                <button
-                  className="player-btn f"
-                  type="button"
-                  onClick={() => this.togglePlay()}
-                >
-                  {this.state.isPlaying ? <Pause /> : <Play />}
-                </button>
-                <button
-                  type="button"
-                  className="player-btn f"
-                  onClick={() => this.fastForward()}
-                >
-                  <FastForward />
-                </button>
+          <div>
+            <div>
+              <RdrChart />
+            </div>
+            <div className="explore-page-container f jcc">
+              <div className="player">
+                <h4 className="player-artist player-crop">{artistName}</h4>
+                <p className="player-song player-crop">{songName}</p>
+                <img src={albumImg} className="player-album-cover" />
+                <audio
+                  id="player-audio"
+                  src={currentSong}
+                  autoPlay
+                  onEnded={this.fastForward}
+                />
+                <div className="player-buttons">
+                  <button
+                    type="button"
+                    className="player-btn f"
+                    onClick={this.addToPlaylist}
+                  >
+                    <Plus />
+                  </button>
+                  <button
+                    className="player-btn f"
+                    type="button"
+                    onClick={() => this.togglePlay()}
+                  >
+                    {this.state.isPlaying ? <Pause /> : <Play />}
+                  </button>
+                  <button
+                    type="button"
+                    className="player-btn f"
+                    onClick={() => this.fastForward()}
+                  >
+                    <FastForward />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -140,6 +145,7 @@ class PlayerPage extends Component {
 
 const mapState = state => {
   return {
+    addedTrackFeatures: state.charting.featArrPlayer,
     token: state.user.token,
     rPlaylist: state.spotify.rPlaylist,
     currentPlaylistId: state.userPlaylist.currentPlaylist,

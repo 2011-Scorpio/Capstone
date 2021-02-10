@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchUserPlaylist, fetchAudioFeat} from '../store/charting'
+import {fetchAudioFeat} from '../store/charting'
 import {RadarChart, PolarAngleAxis, Radar} from 'recharts'
 import {me} from '../store'
 
@@ -57,14 +57,23 @@ class RdrChart extends React.Component {
     })
   }
 
-  async componentDidMount() {
+  componentDidUpdate(prevProps) {
+    if (this.props.addedTrackFeatures !== prevProps.addedTrackFeatures) {
+      this.processChartData(this.props.addedTrackFeatures)
+    }
+  }
+
+  componentDidMount() {
+    // this.setState({
+    //   data:
+    // })
     // await this.props.getUser()
     // await this.props.getUserPlaylist(this.props.token)
     // const trackId = this.props.userTopTracks.items.map(track => {
     //   return track.id
     // })
     // await this.props.getAudioFeat(this.props.token, trackId)
-    // this.processChartData(this.props.audioFeat.audio_features)
+    this.processChartData(this.props.addedTrackFeatures)
   }
 
   render() {
@@ -99,8 +108,9 @@ class RdrChart extends React.Component {
 }
 
 const mapState = state => ({
+  addedTrackFeatures: state.charting.featArrPlayer,
   userTopTracks: state.spotify.playlist,
-  audioFeat: state.spotify.featArr,
+  audioFeat: state.charting.featArr,
   token: state.user.token
 })
 
