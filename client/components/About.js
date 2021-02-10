@@ -29,8 +29,12 @@ const About = () => {
       {usersInfo.map(user => (
         <div key={user.id}>
           <div>Name: {user.name}</div>
-          <a href={user.gitHub}>Github Profile</a>
-          <a href={user.linkedIn}>LinkedIn Profile</a>
+          <a href={user.gitHub} target="_blank" rel="noreferrer">
+            Github Profile
+          </a>
+          <a href={user.linkedIn} target="_blank" rel="noreferrer">
+            LinkedIn Profile
+          </a>
         </div>
       ))}
     </div>
