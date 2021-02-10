@@ -6,6 +6,7 @@ import {me} from '../store'
 import {addPlaylist} from '../store/userPlaylist'
 import AllPlaylists from './AllPlaylists'
 import NowPlaying from './NowPlaying'
+import Login from './Login'
 
 class PlayerPage extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class PlayerPage extends Component {
   }
 
   async componentDidUpdate() {
-    if (this.state.queue.length === 2 && this.state.loaded === true) {
+    if (this.state.queue.length === 3 && this.state.loaded === true) {
       this.setState({loaded: false})
       await this.props.getRPlaylist(this.props.token)
       const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
@@ -71,6 +72,10 @@ class PlayerPage extends Component {
       trackURI,
       this.props.token
     )
+  }
+
+  sendToLogin() {
+    this.props.history.push('/login')
   }
 
   render() {
@@ -121,13 +126,7 @@ class PlayerPage extends Component {
             </div>
           </div>
         ) : (
-          <div>
-            {this.props.isLoggedIn ? (
-              <AllPlaylists />
-            ) : (
-              this.props.history.push('/login')
-            )}
-          </div>
+          <div>{this.props.isLoggedIn ? <AllPlaylists /> : 'Loading..'}</div>
         )}
       </div>
     )

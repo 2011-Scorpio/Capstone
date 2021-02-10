@@ -30,14 +30,12 @@ class Routes extends Component {
           {isLoggedIn && (
             <Switch>
               {/* Routes placed here are only available after logging in */}
-              <Route path="/explore" component={PlayerPage} />
+              <Route exact path="/explore" component={PlayerPage} />
               <Route path="/playlists" component={AllPlaylists} />
+              <Route component={NotFound} />
             </Switch>
           )}
-          {/* Displays our Login component as a fallback */}
           <Route component={Login} />
-          {/* Not Found component not being used yet */}
-          <Route component={NotFound} />
         </Switch>
       </main>
     )
