@@ -332,7 +332,7 @@ nav li {
 
 .single-playlist {
   margin: 1em auto;
-  width: 15em;
+  width: 16em;
   height: 3.5em;
   @include glass-back-2();
   border-radius: 2em;
@@ -357,7 +357,7 @@ nav li {
 
 .new-playlist-pill {
   margin: 1em auto;
-  width: 15em;
+  width: 16em;
   height: 3.5em;
   @include glass-back-2();
   border-radius: 2em;
@@ -376,6 +376,7 @@ nav li {
   color: $soft-black;
   border: none;
   border-radius: 2em 0 0 2em;
+  margin-left: 0.25em;
   background: transparent;
 }
 
@@ -395,11 +396,13 @@ nav li {
   font-weight: 400;
   font-size: 1rem;
   font-family: 'Poppins';
-  color: $soft-black;
+  letter-spacing: 0.5px;
 }
 
 .new-playlist-input::placeholder {
-  color: rgba(255, 255, 255, 0.601);
+  color: rgba(44, 44, 44, 0.329);
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 /*****************
