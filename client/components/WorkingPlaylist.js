@@ -8,16 +8,10 @@ export default class WorkingPlaylist extends React.Component {
   }
 
   render() {
-    const {addedSoFar} = this.props
-    console.log(this.props)
+    const {lastAdded} = this.props
     return (
       <div>
-        {addedSoFar.map(track => (
-          <div key={track.id}>
-            <div>Track name: {track.name}</div>
-            <div>Artist: {track.artists[0].name}</div>
-          </div>
-        ))}
+        You just added: {lastAdded.name} by: {lastAdded.artists[0].name}
       </div>
     )
   }
