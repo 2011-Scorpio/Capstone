@@ -10,14 +10,14 @@ import NowPlaying from './NowPlaying'
 import Login from './Login'
 import RdrChart from './RdrChart'
 
-
 class PlayerPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
       isPlaying: true,
       queue: [],
-      loaded: false
+      loaded: false,
+      addedSoFar: []
     }
 
     this.addToPlaylist = this.addToPlaylist.bind(this)
