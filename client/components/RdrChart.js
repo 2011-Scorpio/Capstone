@@ -41,7 +41,7 @@ class RdrChart extends React.Component {
     chartDataArr.map(song => {
       template[0].A += song.danceability * 100
       template[1].A += song.loudness * -3
-      template[2].A += song.energy * 100
+      template[2].A += song.energy * 80
       template[3].A += song.acousticness * 100
       template[4].A += song.tempo / 2
     })

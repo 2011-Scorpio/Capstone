@@ -40,6 +40,7 @@ export const makePlaylist = (userId, token, playlistName) => {
       })
       dispatch(createPlaylist({name: data.name, id: data.id}))
     } catch (error) {
+      window.location.replace('/auth/spotify')
       console.error(error)
     }
   }
@@ -60,6 +61,7 @@ export const addPlaylist = (playlistId, trackURI, token) => {
       })
       dispatch(addToPlaylist(data))
     } catch (error) {
+      window.location.replace('/auth/spotify')
       console.error(error)
     }
   }
@@ -77,6 +79,7 @@ export const fetchAllPlaylists = token => {
       })
       dispatch(getAllPlaylists(data))
     } catch (error) {
+      window.location.replace('/auth/spotify')
       console.error(error)
     }
   }
