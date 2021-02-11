@@ -10,7 +10,8 @@ class Dashboard extends React.Component {
   constructor() {
     super()
     this.state = {
-      top15: []
+      top15: [],
+      ranOnce: false
     }
   }
 
@@ -23,6 +24,9 @@ class Dashboard extends React.Component {
     await this.props.getAudioFeat(this.props.token, trackId)
     this.setState({
       top15: this.props.audioFeat.audio_features
+    })
+    this.setState({
+      ranOnce: true
     })
   }
 
