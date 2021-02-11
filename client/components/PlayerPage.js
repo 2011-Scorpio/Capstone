@@ -9,7 +9,7 @@ import AllPlaylists from './AllPlaylists'
 import NowPlaying from './NowPlaying'
 import Login from './Login'
 import RdrChart from './RdrChart'
-
+import WorkingPlaylist from './WorkingPlaylist'
 
 class PlayerPage extends Component {
   constructor(props) {
@@ -17,7 +17,8 @@ class PlayerPage extends Component {
     this.state = {
       isPlaying: true,
       queue: [],
-      loaded: false
+      loaded: false,
+      addedSoFar: []
     }
 
     this.addToPlaylist = this.addToPlaylist.bind(this)
@@ -71,6 +72,7 @@ class PlayerPage extends Component {
   async addToPlaylist() {
     const trackURI = this.state.queue[0].uri
     const trackId = this.state.queue[0].id
+    this.setState({addedSoFar: [...this.state.addedSoFar, this.state.queue[0]]})
     await this.props.addToPlaylist(
       this.props.currentPlaylistId.id,
       trackURI,
@@ -89,7 +91,7 @@ class PlayerPage extends Component {
     let artistName = queue[0]?.artists[0].name
     let songName = queue[0]?.name
     let albumImg = queue[0]?.album.images[1].url
-
+    let {addedSoFar} = this.state
     return (
       <div>
         <NowPlaying />
@@ -97,6 +99,7 @@ class PlayerPage extends Component {
           <div>
             <div>
               <RdrChart props={this.props.playlistIn} />
+              <WorkingPlaylist addedSoFar={addedSoFar} />
             </div>
             <div className="explore-page-container f jcc">
               <div className="player">

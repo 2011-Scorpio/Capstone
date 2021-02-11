@@ -36,16 +36,14 @@ class Routes extends Component {
               {/* Routes placed here are only available after logging in */}
               <Route exact path="/explore" component={PlayerPage} />
               <Route path="/playlists" component={AllPlaylists} />
-              <Route component={NotFound} />
               <Route path="/dashboard" component={Dashboard} />
+              <Route component={NotFound} />
             </Switch>
           )}
           <Route component={Login} />
         </Switch>
 
         {/* <WelcomePage /> */}
-
-
       </main>
     )
   }
