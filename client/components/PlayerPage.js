@@ -7,7 +7,6 @@ import {me} from '../store'
 import {addPlaylist} from '../store/userPlaylist'
 import AllPlaylists from './AllPlaylists'
 import NowPlaying from './NowPlaying'
-import Login from './Login'
 import RdrChart from './RdrChart'
 import WorkingPlaylist from './WorkingPlaylist'
 
@@ -137,6 +136,7 @@ class PlayerPage extends Component {
                 </div>
               </div>
             </div>
+            <RdrChart props={this.props.playlistIn} />
           </div>
         ) : (
           <div>{this.props.isLoggedIn ? <AllPlaylists /> : 'Loading..'}</div>

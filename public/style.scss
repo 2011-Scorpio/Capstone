@@ -34,6 +34,14 @@ $glass-border: linear-gradient(
   backdrop-filter: blur(100px);
 }
 
+@mixin big-font-1 {
+  color: $soft-black;
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 115%;
+  letter-spacing: 0.03em;
+}
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -208,12 +216,8 @@ nav li {
 
 .landing-quote {
   text-align: center;
-  color: $soft-black;
-  font-weight: 800;
-  font-size: 2.5rem;
-  line-height: 115%;
+  @include big-font-1();
   max-width: 5em;
-  letter-spacing: 0.03em;
 }
 
 .chevron-container {
@@ -423,7 +427,7 @@ nav li {
   padding: 0.75em 0;
   text-align: center;
   font-weight: 300;
-  background-color: #f0f0f0;
+  background-color: #f0f0f0d2;
   color: #363636;
 }
 
@@ -468,6 +472,80 @@ nav li {
   padding: 1em;
   margin: 0 1em 0 1em;
 }
+
+/*****************
+     ABOUT  
+******************/
+
+.about-title {
+  @include big-font-1;
+  text-align: center;
+  margin: 2em auto 1.5em auto;
+  width: 14rem;
+}
+
+.about-container {
+  margin: 2em auto 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 30em;
+}
+
+.team-member {
+  height: 8rem;
+  width: 8rem;
+  margin: 0.625em;
+  padding: 1em;
+  border-radius: $radius-one;
+  @include glass-back-2();
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.team-member-name {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+  letter-spacing: 3px;
+}
+
+.about-link {
+  height: 2.25em;
+  width: 2.25em;
+}
+
+.about-link-container {
+  height: 2.25em;
+  width: 2.25em;
+  @include glass-back-2();
+  color: rgba(46, 46, 46, 0.795);
+  padding: 0.75em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.4em;
+}
+
+// .alfred-img {
+//  background-image: url('./images/user-img.jpg') no-repeat center center fixed;
+//  background-size: cover;
+// }
+
+// .azriel-img {
+
+// }
+
+// .spencer-img {
+
+// }
+
+// .gabriel-img {
+
+// }
 
 /*****************
      FOOTER   
@@ -517,4 +595,11 @@ footer {
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
   mix-blend-mode: multiply;
+}
+
+.rdr-chart {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+  transition: opacity 0.4s ease;
 }
