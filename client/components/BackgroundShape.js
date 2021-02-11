@@ -8,13 +8,13 @@ class BackgroundShape extends React.Component {
   componentDidMount() {
     let scene = new THREE.Scene()
     let camera = new THREE.PerspectiveCamera(
-      75,
+      120,
       window.innerWidth / window.innerHeight,
       0.1,
-      3000
+      4000
     )
     let renderer = new THREE.WebGLRenderer({alpha: true})
-    renderer.setSize(window.innerWidth / 11, window.innerHeight / 11)
+    renderer.setSize(window.innerWidth / 8, window.innerHeight / 8)
     document.getElementById('logo').appendChild(renderer.domElement)
     const geometry = new THREE.TorusGeometry(1, 0.25, 10, 45)
     let material = new THREE.MeshNormalMaterial()
@@ -30,7 +30,11 @@ class BackgroundShape extends React.Component {
   }
 
   render() {
-    return <div ref={ref => (this.mount = ref)} />
+    return (
+      <span id="logo">
+        <div ref={ref => (this.mount = ref)} />
+      </span>
+    )
   }
 }
 

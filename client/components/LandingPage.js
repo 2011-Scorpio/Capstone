@@ -5,6 +5,7 @@ import {makePlaylist, fetchAllPlaylists} from '../store/userPlaylist'
 import {connect} from 'react-redux'
 import {ChevronDown} from 'react-feather'
 import Footer from './Footer'
+import Dashboard from './Dashboard'
 
 class LandingPage extends React.Component {
   constructor() {
@@ -21,7 +22,14 @@ class LandingPage extends React.Component {
     return (
       <>
         <div className="landing-top-block-wrapper">
-          <h3 className="landing-quote">A Simpler Way to Discover Music</h3>
+          {this.props.isLoggedIn ? (
+            <div>
+              <h3>Your taste this month:</h3>
+              <Dashboard />
+            </div>
+          ) : (
+            <h3 className="landing-quote">A Simpler Way to Discover Music</h3>
+          )}
         </div>
         <div className="chevron-container f jcc">
           <ChevronDown

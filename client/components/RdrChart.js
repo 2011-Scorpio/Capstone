@@ -1,5 +1,6 @@
 import React from 'react'
 import {RadarChart, PolarAngleAxis, Radar} from 'recharts'
+import BackgroundShape from './BackgroundShape'
 
 class RdrChart extends React.Component {
   constructor(props) {
@@ -62,28 +63,32 @@ class RdrChart extends React.Component {
   }
 
   render() {
-    return this.state.data.length ? (
-      <div className="rdr-chart">
-        <RadarChart
-          cx={150}
-          cy={150}
-          outerRadius={100}
-          width={300}
-          height={300}
-          data={this.state.data}
-        >
-          <PolarAngleAxis dataKey="attribute" />
-          <Radar
-            name="Taste"
-            dataKey="A"
-            stroke="#8884d8"
-            fill="#8884d8"
-            fillOpacity={0.6}
-          />
-        </RadarChart>
+    return (
+      <div>
+        {this.state.data.length ? (
+          <div className="rdr-chart">
+            <RadarChart
+              cx={150}
+              cy={150}
+              outerRadius={90}
+              width={300}
+              height={300}
+              data={this.state.data}
+            >
+              <PolarAngleAxis dataKey="attribute" />
+              <Radar
+                name="Taste"
+                dataKey="A"
+                stroke="#8884d8"
+                fill="#8884d8"
+                fillOpacity={0.6}
+              />
+            </RadarChart>
+          </div>
+        ) : (
+          <BackgroundShape />
+        )}
       </div>
-    ) : (
-      <div />
     )
   }
 }
