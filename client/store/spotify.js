@@ -40,6 +40,7 @@ export const fetchRPlaylist = token => {
       })
       dispatch(getRandomPlaylist(data))
     } catch (error) {
+      window.location.replace('/auth/spotify')
       console.error(error)
     }
   }
@@ -57,6 +58,7 @@ export const fetchAlbum = token => {
       })
       dispatch(getAlbum(data))
     } catch (error) {
+      window.location.replace('/auth/spotify')
       console.error(error)
     }
   }
@@ -74,6 +76,7 @@ export const fetchUserPlaylist = token => {
       })
       dispatch(getUserPlaylist(data.items))
     } catch (error) {
+      window.location.replace('/auth/spotify')
       console.error(error)
     }
   }
