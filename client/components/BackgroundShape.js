@@ -23,7 +23,7 @@ class BackgroundShape extends React.Component {
     camera.position.z = 2
     const animate = function() {
       requestAnimationFrame(animate)
-      plane.rotation.y += 0.01
+      plane.rotation.y += 0.03
       renderer.render(scene, camera)
     }
     animate()
