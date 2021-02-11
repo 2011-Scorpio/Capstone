@@ -15,6 +15,7 @@ export default class WorkingPlaylist extends React.Component {
         {addedSoFar.map(track => (
           <div key={track.id}>
             <div>Track name: {track.name}</div>
+            <div>Artist: {track.artists[0].name}</div>
           </div>
         ))}
       </div>
