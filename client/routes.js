@@ -2,15 +2,20 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, AllPlaylists, LandingPage, PlayerPage, About} from './components'
+import {
+  Login,
+  AllPlaylists,
+  LandingPage,
+  PlayerPage,
+  About,
+  NotFound
+} from './components'
 import {me} from './store'
 import Dashboard from './components/Dashboard'
+
 import BackgroundShape from './components/BackgroundShape'
 // import AllPlaylists from './components/AllPlaylists'
 
-/**
- * COMPONENT
- */
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
@@ -29,28 +34,28 @@ class Routes extends Component {
           {isLoggedIn && (
             <Switch>
               {/* Routes placed here are only available after logging in */}
-              <Route path="/explore" component={PlayerPage} />
+              <Route exact path="/explore" component={PlayerPage} />
               <Route path="/playlists" component={AllPlaylists} />
+              <Route component={NotFound} />
               <Route path="/dashboard" component={Dashboard} />
             </Switch>
           )}
-          {/* Displays our Login component as a fallback */}
           <Route component={Login} />
         </Switch>
+
         {/* <WelcomePage /> */}
+
+
       </main>
     )
   }
 }
 
-/**
- * CONTAINER
- */
 const mapState = state => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.token
   }
 }
 

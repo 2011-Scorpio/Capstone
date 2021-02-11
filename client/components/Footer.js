@@ -13,6 +13,8 @@ const Footer = () => {
       <a
         href="https://github.com/2011-Scorpio/Capstone"
         className="footer-github f jcc aic"
+        target="_blank"
+        rel="noreferrer"
       >
         <GitHub />
       </a>

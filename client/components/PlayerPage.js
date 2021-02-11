@@ -7,7 +7,9 @@ import {me} from '../store'
 import {addPlaylist} from '../store/userPlaylist'
 import AllPlaylists from './AllPlaylists'
 import NowPlaying from './NowPlaying'
+import Login from './Login'
 import RdrChart from './RdrChart'
+
 
 class PlayerPage extends Component {
   constructor(props) {
@@ -35,7 +37,7 @@ class PlayerPage extends Component {
   }
 
   async componentDidUpdate() {
-    if (this.state.queue.length === 2 && this.state.loaded === true) {
+    if (this.state.queue.length === 3 && this.state.loaded === true) {
       this.setState({loaded: false})
       await this.props.getRPlaylist(this.props.token)
       const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
@@ -77,12 +79,16 @@ class PlayerPage extends Component {
     await this.props.getAudioFeatPlayer(this.props.token, trackId)
   }
 
+  sendToLogin() {
+    this.props.history.push('/login')
+  }
+
   render() {
-    const {queue, loaded} = this.state
-    let currentSong = loaded ? queue[0].preview_url : ''
-    let artistName = loaded ? queue[0].artists[0].name : ''
-    let songName = loaded ? queue[0].name : ''
-    let albumImg = loaded ? queue[0].album.images[1].url : ''
+    const {queue} = this.state
+    let currentSong = queue[0]?.preview_url
+    let artistName = queue[0]?.artists[0].name
+    let songName = queue[0]?.name
+    let albumImg = queue[0]?.album.images[1].url
 
     return (
       <div>
@@ -130,13 +136,7 @@ class PlayerPage extends Component {
             </div>
           </div>
         ) : (
-          <div>
-            {this.props.isLoggedIn ? (
-              <AllPlaylists />
-            ) : (
-              this.props.history.push('/login')
-            )}
-          </div>
+          <div>{this.props.isLoggedIn ? <AllPlaylists /> : 'Loading..'}</div>
         )}
       </div>
     )
@@ -149,7 +149,7 @@ const mapState = state => {
     token: state.user.token,
     rPlaylist: state.spotify.rPlaylist,
     currentPlaylistId: state.userPlaylist.currentPlaylist,
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.token
   }
 }
 
