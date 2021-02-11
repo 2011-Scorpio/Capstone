@@ -62,14 +62,14 @@ class RdrChart extends React.Component {
   }
 
   render() {
-    return (
-      <div>
+    return this.state.data.length ? (
+      <div className="rdr-chart">
         <RadarChart
-          cx={300}
-          cy={300}
-          outerRadius={150}
-          width={500}
-          height={500}
+          cx={150}
+          cy={150}
+          outerRadius={100}
+          width={300}
+          height={300}
           data={this.state.data}
         >
           <PolarAngleAxis dataKey="attribute" />
@@ -82,6 +82,8 @@ class RdrChart extends React.Component {
           />
         </RadarChart>
       </div>
+    ) : (
+      <div />
     )
   }
 }

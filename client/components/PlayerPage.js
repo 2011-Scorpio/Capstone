@@ -7,9 +7,7 @@ import {me} from '../store'
 import {addPlaylist} from '../store/userPlaylist'
 import AllPlaylists from './AllPlaylists'
 import NowPlaying from './NowPlaying'
-import Login from './Login'
 import RdrChart from './RdrChart'
-
 
 class PlayerPage extends Component {
   constructor(props) {
@@ -95,9 +93,6 @@ class PlayerPage extends Component {
         <NowPlaying />
         {this.props.currentPlaylistId ? (
           <div>
-            <div>
-              <RdrChart props={this.props.playlistIn} />
-            </div>
             <div className="explore-page-container f jcc">
               <div className="player">
                 <h4 className="player-artist player-crop">{artistName}</h4>
@@ -134,6 +129,7 @@ class PlayerPage extends Component {
                 </div>
               </div>
             </div>
+            <RdrChart props={this.props.playlistIn} />
           </div>
         ) : (
           <div>{this.props.isLoggedIn ? <AllPlaylists /> : 'Loading..'}</div>
