@@ -499,7 +499,7 @@ nav li {
   margin: 0.625em;
   padding: 1em;
   border-radius: $radius-one;
-  @include glass-back-2();
+  background-size: 10em 10em;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

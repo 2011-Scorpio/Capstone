@@ -7,28 +7,32 @@ const usersInfo = [
     name: 'Azriel',
     gitHub: 'https://github.com/azrielg20',
     linkedIn: 'https://www.linkedin.com/in/azriel-goldman-67193b77/',
-    class: 'azriel-img'
+    class: 'azriel-img',
+    img: '/images/user-img.jpg'
   },
   {
     id: 2,
     name: 'Gabriel',
     gitHub: 'https://github.com/gabesmithp',
     linkedIn: 'https://www.linkedin.com/in/gabesmithp/',
-    class: 'gabe-img'
+    class: 'gabe-img',
+    img: '/images/user-img.jpg'
   },
   {
     id: 3,
     name: 'Spencer',
     gitHub: 'https://github.com/spibcol',
     linkedIn: 'https://www.linkedin.com/in/smcollins36/',
-    class: 'spencer-img'
+    class: 'spencer-img',
+    img: '/images/user-img.jpg'
   },
   {
     id: 4,
     name: 'Alfred',
     gitHub: 'https://github.com/alfredfmeng',
     linkedIn: 'http://www.linkedin.com/in/alfredfmeng',
-    class: 'alfred-img'
+    class: 'alfred-img',
+    img: '/images/user-img.jpg'
   }
 ]
 
@@ -42,7 +46,11 @@ const About = () => {
       <h4 className="about-title">Meet the Team</h4>
       <div className="about-container">
         {shuffledArray.map(user => (
-          <div key={user.id} className={`team-member ${user.class}`}>
+          <div
+            style={{backgroundImage: `url(${user.img})`}}
+            key={user.id}
+            className={`team-member ${user.class}`}
+          >
             <div className="team-member-name">{user.name}</div>
             <div className="f jcc">
               <a
