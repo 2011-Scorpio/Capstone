@@ -315,11 +315,11 @@ nav li {
 }
 
 .playlists-title {
-  width: 16rem;
-  margin: 2em auto 1.75em auto;
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 125%;
+  width: 17rem;
+  margin: 2em auto 2em auto;
+  font-size: 1.875rem;
+  font-weight: 800;
+  line-height: 140%;
 }
 
 .playlist-name {
@@ -328,6 +328,11 @@ nav li {
   font-weight: 500;
   color: $soft-black;
   letter-spacing: 2px;
+  width: 15em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
 }
 
 .single-playlist {

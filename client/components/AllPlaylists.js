@@ -34,7 +34,7 @@ class AllPlaylists extends React.Component {
         </h4>
         {this.state.ranOnce ? (
           <div>
-            {this.props.playlists.items.map(playlist => (
+            {this.props.playlists.items.reverse().map(playlist => (
               <div key={playlist.id} className="single-playlist">
                 <button
                   className="playlist-name"
