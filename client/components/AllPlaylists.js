@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store'
 import {fetchAllPlaylists, setCurrent} from '../store/userPlaylist'
+import BackgroundShape from './BackgroundShape'
 import {Plus} from 'react-feather'
 import NewPlaylist from './NewPlaylist'
 
@@ -57,7 +58,9 @@ class AllPlaylists extends React.Component {
             <NewPlaylist />
           </div>
         ) : (
-          ''
+          <span id="logo">
+            <BackgroundShape />
+          </span>
         )}
       </div>
     )

@@ -13,6 +13,9 @@ import {
 import {me} from './store'
 import Dashboard from './components/Dashboard'
 
+import BackgroundShape from './components/BackgroundShape'
+// import AllPlaylists from './components/AllPlaylists'
+
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
@@ -39,6 +42,10 @@ class Routes extends Component {
           )}
           <Route component={Login} />
         </Switch>
+
+        {/* <WelcomePage /> */}
+
+
       </main>
     )
   }
