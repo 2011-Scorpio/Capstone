@@ -67,7 +67,7 @@ class RdrChart extends React.Component {
         <RadarChart
           cx={150}
           cy={150}
-          outerRadius={100}
+          outerRadius={90}
           width={300}
           height={300}
           data={this.state.data}

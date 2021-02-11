@@ -57,9 +57,7 @@ class AllPlaylists extends React.Component {
             <NewPlaylist />
           </div>
         ) : (
-          <span id="logo">
-            <BackgroundShape />
-          </span>
+          <BackgroundShape />
         )}
       </div>
     )
