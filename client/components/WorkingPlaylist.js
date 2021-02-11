@@ -9,7 +9,6 @@ export default class WorkingPlaylist extends React.Component {
 
   render() {
     const {lastAdded} = this.props
-    console.log(this.props)
     return (
       <div>
         You just added: {lastAdded.name} by: {lastAdded.artists[0].name}

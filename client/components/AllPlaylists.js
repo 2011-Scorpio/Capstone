@@ -24,7 +24,6 @@ class AllPlaylists extends React.Component {
 
   setCurrent(event) {
     this.props.setCurrentPlaylist(event.target.value)
-    this.props.history.push('/explore')
   }
 
   render() {
