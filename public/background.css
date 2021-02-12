@@ -10,47 +10,46 @@
     #b2acf9,
     #75d2ff,
     #b2acf9,
-    #75d2ff,
-    #b2acf9,
-    #75d2ff
+    #fff1eb,
+    #b2acf9
   );
-  background-size: 2000% 1000%;
+  background-size: 1000% 1000%;
 
-  -webkit-animation: big-gradient-crawl 30s ease infinite;
-  -moz-animation: big-gradient-crawl 30s ease infinite;
-  animation: big-gradient-crawl 30s ease infinite;
+  -webkit-animation: big-gradient-crawl 35s ease infinite;
+  -moz-animation: big-gradient-crawl 35s ease infinite;
+  animation: big-gradient-crawl 35s ease infinite;
 }
 
 @-webkit-keyframes big-gradient-crawl {
   0% {
-    background-position: 0% 5%;
+    background-position: 51% 0%;
   }
   50% {
-    background-position: 100% 96%;
+    background-position: 50% 100%;
   }
   100% {
-    background-position: 0% 5%;
+    background-position: 51% 0%;
   }
 }
 @-moz-keyframes big-gradient-crawl {
   0% {
-    background-position: 0% 5%;
+    background-position: 51% 0%;
   }
   50% {
-    background-position: 100% 96%;
+    background-position: 50% 100%;
   }
   100% {
-    background-position: 0% 5%;
+    background-position: 51% 0%;
   }
 }
 @keyframes big-gradient-crawl {
   0% {
-    background-position: 0% 5%;
+    background-position: 51% 0%;
   }
   50% {
-    background-position: 100% 96%;
+    background-position: 50% 100%;
   }
   100% {
-    background-position: 0% 5%;
+    background-position: 51% 0%;
   }
 }
