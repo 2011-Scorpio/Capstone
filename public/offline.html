@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
   <title>Omakase</title>
   <style type="text/css">
     html {
@@ -13,11 +14,23 @@
     body {
       height: 100%;
       margin: 0;
-      background: #0a1f44;
+      background: #282828;
+      color: #fff8f5;
+      font-family: 'Montserrat',sans-serif;
+      font-weight: 600;
       display: flex;
       align-items: center;
       text-align: center;
       justify-content: center;
+    }
+
+    #omakase {
+      background: linear-gradient(200deg, #b2e4fd, #fcf5eb, #bfbafc);
+      background-size: 180%;
+      background-position: center;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
     }
 
     .city {
@@ -40,7 +53,7 @@
 <body>
   <div class="">
     <h2 class="offline-content">
-      <span>Please go online to use Omakase.</span>
+      <span id="omakase">Omakase is offline</span>
     </h2>
   </div>
 </body>
