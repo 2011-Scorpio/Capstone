@@ -42,7 +42,7 @@ router.get(
 router.get(
   '/callback',
   passport.authenticate('spotify', {
-    successRedirect: '/explore',
+    successRedirect: '/',
     failureRedirect: '/login'
   })
 )
