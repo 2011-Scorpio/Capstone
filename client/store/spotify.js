@@ -35,7 +35,8 @@ export const fetchRPlaylist = token => {
           type: 'track',
           q,
           offset,
-          market: 'US'
+          market: 'US',
+          limit: 40
         }
       })
       dispatch(getRandomPlaylist(data))

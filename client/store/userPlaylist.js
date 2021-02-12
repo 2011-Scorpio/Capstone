@@ -75,6 +75,9 @@ export const fetchAllPlaylists = token => {
         method: 'get',
         headers: {
           Authorization: 'Bearer ' + token
+        },
+        params: {
+          time_range: 'short-term'
         }
       })
       dispatch(getAllPlaylists(data))
