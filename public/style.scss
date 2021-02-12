@@ -484,6 +484,16 @@ nav li {
   width: 14rem;
 }
 
+.about-explanation {
+  margin: 0 auto;
+  font-size: 1.25rem;
+  padding: 0 1.25em;
+  text-align: center;
+  line-height: 150%;
+  font-weight: 500;
+  max-width: 35em;
+}
+
 .about-container {
   margin: 2em auto 0 auto;
   text-align: center;
@@ -494,10 +504,9 @@ nav li {
 }
 
 .team-member {
-  height: 8rem;
-  width: 8rem;
+  height: 10rem;
+  width: 10rem;
   margin: 0.625em;
-  padding: 1em;
   border-radius: $radius-one;
   background-size: 10em 10em;
   display: flex;
@@ -508,44 +517,45 @@ nav li {
 .team-member-name {
   font-size: 1.5rem;
   font-weight: 400;
+  margin-top: 1em;
   margin-bottom: 0.5em;
   letter-spacing: 3px;
 }
 
-.about-link {
-  height: 2.25em;
-  width: 2.25em;
+.about-content-container {
+  height: 10rem;
+  width: 10rem;
+  background: rgba(255, 255, 255, 0);
+  opacity: 0;
+  transition: all 1.2s ease-in-out;
+  &:hover {
+    opacity: 1;
+    background: rgba(228, 228, 228, 0.573);
+    backdrop-filter: blur(4px);
+    transition: all 0.7s ease-in;
+    position: relative;
+    border-radius: $radius-one;
+  }
 }
 
 .about-link-container {
   height: 2.25em;
   width: 2.25em;
-  @include glass-back-2();
+  background-color: rgba(245, 245, 245, 0.925);
   color: rgba(46, 46, 46, 0.795);
   padding: 0.75em;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0.4em;
+  margin: 0 0.4em 1em 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
-// .alfred-img {
-//  background-image: url('./images/user-img.jpg') no-repeat center center fixed;
-//  background-size: cover;
-// }
-
-// .azriel-img {
-
-// }
-
-// .spencer-img {
-
-// }
-
-// .gabriel-img {
-
-// }
+.about-link {
+  height: 2.25em;
+  width: 2.25em;
+}
 
 /*****************
      FOOTER   
