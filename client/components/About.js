@@ -46,10 +46,11 @@ const About = () => {
       <h4 className="about-title">What is Omakase?</h4>
       <p className="about-explanation">
         We built Omakase to make it easier for people to discover new music and
-        create playlists. Using the Spotify API we were able blah blah blah
+        create playlists. Using the Spotify API we were able blah blah blah blah
+        and we really hope you like it!
       </p>
       <h4 className="about-title">Meet the Team</h4>
-      <div className="about-container">
+      <div className="about-photo-gallery">
         {shuffledArray.map(user => (
           <div
             style={{backgroundImage: `url(${user.img})`}}

@@ -217,6 +217,10 @@ nav li {
 .landing-quote {
   text-align: center;
   @include big-font-1();
+  -webkit-animation: delayfadein 3s;
+  -moz-animation: delayfadein 3s;
+  -ms-animation: delayfadein 3s;
+  animation: delayfadein 3s;
   max-width: 5em;
 }
 
@@ -380,7 +384,7 @@ nav li {
 
 .new-playlist-input {
   font-size: 1rem;
-  width: 8rem;
+  width: 10rem;
   font-weight: 500;
   letter-spacing: 2px;
   color: $soft-black;
@@ -492,16 +496,20 @@ nav li {
   text-align: center;
   line-height: 150%;
   font-weight: 500;
-  max-width: 35em;
+  max-width: 31em;
 }
 
-.about-container {
-  margin: 2em auto 0 auto;
+.about-photo-gallery {
+  margin: 2em auto 2em auto;
   text-align: center;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   max-width: 30em;
+  -webkit-animation: delayfadein 2.5s;
+  -moz-animation: delayfadein 2.5s;
+  -ms-animation: delayfadein 2.5s;
+  animation: delayfadein 2.5s;
 }
 
 .team-member {
@@ -512,14 +520,14 @@ nav li {
   background-size: 10em 10em;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .team-member-name {
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 500;
   margin-top: 1em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.75em;
   letter-spacing: 3px;
 }
 
@@ -533,7 +541,7 @@ nav li {
     opacity: 1;
     background: rgba(228, 228, 228, 0.573);
     backdrop-filter: blur(4px);
-    transition: all 0.7s ease-in;
+    transition: all 0.6s ease-in-out;
     position: relative;
     border-radius: $radius-one;
   }
@@ -549,7 +557,7 @@ nav li {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0.4em 1em 0;
+  margin: 0 0.4em;
   transition: opacity 0.5s ease-in-out;
 }
 
@@ -613,4 +621,118 @@ footer {
   justify-content: center;
   margin: 1em;
   transition: opacity 0.4s ease;
+}
+
+/*****************
+ GLOBAL ANIMATION
+******************/
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes delayfadein {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes delayfadein {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes delayfadein {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes delayfadein {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes movup {
+  from {
+    top: 8;
+  }
+  to {
+    top: 0;
+  }
+}
+@-moz-keyframes movup {
+  from {
+    top: 8;
+  }
+  to {
+    top: 0;
+  }
+}
+@-webkit-keyframes movup {
+  from {
+    top: 8;
+  }
+  to {
+    top: 0;
+  }
+}
+@-ms-keyframes movup {
+  from {
+    top: 8;
+  }
+  to {
+    top: 0;
+  }
 }
