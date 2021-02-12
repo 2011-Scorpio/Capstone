@@ -18,15 +18,6 @@ const NavBar = () => {
         <ul>
           <li>
             <NavLink
-              to="/login"
-              className="nav-links"
-              onClick={() => toggleCheckbox()}
-            >
-              Login
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to="/playlists"
               className="nav-links"
               onClick={() => toggleCheckbox()}
@@ -41,6 +32,15 @@ const NavBar = () => {
               onClick={() => toggleCheckbox()}
             >
               About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/login"
+              className="nav-links"
+              onClick={() => toggleCheckbox()}
+            >
+              Login
             </NavLink>
           </li>
         </ul>
