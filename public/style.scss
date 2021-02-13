@@ -60,17 +60,30 @@ $glass-border: linear-gradient(
 /*****************
       GLOBAL   
 ******************/
+#app,
+html {
+  height: 100%;
+}
 
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  height: 100vh;
+  height: 100%;
   color: $soft-black;
 }
 
 a {
   text-decoration: none;
   color: $light-peach;
+}
+
+.page-container {
+  min-height: 100%;
+  margin-bottom: -7.5em;
+}
+
+.push {
+  height: 7.5em;
 }
 
 /*****************
@@ -577,12 +590,15 @@ nav li {
 ******************/
 
 footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background-color: $soft-black;
   color: $light-peach;
-  padding: 2em 2.25em;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 230%;
+  height: 7.5em;
 }
 
 .footer-github {
