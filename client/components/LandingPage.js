@@ -35,7 +35,7 @@ class LandingPage extends React.Component {
             className="chevron-down"
             onClick={() =>
               window.scrollTo({
-                top: 400,
+                top: 500,
                 behavior: 'smooth'
               })
             }
@@ -57,7 +57,6 @@ class LandingPage extends React.Component {
             </Link>
           </div>
         )}
-        <div className="push" />
       </>
     )
   }

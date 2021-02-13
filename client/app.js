@@ -7,8 +7,10 @@ const App = () => {
   return (
     <div className="page-container">
       <ScrollToTop />
-      <NavBar />
-      <Routes />
+      <div>
+        <NavBar />
+        <Routes />
+      </div>
       <Footer />
     </div>
   )

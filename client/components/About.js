@@ -42,7 +42,7 @@ const About = () => {
   }
   const shuffledArray = shuffle(usersInfo)
   return (
-    <div className="about-wrapper">
+    <div className="about-container">
       <div>
         <h4 className="about-title">What is Omakase?</h4>
         <p className="about-explanation">
