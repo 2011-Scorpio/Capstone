@@ -136,7 +136,7 @@ nav li {
 }
 
 .navbar-name {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   display: inline-block;
   margin-top: auto;
   margin-bottom: auto;
@@ -289,7 +289,7 @@ nav li {
 }
 
 .button-one {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   background-color: $soft-black;
   color: whitesmoke;
@@ -329,7 +329,7 @@ nav li {
 }
 
 .button-two {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   background-color: $soft-black;
   color: whitesmoke;
@@ -441,7 +441,7 @@ nav li {
 #button-override {
   font-weight: 400;
   font-size: 1rem;
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   letter-spacing: 0.5px;
   color: $soft-black;
 }
@@ -653,7 +653,7 @@ footer a {
 }
 
 .not-found-code {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   font-size: 7rem;
   margin-bottom: 0;
