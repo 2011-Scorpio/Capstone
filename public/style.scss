@@ -5,7 +5,7 @@ $light-peach: #fff8f5;
 $blue: #75d2ff;
 $purple: #b2acf9;
 $radius-one: 1em;
-$buffer: 8em;
+$buffer: 6em;
 
 $glass-no-blur: linear-gradient(
   -45deg,
@@ -228,7 +228,7 @@ nav li {
 .nav-links {
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-family: 'Montserrat', sans-serif;
   background: $soft-black;
   color: $light-peach;
