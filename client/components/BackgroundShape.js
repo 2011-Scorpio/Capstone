@@ -2,28 +2,25 @@ import React from 'react'
 import * as THREE from 'three'
 
 class BackgroundShape extends React.Component {
-  constructor() {
-    super()
-  }
   componentDidMount() {
     let scene = new THREE.Scene()
     let camera = new THREE.PerspectiveCamera(
-      120,
+      80,
       window.innerWidth / window.innerHeight,
       0.1,
-      4000
+      1000
     )
     let renderer = new THREE.WebGLRenderer({alpha: true})
     renderer.setSize(window.innerWidth / 8, window.innerHeight / 8)
     document.getElementById('logo').appendChild(renderer.domElement)
-    const geometry = new THREE.TorusGeometry(1, 0.25, 10, 45)
+    const geometry = new THREE.TorusGeometry(8, 2.5, 30, 200, 6.3)
     let material = new THREE.MeshNormalMaterial()
     let plane = new THREE.Mesh(geometry, material)
     scene.add(plane)
-    camera.position.z = 2
+    camera.position.z = 18
     const animate = function() {
       requestAnimationFrame(animate)
-      plane.rotation.y += 0.03
+      plane.rotation.y += 0.01
       renderer.render(scene, camera)
     }
     animate()
