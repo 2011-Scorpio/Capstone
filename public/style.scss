@@ -359,7 +359,8 @@ nav li {
 
 .playlists-title {
   width: 17rem;
-  margin: 2em auto 2em auto;
+  margin: 2em auto 1.5em auto;
+  color: $soft-black;
   @include big-font-2();
 }
 

@@ -52,7 +52,7 @@ const About = () => {
         </p>
       </div>
       <div>
-        <h4 className="about-title">Meet the Team</h4>
+        <h4 className="about-title">Meet the Team!</h4>
         <div className="about-photo-gallery">
           {shuffledArray.map(user => (
             <div
