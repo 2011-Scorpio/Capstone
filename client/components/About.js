@@ -42,46 +42,50 @@ const About = () => {
   }
   const shuffledArray = shuffle(usersInfo)
   return (
-    <>
-      <h4 className="about-title">What is Omakase?</h4>
-      <p className="about-explanation">
-        We built Omakase to make it easier for people to discover new music and
-        create playlists. Using the Spotify API we were able blah blah blah blah
-        and we really hope you like it!
-      </p>
-      <h4 className="about-title">Meet the Team</h4>
-      <div className="about-photo-gallery">
-        {shuffledArray.map(user => (
-          <div
-            style={{backgroundImage: `url(${user.img})`}}
-            key={user.id}
-            className={`team-member ${user.class}`}
-          >
-            <div className="about-content-container">
-              <div className="team-member-name">{user.name}</div>
-              <div className="f jcc">
-                <a
-                  href={user.gitHub}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="about-link-container"
-                >
-                  <GitHub className="about-link" />
-                </a>
-                <a
-                  href={user.linkedIn}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="about-link-container"
-                >
-                  <Linkedin className="about-link" />
-                </a>
+    <div className="about-wrapper">
+      <div>
+        <h4 className="about-title">What is Omakase?</h4>
+        <p className="about-explanation">
+          We built Omakase to make it easier for people to discover new music
+          and create playlists. Using the Spotify API we were able blah blah
+          blah blah and we really hope you like it!
+        </p>
+      </div>
+      <div>
+        <h4 className="about-title">Meet the Team</h4>
+        <div className="about-photo-gallery">
+          {shuffledArray.map(user => (
+            <div
+              style={{backgroundImage: `url(${user.img})`}}
+              key={user.id}
+              className={`team-member ${user.class}`}
+            >
+              <div className="about-content-container">
+                <div className="team-member-name">{user.name}</div>
+                <div className="f jcc">
+                  <a
+                    href={user.gitHub}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="about-link-container"
+                  >
+                    <GitHub className="about-link" />
+                  </a>
+                  <a
+                    href={user.linkedIn}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="about-link-container"
+                  >
+                    <Linkedin className="about-link" />
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 
