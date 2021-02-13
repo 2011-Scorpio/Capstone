@@ -30,7 +30,7 @@ class AllPlaylists extends React.Component {
   render() {
     return (
       <div className="playlists-container">
-        <h4 className="playlists-title">Please Choose Or Create A Playlist</h4>
+        <h4 className="playlists-title">Create A Playlist</h4>
         {this.state.ranOnce ? (
           <div>
             {this.props.playlists.items.reverse().map(playlist => (
