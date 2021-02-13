@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import {makePlaylist, fetchAllPlaylists} from '../store/userPlaylist'
 import {connect} from 'react-redux'
 import {ChevronDown} from 'react-feather'
-import Footer from './Footer'
 import Dashboard from './Dashboard'
 
 class LandingPage extends React.Component {
@@ -58,7 +57,7 @@ class LandingPage extends React.Component {
             </Link>
           </div>
         )}
-        <Footer />
+        <div className="push" />
       </>
     )
   }
