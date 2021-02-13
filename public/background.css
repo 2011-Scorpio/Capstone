@@ -10,10 +10,9 @@
     #b2acf9,
     #75d2ff,
     #b2acf9,
-    #fff1eb,
-    #b2acf9
+    #fff1eb
   );
-  background-size: 1000% 1000%;
+  background-size: 1200% 1200%;
 
   -webkit-animation: big-gradient-crawl 35s ease infinite;
   -moz-animation: big-gradient-crawl 35s ease infinite;
