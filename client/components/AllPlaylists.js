@@ -5,6 +5,7 @@ import {fetchAllPlaylists, setCurrent} from '../store/userPlaylist'
 import BackgroundShape from './BackgroundShape'
 import {Plus} from 'react-feather'
 import NewPlaylist from './NewPlaylist'
+import {withRouter} from 'react-router-dom'
 
 class AllPlaylists extends React.Component {
   constructor() {
@@ -12,7 +13,8 @@ class AllPlaylists extends React.Component {
     this.state = {
       ranOnce: false
     }
-    this.setCurrent = this.setCurrent.bind(this)
+    this.goToSinglePlaylist = this.goToSinglePlaylist.bind(this)
+    this.goToPlayerPage = this.goToPlayerPage.bind(this)
   }
   async componentDidMount() {
     await this.props.loadUser()
@@ -22,8 +24,13 @@ class AllPlaylists extends React.Component {
     })
   }
 
-  setCurrent(event) {
-    this.props.setCurrentPlaylist(event.target.value)
+  goToSinglePlaylist(nameAndId) {
+    this.props.setCurrentPlaylist(nameAndId)
+    this.props.history.push('/singleplaylist')
+  }
+
+  goToPlayerPage(nameAndId) {
+    this.props.setCurrentPlaylist(nameAndId)
     this.props.history.push('/explore')
   }
 
@@ -39,7 +46,9 @@ class AllPlaylists extends React.Component {
                   className="playlist-name"
                   type="button"
                   value={[playlist.name, playlist.id]}
-                  onClick={e => this.setCurrent(e)}
+                  onClick={() =>
+                    this.goToSinglePlaylist([playlist.name, playlist.id])
+                  }
                 >
                   {playlist.name}
                 </button>
@@ -47,7 +56,9 @@ class AllPlaylists extends React.Component {
                   className="playlist-add"
                   type="button"
                   value={[playlist.name, playlist.id]}
-                  onClick={e => this.setCurrent(e)}
+                  onClick={() =>
+                    this.goToPlayerPage([playlist.name, playlist.id])
+                  }
                 >
                   <Plus className="plus-icon" />
                 </button>
@@ -72,4 +83,4 @@ const mapDispatch = dispatch => ({
   getPlaylists: token => dispatch(fetchAllPlaylists(token)),
   setCurrentPlaylist: nameAndId => dispatch(setCurrent(nameAndId))
 })
-export default connect(mapState, mapDispatch)(AllPlaylists)
+export default withRouter(connect(mapState, mapDispatch)(AllPlaylists))
