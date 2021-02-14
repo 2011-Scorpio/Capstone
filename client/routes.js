@@ -13,12 +13,9 @@ import {
 import {me} from './store'
 import Dashboard from './components/Dashboard'
 
-import BackgroundShape from './components/BackgroundShape'
-// import AllPlaylists from './components/AllPlaylists'
-
 class Routes extends Component {
-  componentDidMount() {
-    this.props.loadInitialData()
+  async componentDidMount() {
+    await this.props.loadInitialData()
   }
 
   render() {

@@ -13,7 +13,6 @@ const NavBar = () => {
         <h3 className="navbar-name">Omakase</h3>
       </NavLink>
       <input id="nav-toggle" type="checkbox" className="nav-toggle" />
-
       <nav>
         <ul>
           <li>

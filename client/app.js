@@ -1,14 +1,17 @@
 import React from 'react'
-import {NavBar, ScrollToTop} from './components'
+import {NavBar, ScrollToTop, Footer} from './components'
 import Routes from './routes'
 import '../public/style.scss'
 
 const App = () => {
   return (
-    <div>
+    <div className="page-container">
       <ScrollToTop />
-      <NavBar />
-      <Routes />
+      <div>
+        <NavBar />
+        <Routes />
+      </div>
+      <Footer />
     </div>
   )
 }
