@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const GET_AUDIO_FEAT = 'GET_AUDIO_FEAT'
 const GET_AUDIO_FEAT_PLAYER = 'GET_AUDIO_FEAT_PLAYER'
+const GET_SINGLE_PLAYLIST = 'GET_SINGLE_PLAYLIST'
 
 const getAudioFeat = featArr => ({
   type: GET_AUDIO_FEAT,
@@ -12,6 +13,28 @@ const getAudioFeatPlayer = featArrPlayer => ({
   type: GET_AUDIO_FEAT_PLAYER,
   featArrPlayer
 })
+
+const getSinglePlaylist = playlist => ({
+  type: GET_SINGLE_PLAYLIST,
+  playlist
+})
+
+export const fetchSinglePlaylist = (token, playlistId) => {
+  return async dispatch => {
+    try {
+      const {data} = await axios({
+        url: `https://api.spotify.com/v1/playlists/${playlistId}`,
+        method: 'get',
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      })
+      dispatch(getSinglePlaylist(data))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
 
 export const fetchAudioFeatPlayer = (token, trackId) => {
   return async dispatch => {
@@ -68,6 +91,8 @@ export default function(state = initialState, action) {
         ...state,
         featArrPlayer: [...state.featArrPlayer, action.featArrPlayer]
       }
+    case GET_SINGLE_PLAYLIST:
+      return {...state, singlePlaylist: action.playlist}
     default:
       return state
   }
