@@ -72,7 +72,10 @@ class PlayerPage extends Component {
     const addedTrack = this.state.queue[0]
     const trackURI = addedTrack.uri
     const trackId = addedTrack.id
-    this.setState({lastAdded: addedTrack})
+    this.setState({lastAdded: {}})
+    this.setState(prevState => ({
+      lastAdded: prevState.queue[0]
+    }))
     await this.props.addToPlaylist(
       this.props.currentPlaylistId.id,
       trackURI,
@@ -97,7 +100,7 @@ class PlayerPage extends Component {
         <NowPlaying />
         {this.props.currentPlaylistId ? (
           <div>
-            <div>
+            <div className="last-added">
               {lastAdded.name ? <WorkingPlaylist lastAdded={lastAdded} /> : ''}
             </div>
             <div className="explore-page-container f jcc">

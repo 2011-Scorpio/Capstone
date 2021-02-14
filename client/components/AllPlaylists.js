@@ -30,7 +30,7 @@ class AllPlaylists extends React.Component {
   render() {
     return (
       <div className="playlists-container">
-        <h4 className="playlists-title">Create A Playlist</h4>
+        <h4 className="playlists-title">Create a Playlist</h4>
         {this.state.ranOnce ? (
           <div>
             {this.props.playlists.items.reverse().map(playlist => (
@@ -49,7 +49,7 @@ class AllPlaylists extends React.Component {
                   value={[playlist.name, playlist.id]}
                   onClick={e => this.setCurrent(e)}
                 >
-                  <Plus />
+                  <Plus className="plus-icon" />
                 </button>
               </div>
             ))}
