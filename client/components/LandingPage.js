@@ -27,12 +27,16 @@ class LandingPage extends React.Component {
               <Dashboard />
             </div>
           ) : (
-            <h3 className="landing-quote">A Simpler Way to Discover Music</h3>
+            <h3 className="landing-quote">
+              A Simpler<br />Way to Discover<br />Music
+            </h3>
           )}
         </div>
         <div className="chevron-container f jcc">
           <ChevronDown
             className="chevron-down"
+            type="image"
+            alt="arrow pointing down"
             onClick={() =>
               window.scrollTo({
                 top: 500,
