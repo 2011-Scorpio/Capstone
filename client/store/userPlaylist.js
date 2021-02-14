@@ -20,9 +20,9 @@ const getAllPlaylists = allPlaylists => ({
   allPlaylists
 })
 
-const updateCurrent = newCurrent => ({
+export const setCurrent = nameAndId => ({
   type: UPDATE_CURRENT_PLAYLIST,
-  newCurrent
+  nameAndId
 })
 
 export const makePlaylist = (userId, token, playlistName) => {
@@ -88,13 +88,6 @@ export const fetchAllPlaylists = token => {
   }
 }
 
-export const setCurrent = nameAndId => {
-  return dispatch => {
-    const values = nameAndId.split(',')
-    dispatch(updateCurrent({name: values[0], id: values[1]}))
-  }
-}
-
 let initialState = {}
 
 export default function(state = initialState, action) {
@@ -106,7 +99,10 @@ export default function(state = initialState, action) {
     case GET_ALL_PLAYLISTS:
       return {...state, allUserPlaylists: action.allPlaylists}
     case UPDATE_CURRENT_PLAYLIST:
-      return {...state, currentPlaylist: action.newCurrent}
+      return {
+        ...state,
+        currentPlaylist: {name: action.nameAndId[0], id: action.nameAndId[1]}
+      }
     default:
       return state
   }
