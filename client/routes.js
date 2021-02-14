@@ -12,6 +12,7 @@ import {
 } from './components'
 import {me} from './store'
 import Dashboard from './components/Dashboard'
+import SinglePlaylist from './components/SinglePlaylist'
 
 class Routes extends Component {
   async componentDidMount() {
@@ -34,6 +35,7 @@ class Routes extends Component {
               <Route exact path="/explore" component={PlayerPage} />
               <Route path="/playlists" component={AllPlaylists} />
               <Route path="/dashboard" component={Dashboard} />
+              <Route path="/singleplaylist" component={SinglePlaylist} />
               <Route component={NotFound} />
             </Switch>
           )}
