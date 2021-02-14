@@ -58,6 +58,7 @@ const About = () => {
             <div
               style={{backgroundImage: `url(${user.img})`}}
               key={user.id}
+              alt={user.name}
               className={`team-member ${user.class}`}
             >
               <div className="about-content-container">

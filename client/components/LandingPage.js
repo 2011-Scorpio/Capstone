@@ -35,6 +35,7 @@ class LandingPage extends React.Component {
         <div className="chevron-container f jcc">
           <ChevronDown
             className="chevron-down"
+            type="image"
             alt="arrow pointing down"
             onClick={() =>
               window.scrollTo({
