@@ -12,43 +12,43 @@
     #b2acf9,
     #fff1eb
   );
-  background-size: 1200% 1200%;
+  background-size: 200% 1800%;
 
-  -webkit-animation: big-gradient-crawl 35s ease infinite;
-  -moz-animation: big-gradient-crawl 35s ease infinite;
-  animation: big-gradient-crawl 35s ease infinite;
+  -webkit-animation: big-gradient-crawl 65s ease infinite;
+  -moz-animation: big-gradient-crawl 65s ease infinite;
+  animation: big-gradient-crawl 65s ease infinite;
 }
 
 @-webkit-keyframes big-gradient-crawl {
   0% {
-    background-position: 51% 0%;
+    background-position: 51% 5%;
   }
   50% {
-    background-position: 50% 100%;
+    background-position: 50% 90%;
   }
   100% {
-    background-position: 51% 0%;
+    background-position: 51% 5%;
   }
 }
 @-moz-keyframes big-gradient-crawl {
   0% {
-    background-position: 51% 0%;
+    background-position: 51% 5%;
   }
   50% {
-    background-position: 50% 100%;
+    background-position: 50% 90%;
   }
   100% {
-    background-position: 51% 0%;
+    background-position: 51% 5%;
   }
 }
 @keyframes big-gradient-crawl {
   0% {
-    background-position: 51% 0%;
+    background-position: 51% 5%;
   }
   50% {
-    background-position: 50% 100%;
+    background-position: 50% 90%;
   }
   100% {
-    background-position: 51% 0%;
+    background-position: 51% 5%;
   }
 }
