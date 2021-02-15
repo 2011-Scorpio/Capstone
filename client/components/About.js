@@ -69,6 +69,7 @@ const About = () => {
                     target="_blank"
                     rel="noreferrer"
                     className="about-link-container"
+                    alt={`${user.name} Git Hub`}
                   >
                     <GitHub className="about-link" />
                   </a>
@@ -77,6 +78,7 @@ const About = () => {
                     target="_blank"
                     rel="noreferrer"
                     className="about-link-container"
+                    alt={`${user.name} Linked In`}
                   >
                     <Linkedin className="about-link" />
                   </a>
