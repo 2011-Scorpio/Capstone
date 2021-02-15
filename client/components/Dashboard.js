@@ -15,7 +15,7 @@ class Dashboard extends React.Component {
   }
 
   async componentDidMount() {
-    await this.props.getUser()
+    // await this.props.getUser()
     await this.props.getUserPlaylist(this.props.token)
     const trackId = this.props.userTopTracks.map(track => {
       return track.id
