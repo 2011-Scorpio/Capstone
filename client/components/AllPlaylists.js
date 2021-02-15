@@ -17,7 +17,7 @@ class AllPlaylists extends React.Component {
     this.goToPlayerPage = this.goToPlayerPage.bind(this)
   }
   async componentDidMount() {
-    // await this.props.loadUser()
+    await this.props.loadUser()
     await this.props.getPlaylists(this.props.token)
     this.setState({
       ranOnce: true
@@ -39,9 +39,10 @@ class AllPlaylists extends React.Component {
       <div className="playlists-container">
         {this.state.ranOnce ? (
           <>
-            <h4 className="playlists-title">Create a Playlist</h4>
+            <h4 className="playlists-title">Playlists</h4>
             <div>
-              {this.props.playlists.items.reverse().map(playlist => (
+              <NewPlaylist />
+              {this.props.playlists.items.map(playlist => (
                 <div key={playlist.id} className="single-playlist">
                   <button
                     className="playlist-name"
@@ -65,11 +66,12 @@ class AllPlaylists extends React.Component {
                   </button>
                 </div>
               ))}
-              <NewPlaylist />
             </div>
           </>
         ) : (
-          <BackgroundShape />
+          <div className="playlist-shape">
+            <BackgroundShape />
+          </div>
         )}
       </div>
     )
