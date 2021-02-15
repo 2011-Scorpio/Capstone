@@ -23,7 +23,6 @@ class LandingPage extends React.Component {
         <div className="landing-top-block-wrapper">
           {this.props.isLoggedIn ? (
             <div>
-              <h3>Your taste this month:</h3>
               <Dashboard />
             </div>
           ) : (
@@ -49,7 +48,7 @@ class LandingPage extends React.Component {
         {this.props.isLoggedIn ? (
           <div>
             <div className="landing-btn-container glass f jcc aic">
-              <Link to="/explore">
+              <Link to="/playlists">
                 <ButtonOne text="Explore" />
               </Link>
             </div>
