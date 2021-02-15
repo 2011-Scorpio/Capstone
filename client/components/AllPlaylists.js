@@ -41,30 +41,33 @@ class AllPlaylists extends React.Component {
           <>
             <h4 className="playlists-title">Create a Playlist</h4>
             <div>
-              {this.props.playlists.items.reverse().map(playlist => (
-                <div key={playlist.id} className="single-playlist">
-                  <button
-                    className="playlist-name"
-                    type="button"
-                    value={[playlist.name, playlist.id]}
-                    onClick={() =>
-                      this.goToSinglePlaylist([playlist.name, playlist.id])
-                    }
-                  >
-                    {playlist.name}
-                  </button>
-                  <button
-                    className="playlist-add"
-                    type="button"
-                    value={[playlist.name, playlist.id]}
-                    onClick={() =>
-                      this.goToPlayerPage([playlist.name, playlist.id])
-                    }
-                  >
-                    <Plus className="plus-icon" />
-                  </button>
-                </div>
-              ))}
+              {this.props.playlists.items
+                .filter(playlist => playlist.owner.id === this.props.userId)
+                .reverse()
+                .map(playlist => (
+                  <div key={playlist.id} className="single-playlist">
+                    <button
+                      className="playlist-name"
+                      type="button"
+                      value={[playlist.name, playlist.id]}
+                      onClick={() =>
+                        this.goToSinglePlaylist([playlist.name, playlist.id])
+                      }
+                    >
+                      {playlist.name}
+                    </button>
+                    <button
+                      className="playlist-add"
+                      type="button"
+                      value={[playlist.name, playlist.id]}
+                      onClick={() =>
+                        this.goToPlayerPage([playlist.name, playlist.id])
+                      }
+                    >
+                      <Plus className="plus-icon" />
+                    </button>
+                  </div>
+                ))}
               <NewPlaylist />
             </div>
           </>
@@ -77,6 +80,7 @@ class AllPlaylists extends React.Component {
 }
 
 const mapState = state => ({
+  userId: state.user.spotifyId,
   token: state.user.token,
   playlists: state.userPlaylist.allUserPlaylists
 })
