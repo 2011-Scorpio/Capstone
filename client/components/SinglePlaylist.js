@@ -22,9 +22,6 @@ class SinglePlaylist extends React.Component {
         this.props.token,
         this.props.currentPlaylistId.id
       )
-      // this.setState({
-
-      // })
 
       const trackId = this.props.playlist.tracks.items.map(track => {
         return track.track.id
@@ -38,7 +35,7 @@ class SinglePlaylist extends React.Component {
         playlistFeat: this.props.audioFeat.audio_features
       })
     } catch (error) {
-      //this.props.history.push('/playlists')
+      this.props.history.push('/playlists')
     }
   }
 
