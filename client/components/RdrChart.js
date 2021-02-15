@@ -67,20 +67,22 @@ class RdrChart extends React.Component {
       <div>
         {this.state.data.length ? (
           <div className="rdr-chart">
+            <h3 className="your-taste">Your Taste This Month</h3>
             <RadarChart
               cx={150}
               cy={150}
               outerRadius={90}
-              width={300}
-              height={300}
+              width={325}
+              height={325}
               data={this.state.data}
+              className="chart-style"
             >
               <PolarAngleAxis dataKey="attribute" />
               <Radar
                 name="Taste"
                 dataKey="A"
-                stroke="#8884d8"
-                fill="#8884d8"
+                stroke="#fff"
+                fill="#fff"
                 fillOpacity={0.6}
               />
             </RadarChart>
