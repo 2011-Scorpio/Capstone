@@ -16,6 +16,7 @@ const Footer = () => {
           className="footer-github f jcc aic"
           target="_blank"
           rel="noreferrer"
+          alt="project github"
         >
           <GitHub className="footer-github-icon" />
         </a>
