@@ -11,13 +11,13 @@ class BackgroundShape extends React.Component {
       1000
     )
     let renderer = new THREE.WebGLRenderer({alpha: true})
-    renderer.setSize(window.innerWidth / 8, window.innerHeight / 8)
+    renderer.setSize(window.innerWidth / 3, window.innerHeight / 3)
     document.getElementById('logo').appendChild(renderer.domElement)
     const geometry = new THREE.TorusGeometry(8, 2.5, 30, 200, 6.3)
     let material = new THREE.MeshNormalMaterial()
     let plane = new THREE.Mesh(geometry, material)
     scene.add(plane)
-    camera.position.z = 18
+    camera.position.z = 45
     const animate = function() {
       requestAnimationFrame(animate)
       plane.rotation.y += 0.01
