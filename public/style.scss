@@ -41,7 +41,7 @@ $glass-border: linear-gradient(
 }
 
 @mixin big-font-2 {
-  font-size: 1.875rem;
+  font-size: 2.125rem;
   font-weight: 800;
   line-height: 140%;
 }
@@ -395,7 +395,7 @@ nav li {
 }
 
 .playlists-title {
-  width: 17rem;
+  width: 18rem;
   margin: 2em auto 1.5em auto;
   color: $soft-black;
   @include big-font-2();
@@ -415,7 +415,7 @@ nav li {
 }
 
 .single-playlist {
-  margin: 1em auto;
+  margin: 0.75em auto;
   max-width: 24em;
   height: 3.5em;
   @include glass-back-2();
@@ -424,7 +424,7 @@ nav li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0.33em 0 1.5em;
+  padding-left: 1.5em;
 }
 
 .playlist-add {
@@ -434,6 +434,7 @@ nav li {
   width: 3rem;
   border: 0.125em solid rgb(255, 255, 255, 0.2);
   border-radius: 50%;
+  margin-right: 0.3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -685,9 +686,9 @@ footer {
   color: $soft-black;
   background-color: $light-peach;
   padding: 0.25rem;
-  height: 1.7rem;
-  width: 1.75rem;
-  border-radius: 1.25rem;
+  height: 2.1rem;
+  width: 2.15rem;
+  border-radius: 1.4rem;
   margin-right: 2rem;
   @media screen and (min-width: 1024px) {
     margin-right: 4rem;
@@ -761,6 +762,7 @@ footer a {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2em;
   margin: 1em;
 }
 
