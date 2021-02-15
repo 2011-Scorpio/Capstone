@@ -39,7 +39,7 @@ class Routes extends Component {
               <Route component={NotFound} />
             </Switch>
           )}
-          <Route component={Login} />
+          {/* <Route component={Login} /> */}
         </Switch>
 
         {/* <WelcomePage /> */}
