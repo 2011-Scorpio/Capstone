@@ -27,8 +27,8 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div>
-        <RdrChart props={this.state.top15} />
+      <div className="dashboard">
+        <RdrChart title="Your Taste This Month" props={this.state.top15} />
       </div>
     )
   }
