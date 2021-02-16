@@ -25,12 +25,14 @@ class NewPlayList extends React.Component {
       : this.setState({
           playlistName: ''
         })
-    await this.props.createPlaylist(
-      this.props.userId,
-      this.props.token,
-      this.state.playlistName
-    )
-    await this.props.getPlaylists(this.props.token)
+    if (this.state.playlistName !== '') {
+      await this.props.createPlaylist(
+        this.props.userId,
+        this.props.token,
+        this.state.playlistName
+      )
+      await this.props.getPlaylists(this.props.token)
+    }
   }
 
   render() {
