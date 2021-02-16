@@ -443,7 +443,7 @@ nav li {
   font-weight: 500;
   color: $soft-black;
   letter-spacing: 2px;
-  width: 15em;
+  width: 85%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -496,7 +496,7 @@ nav li {
 
 .new-playlist-input {
   font-size: 1rem;
-  width: 14rem;
+  width: 70%;
   font-weight: 500;
   letter-spacing: 2px;
   color: $soft-black;
@@ -550,9 +550,6 @@ nav li {
   margin: 1em 1.5em 2em 1.5em;
 }
 .sp-title {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   width: 17rem;
 }
 
@@ -563,6 +560,10 @@ nav li {
   text-align: left;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+  max-width: 17rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 #sp-add-button {
@@ -687,7 +688,7 @@ nav li {
   height: 3em;
   width: 3em;
   background-color: rgba(236, 236, 236, 0.219);
-  color: rgba(255, 255, 255, 0.795);
+  color: rgba(255, 255, 255, 0.726);
   border-radius: $radius-one;
   opacity: 0;
   font-size: 0.75rem;
@@ -698,10 +699,10 @@ nav li {
 
 .animating {
   opacity: 1;
-  -webkit-animation: lastfadeout 3s forwards;
-  -moz-animation: lastfadeout 3s forwards;
-  -ms-animation: lastfadeout 3s forwards;
-  animation: lastfadeout 3s forwards;
+  -webkit-animation: lastfadeout 2s forwards;
+  -moz-animation: lastfadeout 2s forwards;
+  -ms-animation: lastfadeout 2s forwards;
+  animation: lastfadeout 2s forwards;
 }
 
 .player {
