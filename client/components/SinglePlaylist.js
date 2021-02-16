@@ -59,7 +59,7 @@ class SinglePlaylist extends React.Component {
               <Plus />
             </button>
           </div>
-          {!this.state.playlist.length === 0 ? (
+          {this.state.playlist.length > 0 ? (
             <div className="sp-tracklist">
               {this.state.playlist.map((track, i) => (
                 <div key={i} className="sp-track-container">
