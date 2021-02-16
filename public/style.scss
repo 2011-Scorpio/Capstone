@@ -4,7 +4,7 @@ $soft-black: #282828;
 $light-peach: #fff8f5;
 $blue: #75d2ff;
 $purple: #b2acf9;
-$radius-one: 1em;
+$radius-one: 1.5rem;
 $buffer: 6em;
 
 $glass-no-blur: linear-gradient(
@@ -13,11 +13,16 @@ $glass-no-blur: linear-gradient(
   rgba(255, 255, 255, 0.64) 100%
 );
 
-$glass-border: linear-gradient(
-  -45deg,
-  rgb(255, 255, 255, 0.8) 30%,
-  rgb(255, 255, 255, 0.2) 70%
-);
+@mixin glass-border {
+  border: double 1px transparent;
+  background-image: linear-gradient(
+    -45deg,
+    rgb(255, 255, 255, 0.8) 30%,
+    rgb(255, 255, 255, 0.2) 70%
+  );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
 
 @mixin glass-back-1 {
   background: $glass-no-blur;
@@ -477,7 +482,7 @@ nav li {
 }
 
 .new-playlist-pill {
-  margin: 1em auto;
+  margin: 0.75em auto;
   max-width: 24em;
   height: 3.5em;
   @include glass-back-2();
@@ -527,6 +532,117 @@ nav li {
 }
 
 /*****************
+  SINGLE PLAYLIST  
+******************/
+
+.sp-container {
+  margin-top: 3em;
+}
+
+.sp-card {
+  width: 24rem;
+  min-height: 25rem;
+  @include glass-back-2();
+  border-radius: 0.875rem;
+  margin-bottom: $buffer;
+}
+
+.sp-title-container {
+  margin: 1em 1.5em 2em 1.5em;
+}
+
+.sp-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 17rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#sp-add-button {
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sp-tracklist {
+  @include glass-back-2();
+  margin: 1em;
+  border-radius: 0.875rem;
+  border: 3px solid white;
+}
+
+.sp-track-container {
+  width: 100%;
+  display: flex;
+}
+
+.sp-track-container:first-of-type {
+  border-top-left-radius: 0.875rem;
+  border-top-right-radius: 0.875rem;
+}
+
+.sp-track-container:first-of-type .sp-artist {
+  border-top-left-radius: 0.75rem;
+}
+
+.sp-track-container:first-of-type .sp-track {
+  border-top-right-radius: 0.75rem;
+}
+
+.sp-track-container:last-of-type {
+  border-bottom-left-radius: 0.875rem;
+  border-bottom-right-radius: 0.875rem;
+}
+.sp-track-container:last-of-type .sp-artist {
+  border-bottom-left-radius: 0.75rem;
+}
+
+.sp-track-container:last-of-type .sp-track {
+  border-bottom-right-radius: 0.75rem;
+}
+
+.sp-artist {
+  border: 1.5px solid white;
+  border-right: 4px solid white;
+  box-sizing: border-box;
+  display: inline;
+  height: 2.25rem;
+  width: 8rem;
+  padding-left: 0.5em;
+  font-weight: 600;
+  font-size: 0.875rem;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-top: 0.25rem;
+}
+
+.sp-track {
+  border: 1.5px solid white;
+  box-sizing: border-box;
+  display: inline;
+  height: 2.25rem;
+  width: 14rem;
+  padding-left: 0.5em;
+  align-items: center;
+  font-size: 0.875rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-top: 0.25rem;
+}
+
+/*****************
     PLAYER PAGE   
 ******************/
 
@@ -566,7 +682,6 @@ nav li {
   margin-top: 2em;
   margin-bottom: 2em;
   border-radius: $radius-one;
-  border: $glass-border;
 }
 
 .player-artist {

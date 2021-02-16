@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {me} from '../store'
 import {fetchSinglePlaylist} from '../store/charting'
 import {withRouter} from 'react-router-dom'
-// import {ArrowLeft} from 'react-feather';
+import {Plus} from 'react-feather'
 
 class SinglePlaylist extends React.Component {
   constructor() {
@@ -35,18 +35,26 @@ class SinglePlaylist extends React.Component {
 
   render() {
     return (
-      <div>
-        <button type="button" onClick={() => this.backToExplore()}>
-          Add to Playlist
-        </button>
-        <h1>{this.state.playlistName}</h1>
-        <div>
-          {this.state.playlist.map((track, i) => (
-            <div key={i}>
-              {track.track.artists[0].name}
-              {track.track.name}
-            </div>
-          ))}
+      <div className="sp-container f jcc">
+        <div className="sp-card">
+          <div className="sp-title-container f jcb aib">
+            <span className="sp-title">{this.state.playlistName}</span>
+            <button
+              type="button"
+              onClick={() => this.backToExplore()}
+              id="sp-add-button"
+            >
+              <Plus />
+            </button>
+          </div>
+          <div className="sp-tracklist">
+            {this.state.playlist.map((track, i) => (
+              <div key={i} className="sp-track-container">
+                <div className="sp-artist">{track.track.artists[0].name}</div>
+                <div className="sp-track">{track.track.name}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     )
