@@ -61,7 +61,8 @@ class PlayerPage extends Component {
 
   fastForward = () => {
     this.setState(prevState => ({
-      queue: prevState.queue.slice(1)
+      queue: prevState.queue.slice(1),
+      isPlaying: true
     }))
   }
 
