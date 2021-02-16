@@ -64,16 +64,16 @@ class RdrChart extends React.Component {
 
   render() {
     return (
-      <div>
+      <>  
         {this.state.data.length ? (
           <div className="rdr-chart">
-            <h3 className="your-taste">Your Taste This Month</h3>
+            <h3 className="your-taste">{this.props.title}</h3>
             <RadarChart
-              cx={150}
-              cy={150}
+              cx={160}
+              cy={160}
               outerRadius={90}
-              width={325}
-              height={325}
+              width={320}
+              height={320}
               data={this.state.data}
               className="chart-style"
             >
@@ -90,7 +90,7 @@ class RdrChart extends React.Component {
         ) : (
           <BackgroundShape />
         )}
-      </div>
+      </>
     )
   }
 }
