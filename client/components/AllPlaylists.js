@@ -41,38 +41,40 @@ class AllPlaylists extends React.Component {
           <>
             <h4 className="playlists-title">Playlists</h4>
             <div>
-
               <NewPlaylist />
               {this.props.playlists.items
-      .filter(playlist => playlist.owner.id === this.props.userId).map(playlist => (
-                <div key={playlist.id} className="single-playlist">
-                  <button
-                    className="playlist-name"
-                    type="button"
-                    value={[playlist.name, playlist.id]}
-                    onClick={() =>
-                      this.goToSinglePlaylist([playlist.name, playlist.id])
-                    }
-                  >
-                    {playlist.name}
-                  </button>
-                  <button
-                    className="playlist-add"
-                    type="button"
-                    value={[playlist.name, playlist.id]}
-                    onClick={() =>
-                      this.goToPlayerPage([playlist.name, playlist.id])
-                    }
-                  >
-                    <Plus className="plus-icon" />
-                  </button>
-                </div>
-              ))}
+                .filter(playlist => playlist.owner.id === this.props.userId)
+                .map(playlist => (
+                  <div key={playlist.id} className="single-playlist">
+                    <button
+                      className="playlist-name"
+                      type="button"
+                      value={[playlist.name, playlist.id]}
+                      onClick={() =>
+                        this.goToSinglePlaylist([playlist.name, playlist.id])
+                      }
+                    >
+                      {playlist.name}
+                    </button>
+                    <button
+                      className="playlist-add"
+                      type="button"
+                      value={[playlist.name, playlist.id]}
+                      onClick={() =>
+                        this.goToPlayerPage([playlist.name, playlist.id])
+                      }
+                    >
+                      <Plus className="plus-icon" />
+                    </button>
+                  </div>
+                ))}
             </div>
           </>
         ) : (
           <div className="playlist-shape">
-            <BackgroundShape />
+            <div>
+              <BackgroundShape />
+            </div>
           </div>
         )}
       </div>

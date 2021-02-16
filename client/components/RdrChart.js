@@ -38,21 +38,22 @@ class RdrChart extends React.Component {
         fullMark: 100
       }
     ]
+    if (chartDataArr.length) {
+      chartDataArr.map(song => {
+        template[0].A += song.danceability * 100
+        template[1].A += song.loudness * -3
+        template[2].A += song.energy * 80
+        template[3].A += song.acousticness * 100
+        template[4].A += song.tempo / 2
+      })
+      template.map(attribute => {
+        attribute.A /= chartDataArr.length
+      })
 
-    chartDataArr.map(song => {
-      template[0].A += song.danceability * 100
-      template[1].A += song.loudness * -3
-      template[2].A += song.energy * 80
-      template[3].A += song.acousticness * 100
-      template[4].A += song.tempo / 2
-    })
-    template.map(attribute => {
-      attribute.A /= chartDataArr.length
-    })
-
-    this.setState({
-      data: template
-    })
+      this.setState({
+        data: template
+      })
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -64,16 +65,16 @@ class RdrChart extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         {this.state.data.length ? (
-          <div className="rdr-chart">
-            <h3 className="your-taste">Your Taste This Month</h3>
+          <div className="rdr-chart fadeone">
+            <h3 className="your-taste dashboard-title">{this.props.title}</h3>
             <RadarChart
-              cx={150}
-              cy={150}
+              cx={160}
+              cy={160}
               outerRadius={90}
-              width={325}
-              height={325}
+              width={320}
+              height={320}
               data={this.state.data}
               className="chart-style"
             >
@@ -88,9 +89,13 @@ class RdrChart extends React.Component {
             </RadarChart>
           </div>
         ) : (
-          <BackgroundShape />
+          <div className="rdr-chart">
+            <div>
+              <BackgroundShape />
+            </div>
+          </div>
         )}
-      </div>
+      </>
     )
   }
 }

@@ -111,7 +111,7 @@ class PlayerPage extends Component {
             <div className="last-added">
               <WorkingPlaylist />
             </div>
-            <div className="explore-page-container f jcc">
+            <div className="player-page-container">
               <div className="player">
                 <h4 className="player-artist player-crop">{artistName}</h4>
                 <p className="player-song player-crop">{songName}</p>
@@ -146,8 +146,11 @@ class PlayerPage extends Component {
                   </button>
                 </div>
               </div>
+              {/* <div className='rdr-chart-container'>
+
+              <RdrChart props={this.props.playlistIn} />
+              </div> */}
             </div>
-            <RdrChart props={this.props.playlistIn} />
           </div>
         ) : (
           <div>{this.props.isLoggedIn ? <AllPlaylists /> : 'Loading..'}</div>

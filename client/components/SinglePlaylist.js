@@ -6,7 +6,6 @@ import {withRouter} from 'react-router-dom'
 import {Plus} from 'react-feather'
 import RdrChart from './RdrChart'
 
-
 class SinglePlaylist extends React.Component {
   constructor() {
     super()
@@ -49,7 +48,7 @@ class SinglePlaylist extends React.Component {
 
   render() {
     return (
-      <div className="sp-container f jcc">
+      <div className="sp-container">
         <div className="sp-card">
           <div className="sp-title-container f jcb aib">
             <span className="sp-title">
