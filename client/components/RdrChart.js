@@ -38,21 +38,22 @@ class RdrChart extends React.Component {
         fullMark: 100
       }
     ]
+    if (chartDataArr.length) {
+      chartDataArr.map(song => {
+        template[0].A += song.danceability * 100
+        template[1].A += song.loudness * -3
+        template[2].A += song.energy * 80
+        template[3].A += song.acousticness * 100
+        template[4].A += song.tempo / 2
+      })
+      template.map(attribute => {
+        attribute.A /= chartDataArr.length
+      })
 
-    chartDataArr.map(song => {
-      template[0].A += song.danceability * 100
-      template[1].A += song.loudness * -3
-      template[2].A += song.energy * 80
-      template[3].A += song.acousticness * 100
-      template[4].A += song.tempo / 2
-    })
-    template.map(attribute => {
-      attribute.A /= chartDataArr.length
-    })
-
-    this.setState({
-      data: template
-    })
+      this.setState({
+        data: template
+      })
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -64,9 +65,9 @@ class RdrChart extends React.Component {
 
   render() {
     return (
-      <>  
+      <>
         {this.state.data.length ? (
-          <div className="rdr-chart">
+          <div className="rdr-chart fadeone">
             <h3 className="your-taste">{this.props.title}</h3>
             <RadarChart
               cx={160}
@@ -88,7 +89,11 @@ class RdrChart extends React.Component {
             </RadarChart>
           </div>
         ) : (
-          <BackgroundShape />
+          <div className="rdr-chart">
+            <div>
+              <BackgroundShape />
+            </div>
+          </div>
         )}
       </>
     )
