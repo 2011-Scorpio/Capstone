@@ -41,8 +41,10 @@ class AllPlaylists extends React.Component {
           <>
             <h4 className="playlists-title">Playlists</h4>
             <div>
+
               <NewPlaylist />
-              {this.props.playlists.items.map(playlist => (
+              {this.props.playlists.items
+      .filter(playlist => playlist.owner.id === this.props.userId).map(playlist => (
                 <div key={playlist.id} className="single-playlist">
                   <button
                     className="playlist-name"
@@ -79,6 +81,7 @@ class AllPlaylists extends React.Component {
 }
 
 const mapState = state => ({
+  userId: state.user.spotifyId,
   token: state.user.token,
   playlists: state.userPlaylist.allUserPlaylists
 })

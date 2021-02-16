@@ -1,16 +1,19 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store'
-import {fetchSinglePlaylist} from '../store/charting'
+import {fetchAudioFeat, fetchSinglePlaylist} from '../store/charting'
 import {withRouter} from 'react-router-dom'
 import {Plus} from 'react-feather'
+import RdrChart from './RdrChart'
+
 
 class SinglePlaylist extends React.Component {
   constructor() {
     super()
     this.state = {
       playlist: [],
-      playlistName: ''
+      playlistName: '',
+      playlistFeat: []
     }
   }
 
@@ -20,9 +23,16 @@ class SinglePlaylist extends React.Component {
         this.props.token,
         this.props.currentPlaylistId.id
       )
+
+      const trackId = this.props.playlist.tracks.items.map(track => {
+        return track.track.id
+      })
+      await this.props.getAudioFeat(this.props.token, trackId)
+
       this.setState({
         playlistName: this.props.playlist.name,
-        playlist: this.props.playlist.tracks.items
+        playlist: this.props.playlist.tracks.items,
+        playlistFeat: this.props.audioFeat.audio_features
       })
     } catch (error) {
       this.props.history.push('/playlists')
@@ -74,6 +84,7 @@ class SinglePlaylist extends React.Component {
             </div>
           )}
         </div>
+        <RdrChart props={this.state.playlistFeat} />
       </div>
     )
   }
@@ -82,13 +93,15 @@ class SinglePlaylist extends React.Component {
 const mapState = state => ({
   token: state.user.token,
   playlist: state.charting.singlePlaylist,
-  currentPlaylistId: state.userPlaylist.currentPlaylist
+  currentPlaylistId: state.userPlaylist.currentPlaylist,
+  audioFeat: state.charting.featArr
 })
 
 const mapDispatch = dispatch => ({
   loadUser: () => dispatch(me()),
   getSinglePlaylist: (token, playlistId) =>
-    dispatch(fetchSinglePlaylist(token, playlistId))
+    dispatch(fetchSinglePlaylist(token, playlistId)),
+  getAudioFeat: (token, tracks) => dispatch(fetchAudioFeat(token, tracks))
 })
 
 export default withRouter(connect(mapState, mapDispatch)(SinglePlaylist))
