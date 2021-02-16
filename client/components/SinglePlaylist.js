@@ -47,14 +47,20 @@ class SinglePlaylist extends React.Component {
               <Plus />
             </button>
           </div>
-          <div className="sp-tracklist">
-            {this.state.playlist.map((track, i) => (
-              <div key={i} className="sp-track-container">
-                <div className="sp-artist">{track.track.artists[0].name}</div>
-                <div className="sp-track">{track.track.name}</div>
-              </div>
-            ))}
-          </div>
+          {this.state.playlist.length > 1 ? (
+            <div className="sp-tracklist">
+              {this.state.playlist.map((track, i) => (
+                <div key={i} className="sp-track-container">
+                  <div className="sp-artist">{track.track.artists[0].name}</div>
+                  <div className="sp-track">{track.track.name}</div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="no-tracks-in-playlist f jcc aic">
+              Your playlist is empty!
+            </div>
+          )}
         </div>
       </div>
     )
