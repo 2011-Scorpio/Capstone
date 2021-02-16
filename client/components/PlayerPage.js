@@ -16,15 +16,14 @@ class PlayerPage extends Component {
     this.state = {
       isPlaying: true,
       queue: [],
-      loaded: false,
-      lastAdded: {}
+      loaded: false
     }
 
     this.addToPlaylist = this.addToPlaylist.bind(this)
   }
 
   async componentDidMount() {
-    const {loadInitialData, getRPlaylist} = this.props
+    const {getRPlaylist} = this.props
     // await loadInitialData()
     await getRPlaylist(this.props.token)
     const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
@@ -50,9 +49,20 @@ class PlayerPage extends Component {
     }
   }
 
+  addPopUp() {
+    var el = document.getElementById('last-added-item')
+    el.className = 'animating'
+
+    var listener = el.addEventListener('animationend', function() {
+      el.className = ''
+      el.removeEventListener('animationend', listener)
+    })
+  }
+
   fastForward = () => {
     this.setState(prevState => ({
-      queue: prevState.queue.slice(1)
+      queue: prevState.queue.slice(1),
+      isPlaying: true
     }))
   }
 
@@ -69,14 +79,12 @@ class PlayerPage extends Component {
   }
 
   async addToPlaylist() {
+    this.addPopUp()
     const addedTrack = this.state.queue[0]
     const trackURI = addedTrack.uri
     const trackId = addedTrack.id
-    this.setState({lastAdded: {}})
-    this.setState(prevState => ({
-      lastAdded: prevState.queue[0]
-    }))
-    await this.props.addToPlaylist(
+
+    this.props.addToPlaylist(
       this.props.currentPlaylistId.id,
       trackURI,
       this.props.token
@@ -94,14 +102,14 @@ class PlayerPage extends Component {
     let artistName = queue[0]?.artists[0].name
     let songName = queue[0]?.name
     let albumImg = queue[0]?.album.images[1].url
-    let {lastAdded} = this.state
+
     return (
       <div>
         <NowPlaying />
         {this.props.currentPlaylistId ? (
           <div>
             <div className="last-added">
-              {lastAdded.name ? <WorkingPlaylist lastAdded={lastAdded} /> : ''}
+              <WorkingPlaylist />
             </div>
             <div className="explore-page-container f jcc">
               <div className="player">

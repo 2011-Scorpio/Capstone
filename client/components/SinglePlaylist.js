@@ -3,8 +3,9 @@ import {connect} from 'react-redux'
 import {me} from '../store'
 import {fetchAudioFeat, fetchSinglePlaylist} from '../store/charting'
 import {withRouter} from 'react-router-dom'
+import {Plus} from 'react-feather'
 import RdrChart from './RdrChart'
-// import {ArrowLeft} from 'react-feather';
+
 
 class SinglePlaylist extends React.Component {
   constructor() {
@@ -38,24 +39,50 @@ class SinglePlaylist extends React.Component {
     }
   }
 
+  backToPlaylists() {
+    this.props.history.push('/playlists')
+  }
+
   backToExplore() {
     this.props.history.push('/explore')
   }
 
   render() {
     return (
-      <div>
-        <button type="button" onClick={() => this.backToExplore()}>
-          Add to Playlist
-        </button>
-        <h1>{this.state.playlistName}</h1>
-        <div>
-          {this.state.playlist.map((track, i) => (
-            <div key={i}>
-              {track.track.artists[0].name}
-              {track.track.name}
+      <div className="sp-container f jcc">
+        <div className="sp-card">
+          <div className="sp-title-container f jcb aib">
+            <span className="sp-title">
+              <button
+                id="sp-title-button"
+                type="button"
+                onClick={() => this.backToPlaylists()}
+              >
+                {this.state.playlistName}
+              </button>
+            </span>
+            <button
+              type="button"
+              onClick={() => this.backToExplore()}
+              id="sp-add-button"
+            >
+              <Plus />
+            </button>
+          </div>
+          {this.state.playlist.length > 0 ? (
+            <div className="sp-tracklist">
+              {this.state.playlist.map((track, i) => (
+                <div key={i} className="sp-track-container">
+                  <div className="sp-artist">{track.track.artists[0].name}</div>
+                  <div className="sp-track">{track.track.name}</div>
+                </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            <div className="no-tracks-in-playlist f jcc aic">
+              Your playlist is empty!
+            </div>
+          )}
         </div>
         <RdrChart props={this.state.playlistFeat} />
       </div>
