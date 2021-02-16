@@ -51,8 +51,7 @@ export const fetchAudioFeatPlayer = (token, trackId) => {
       })
       dispatch(getAudioFeatPlayer(data.audio_features[0]))
     } catch (error) {
-      window.location.replace('/auth/spotify')
-      console.error(error)
+      console.log('This song does not contain audio features data')
     }
   }
 }
