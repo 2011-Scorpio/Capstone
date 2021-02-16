@@ -970,6 +970,10 @@ footer a {
   width: 100%;
 }
 
+.dashboard-title {
+  @include big-font-2();
+}
+
 canvas {
   width: 10em;
   margin: 0 auto;
