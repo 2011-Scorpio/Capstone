@@ -496,13 +496,13 @@ nav li {
 
 .new-playlist-input {
   font-size: 1rem;
-  width: 15rem;
+  width: 14rem;
   font-weight: 500;
   letter-spacing: 2px;
   color: $soft-black;
   border: none;
   border-radius: 2em 0 0 2em;
-  margin-left: 0.25em;
+  margin-left: 0.6em;
   background: transparent;
 }
 
@@ -535,7 +535,7 @@ nav li {
 ******************/
 
 .sp-container {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .sp-card {
@@ -549,17 +549,20 @@ nav li {
 .sp-title-container {
   margin: 1em 1.5em 2em 1.5em;
 }
-
 .sp-title {
-  font-size: 1.5rem;
-  font-weight: 700;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 17rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+}
+
+#sp-title-button {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: none;
+  text-align: left;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 #sp-add-button {
@@ -666,6 +669,13 @@ nav li {
   color: #363636;
 }
 
+#now-playing-button {
+  background: none;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'Poppins', 'san-serif';
+}
+
 .last-added {
   height: 6em;
   display: flex;
@@ -673,15 +683,25 @@ nav li {
   align-items: center;
 }
 
-.last-added-item {
-  padding: 0.5em 1em;
-  background-color: #282828;
-  color: white;
+#last-added-item {
+  height: 3em;
+  width: 3em;
+  background-color: rgba(236, 236, 236, 0.219);
+  color: rgba(255, 255, 255, 0.795);
   border-radius: $radius-one;
-  -webkit-animation: lastfadeout 5s forwards;
-  -moz-animation: lastfadeout 5s forwards;
-  -ms-animation: lastfadeout 5s forwards;
-  animation: lastfadeout 5s forwards;
+  opacity: 0;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animating {
+  opacity: 1;
+  -webkit-animation: lastfadeout 3s forwards;
+  -moz-animation: lastfadeout 3s forwards;
+  -ms-animation: lastfadeout 3s forwards;
+  animation: lastfadeout 3s forwards;
 }
 
 .player {
@@ -1049,14 +1069,11 @@ canvas {
   0% {
     opacity: 0;
   }
-  5% {
+  2% {
     opacity: 1;
   }
   35% {
     opacity: 1;
-  }
-  80% {
-    opacity: 0;
   }
   100% {
     opacity: 0;
@@ -1066,14 +1083,11 @@ canvas {
   0% {
     opacity: 0;
   }
-  3% {
+  2% {
     opacity: 1;
   }
   35% {
     opacity: 1;
-  }
-  80% {
-    opacity: 0;
   }
   100% {
     opacity: 0;
@@ -1083,14 +1097,11 @@ canvas {
   0% {
     opacity: 0;
   }
-  3% {
+  2% {
     opacity: 1;
   }
   35% {
     opacity: 1;
-  }
-  80% {
-    opacity: 0;
   }
   100% {
     opacity: 0;
@@ -1100,14 +1111,11 @@ canvas {
   0% {
     opacity: 0;
   }
-  3% {
+  2% {
     opacity: 1;
   }
   35% {
     opacity: 1;
-  }
-  80% {
-    opacity: 0;
   }
   100% {
     opacity: 0;
