@@ -26,7 +26,7 @@ $glass-no-blur: linear-gradient(
 
 @mixin glass-back-1 {
   background: $glass-no-blur;
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(50px);
 }
 
 @mixin glass-back-2 {
@@ -35,7 +35,7 @@ $glass-no-blur: linear-gradient(
     rgba(255, 255, 255, 0.3) 20%,
     rgba(255, 255, 255, 0.5) 80%
   );
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(50px);
 }
 
 @mixin big-font-1 {
@@ -376,20 +376,24 @@ nav li {
 .login-form {
   margin: 10em auto;
   margin-top: 8em;
-  max-width: 16em;
-  height: 10em;
+  width: 18em;
+  height: 9em;
   text-align: center;
   border-radius: $radius-one;
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
   @include glass-back-2();
 }
 
-.spotify-logo {
+#spotify-logo {
   height: 5em;
   width: 5em;
-  position: relative;
+  position: absolute;
   top: -2.5em;
   @include glass-back-2();
   border-radius: 50%;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .button-two {
@@ -400,8 +404,8 @@ nav li {
   font-size: 1.25rem;
   padding: 0.5em 1.25em;
   border-radius: 30px;
-  position: relative;
-  top: 0.5em;
+  position: absolute;
+  bottom: 1em;
   transition: all 0.3s ease-in-out;
 }
 
@@ -411,7 +415,7 @@ nav li {
   color: $soft-black;
 }
 
-.button-two:hover #spotify-logo-container {
+.button-two:hover + #spotify-logo {
   background-color: #1db954;
 }
 
