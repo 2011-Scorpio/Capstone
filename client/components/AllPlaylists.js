@@ -17,7 +17,7 @@ class AllPlaylists extends React.Component {
     this.goToPlayerPage = this.goToPlayerPage.bind(this)
   }
   async componentDidMount() {
-    await this.props.loadUser()
+    // await this.props.loadUser()
     await this.props.getPlaylists(this.props.token)
     this.setState({
       ranOnce: true
