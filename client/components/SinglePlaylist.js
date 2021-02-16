@@ -29,6 +29,10 @@ class SinglePlaylist extends React.Component {
     }
   }
 
+  backToPlaylists() {
+    this.props.history.push('/playlists')
+  }
+
   backToExplore() {
     this.props.history.push('/explore')
   }
@@ -38,7 +42,15 @@ class SinglePlaylist extends React.Component {
       <div className="sp-container f jcc">
         <div className="sp-card">
           <div className="sp-title-container f jcb aib">
-            <span className="sp-title">{this.state.playlistName}</span>
+            <span className="sp-title">
+              <button
+                id="sp-title-button"
+                type="button"
+                onClick={() => this.backToPlaylists()}
+              >
+                {this.state.playlistName}
+              </button>
+            </span>
             <button
               type="button"
               onClick={() => this.backToExplore()}
@@ -47,7 +59,7 @@ class SinglePlaylist extends React.Component {
               <Plus />
             </button>
           </div>
-          {this.state.playlist.length > 1 ? (
+          {!this.state.playlist.length === 0 ? (
             <div className="sp-tracklist">
               {this.state.playlist.map((track, i) => (
                 <div key={i} className="sp-track-container">
