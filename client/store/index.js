@@ -10,7 +10,11 @@ import charting from './charting'
 const reducer = combineReducers({user, spotify, userPlaylist, charting})
 
 const middleware = composeWithDevTools(
-  applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
+  applyMiddleware(
+    thunkMiddleware
+
+    // createLogger({collapsed: true})
+  )
 )
 const store = createStore(reducer, middleware)
 
