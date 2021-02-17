@@ -303,9 +303,15 @@ nav li {
 }
 
 .your-taste {
-  @include big-font-2();
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 140%;
   text-align: center;
-  margin: 1.25em;
+  margin: 1em;
+  width: 250px;
+  @media screen and (min-width: 650px) {
+    width: 400px;
+  }
 }
 
 .chart-style {
@@ -681,14 +687,19 @@ nav li {
     PLAYER PAGE   
 ******************/
 
+.player-page-outer-container {
+  margin: 0 auto;
+  max-width: 1050px;
+}
+
 .player-page-container {
   margin-bottom: $buffer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 900px) {
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
   }
 }
 
@@ -739,9 +750,6 @@ nav li {
   @include glass-back-2();
   border-radius: $radius-one;
   width: 19rem;
-  @media screen and (min-width: 1024px) {
-    margin-right: 6em;
-  }
 }
 
 .player-artist {
@@ -999,10 +1007,6 @@ footer a:before {
   justify-content: center;
   align-items: center;
   width: 100%;
-}
-
-.dashboard-title {
-  @include big-font-2();
 }
 
 canvas {
