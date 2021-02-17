@@ -12,7 +12,8 @@ class SinglePlaylist extends React.Component {
     this.state = {
       playlist: [],
       playlistName: '',
-      playlistFeat: []
+      playlistFeat: [],
+      loaded: false
     }
   }
 
@@ -31,7 +32,8 @@ class SinglePlaylist extends React.Component {
       this.setState({
         playlistName: this.props.playlist.name,
         playlist: this.props.playlist.tracks.items,
-        playlistFeat: this.props.audioFeat.audio_features
+        playlistFeat: this.props.audioFeat.audio_features,
+        loaded: true
       })
     } catch (error) {
       this.props.history.push('/playlists')
@@ -49,7 +51,7 @@ class SinglePlaylist extends React.Component {
   render() {
     return (
       <div className="sp-container">
-        <div className="sp-card">
+        <div className={`sp-card ${this.state.loaded ? 'fadeone' : 'empty'}`}>
           <div className="sp-title-container f jcb aib">
             <span className="sp-title">
               <button
@@ -69,7 +71,7 @@ class SinglePlaylist extends React.Component {
             </button>
           </div>
           {this.state.playlist.length > 0 ? (
-            <div className="sp-tracklist">
+            <div className="sp-tracklist fadeone">
               {this.state.playlist.map((track, i) => (
                 <div key={i} className="sp-track-container">
                   <div className="sp-artist">{track.track.artists[0].name}</div>
@@ -78,12 +80,18 @@ class SinglePlaylist extends React.Component {
               ))}
             </div>
           ) : (
-            <div className="no-tracks-in-playlist f jcc aic">
-              Your playlist is empty!
-            </div>
+            <>
+              {this.state.loaded && this.state.playlist.length === 0 ? (
+                <div className="no-tracks-in-playlist f jcc aic">
+                  Your playlist is empty!
+                </div>
+              ) : (
+                ''
+              )}
+            </>
           )}
         </div>
-        <RdrChart props={this.state.playlistFeat} />
+        <RdrChart props={this.state.playlistFeat} className="fadeone" />
       </div>
     )
   }

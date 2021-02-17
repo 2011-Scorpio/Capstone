@@ -147,14 +147,10 @@ class PlayerPage extends Component {
                     </button>
                   </div>
                 </div>
-                {/* <div id="player-page-chart-container override">
-                <div className='rdr-chart-container override'> */}
                 <RdrChart
                   id="player-page-chart override"
                   props={this.props.playlistIn}
                 />
-                {/* </div>
-                </div> */}
               </div>
             </div>
           </div>
