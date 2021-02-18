@@ -417,8 +417,8 @@ nav li {
 #spotify-logo {
   height: 5em;
   width: 5em;
-  position: absolute;
-  top: -2.5em;
+  position: relative;
+  top: -3em;
   @include glass-back-2();
   border-radius: 50%;
   transition: background-color 0.3s ease-in-out;
@@ -432,7 +432,7 @@ nav li {
   font-size: 1.25rem;
   padding: 0.5em 1.25em;
   border-radius: 30px;
-  position: absolute;
+  position: relative;
   bottom: 1em;
   transition: all 0.3s ease-in-out;
 }
@@ -443,7 +443,7 @@ nav li {
   color: $soft-black;
 }
 
-.button-two:hover + #spotify-logo {
+.button-two:hover ~ #spotify-logo {
   background-color: #1db954;
 }
 
