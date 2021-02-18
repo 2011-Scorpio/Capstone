@@ -131,13 +131,18 @@ header {
 }
 
 nav ul {
-  align-items: baseline;
   margin: 1em 1.5em 2em 0;
   @media screen and (min-width: 840px) {
     margin: 0 3rem 0 0;
   }
   @media screen and (min-width: 1200px) {
     margin: 0 5rem 0 0;
+    height: 1.9rem;
+    display: flex;
+    align-items: flex-end;
+  }
+  @media screen and (min-width: 1600px) {
+    height: 2.08rem;
   }
 }
 
@@ -167,7 +172,20 @@ nav li {
   transition: opacity 150ms ease-in-out;
   @media screen and (min-width: 1200px) {
     all: unset;
-    margin-left: 3.5em;
+    margin-left: 3em;
+  }
+}
+
+.nav-links {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.125rem;
+  font-family: 'Montserrat', sans-serif;
+  background: $soft-black;
+  color: $light-peach;
+  padding: 0;
+  @media screen and (min-width: 1200px) {
+    font-size: 1rem;
   }
 }
 
@@ -183,7 +201,7 @@ nav li {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 1.5rem;
-  font-size: 1.625rem;
+  font-size: 1.75rem;
   @include cutout-gradient();
   @media screen and (min-width: 840px) {
     margin-left: 3rem;
@@ -277,16 +295,6 @@ nav li {
 }
 .nav-toggle:checked ~ .nav-toggle-label:hover {
   transform: rotate(90deg);
-}
-
-.nav-links {
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.125rem;
-  font-family: 'Montserrat', sans-serif;
-  background: $soft-black;
-  color: $light-peach;
-  padding: 0;
 }
 
 /*****************
