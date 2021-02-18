@@ -137,7 +137,7 @@ nav ul {
   }
   @media screen and (min-width: 1200px) {
     margin: 0 5rem 0 0;
-    height: 1.9rem;
+    height: 1.825rem;
     display: flex;
     align-items: flex-end;
   }
@@ -186,6 +186,29 @@ nav li {
   padding: 0;
   @media screen and (min-width: 1200px) {
     font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .nav-links::before {
+    content: '';
+    background: $light-peach;
+    position: relative;
+    top: -0.935em;
+    height: 0.75rem;
+    border-radius: 4px;
+    width: 100%;
+    transform: scale(0, 1);
+    transition: transform 0.2s ease-in-out;
+    display: block;
+  }
+
+  .nav-links:hover::before {
+    transform: scale(0.99, 1);
+  }
+
+  .nav-links.active::before {
+    transform: scale(0.99, 1);
   }
 }
 
