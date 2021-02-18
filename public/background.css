@@ -12,7 +12,7 @@
     #b2acf9,
     #fff1eb
   );
-  background-size: 200% 1800%;
+  background-size: 600% 1800%;
 
   -webkit-animation: big-gradient-crawl 65s ease infinite;
   -moz-animation: big-gradient-crawl 65s ease infinite;
