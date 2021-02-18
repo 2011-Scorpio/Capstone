@@ -6,8 +6,12 @@ const Footer = () => {
   return (
     <footer className="f jcb aic">
       <div className="footer-links">
-        <Link to="/about">About</Link>
-        <a href="mailto: emailomakase@gmail.com">Email Us</a>
+        <Link to="/about" className="footer-link">
+          About
+        </Link>
+        <a href="mailto: emailomakase@gmail.com" className="footer-link">
+          Email Us
+        </a>
       </div>
 
       <div>
