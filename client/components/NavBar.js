@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 const NavBar = () => {
   const toggleCheckbox = () => {
     const checkbox = document.getElementById('nav-toggle')
-    checkbox.checked = !checkbox.checked
+    checkbox.checked = false
   }
 
   return (
