@@ -1,11 +1,12 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, useLocation} from 'react-router-dom'
 
 const NavBar = () => {
-  const toggleCheckbox = () => {
+  const uncheckCheckbox = () => {
     const checkbox = document.getElementById('nav-toggle')
     checkbox.checked = false
   }
+  const {pathname} = useLocation()
 
   return (
     <header>
@@ -19,7 +20,10 @@ const NavBar = () => {
             <NavLink
               to="/playlists"
               className="nav-links"
-              onClick={() => toggleCheckbox()}
+              onClick={() => uncheckCheckbox()}
+              isActive={() =>
+                ['/explore', '/singleplaylist', '/playlists'].includes(pathname)
+              }
             >
               Playlists
             </NavLink>
@@ -28,7 +32,7 @@ const NavBar = () => {
             <NavLink
               to="/about"
               className="nav-links"
-              onClick={() => toggleCheckbox()}
+              onClick={() => uncheckCheckbox()}
             >
               About
             </NavLink>
@@ -37,7 +41,7 @@ const NavBar = () => {
             <NavLink
               to="/login"
               className="nav-links"
-              onClick={() => toggleCheckbox()}
+              onClick={() => uncheckCheckbox()}
             >
               Login
             </NavLink>
