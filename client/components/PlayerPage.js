@@ -111,49 +111,47 @@ class PlayerPage extends Component {
             <div className="last-added">
               <WorkingPlaylist />
             </div>
-            <div className="player-page-container">
-              <div className="player">
-                <h4 className="player-artist player-crop">{artistName}</h4>
-                <p className="player-song player-crop">{songName}</p>
-                <img src={albumImg} className="player-album-cover" />
-                <audio
-                  id="player-audio"
-                  src={currentSong}
-                  autoPlay
-                  onEnded={this.fastForward}
-                />
-                <div className="player-buttons">
-                  <button
-                    type="button"
-                    className="player-btn f"
-                    onClick={this.addToPlaylist}
-                  >
-                    <Plus />
-                  </button>
-                  <button
-                    className="player-btn f"
-                    type="button"
-                    onClick={() => this.togglePlay()}
-                  >
-                    {this.state.isPlaying ? <Pause /> : <Play />}
-                  </button>
-                  <button
-                    type="button"
-                    className="player-btn f"
-                    onClick={() => this.fastForward()}
-                  >
-                    <FastForward />
-                  </button>
+            <div className="player-page-outer-container">
+              <div className="player-page-container">
+                <div className="player">
+                  <h4 className="player-artist player-crop">{artistName}</h4>
+                  <p className="player-song player-crop">{songName}</p>
+                  <img src={albumImg} className="player-album-cover" />
+                  <audio
+                    id="player-audio"
+                    src={currentSong}
+                    autoPlay
+                    onEnded={this.fastForward}
+                  />
+                  <div className="player-buttons">
+                    <button
+                      type="button"
+                      className="player-btn f"
+                      onClick={this.addToPlaylist}
+                    >
+                      <Plus />
+                    </button>
+                    <button
+                      className="player-btn f"
+                      type="button"
+                      onClick={() => this.togglePlay()}
+                    >
+                      {this.state.isPlaying ? <Pause /> : <Play />}
+                    </button>
+                    <button
+                      type="button"
+                      className="player-btn f"
+                      onClick={() => this.fastForward()}
+                    >
+                      <FastForward />
+                    </button>
+                  </div>
                 </div>
+                <RdrChart
+                  id="player-page-chart override"
+                  props={this.props.playlistIn}
+                />
               </div>
-              {/* <div id="player-page-chart-container override">
-                <div className='rdr-chart-container override'> */}
-              <RdrChart
-                id="player-page-chart override"
-                props={this.props.playlistIn}
-              />
-              {/* </div>
-                </div> */}
             </div>
           </div>
         ) : (

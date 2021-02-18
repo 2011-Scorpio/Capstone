@@ -46,9 +46,10 @@ const About = () => {
       <div>
         <h4 className="about-title">What is Omakase?</h4>
         <p className="about-explanation">
-          We built Omakase to make it easier for people to discover new music
-          and create playlists. Using the Spotify API we were able blah blah
-          blah blah and we really hope you like it!
+          Omakase was created to make it easier for music lovers to discover new
+          songs and create playlists. With Omakase, you can quickly build a new
+          playlist or add on to existing Spotify playlists. We had a lot of fun
+          building Omakase and hope you have as much fun using it!
         </p>
       </div>
       <div>
@@ -68,7 +69,7 @@ const About = () => {
                     href={user.gitHub}
                     target="_blank"
                     rel="noreferrer"
-                    className="about-link-container"
+                    className="about-link-container-git"
                     alt={`${user.name} Git Hub`}
                   >
                     <GitHub className="about-link" />
@@ -77,7 +78,7 @@ const About = () => {
                     href={user.linkedIn}
                     target="_blank"
                     rel="noreferrer"
-                    className="about-link-container"
+                    className="about-link-container-link"
                     alt={`${user.name} Linked In`}
                   >
                     <Linkedin className="about-link" />
