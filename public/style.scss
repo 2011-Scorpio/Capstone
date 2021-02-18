@@ -194,7 +194,7 @@ nav li {
     content: '';
     background: $light-peach;
     position: relative;
-    top: -0.935em;
+    top: -1em;
     height: 0.75rem;
     border-radius: 4px;
     width: 100%;
@@ -212,6 +212,12 @@ nav li {
   }
 }
 
+@media screen and (min-width: 1600px) {
+  .nav-links::before {
+    top: -1.125em;
+  }
+}
+
 .navbar-name-container {
   height: 4em;
   display: flex;
@@ -225,12 +231,23 @@ nav li {
   margin-bottom: auto;
   margin-left: 1.5rem;
   font-size: 1.75rem;
+  transition: all 1s ease;
   @include cutout-gradient();
   @media screen and (min-width: 840px) {
     margin-left: 3rem;
   }
   @media screen and (min-width: 1200px) {
     margin-left: 5rem;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    background: linear-gradient(200deg, #75d2ff, #fff7e8, #b2acf9);
+    background-size: 120%;
+    background-position: center;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 }
 
@@ -330,10 +347,10 @@ nav li {
   justify-content: center;
   align-items: center;
   @media screen and (min-width: 768px) {
-    height: 38rem;
+    // height: 38rem;
   }
   @media screen and (min-width: 1024px) {
-    height: 40rem;
+    // height: 40rem;
   }
 }
 
@@ -404,10 +421,10 @@ nav li {
   height: 28rem;
   @include glass-back-1;
   @media screen and (min-width: 768px) {
-    height: 30rem;
+    // height: 30rem;
   }
   @media screen and (min-width: 1024px) {
-    height: 32rem;
+    // height: 32rem;
   }
 }
 
