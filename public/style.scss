@@ -4,14 +4,8 @@ $soft-black: #282828;
 $light-peach: #fff8f5;
 $blue: #75d2ff;
 $purple: #b2acf9;
-$radius-one: 1.5rem;
+$radius-one: 2rem;
 $buffer: 6em;
-
-$glass-no-blur: linear-gradient(
-  -45deg,
-  rgba(255, 255, 255, 0.16) 30%,
-  rgba(255, 255, 255, 0.64) 100%
-);
 
 @mixin glass-border {
   border: double 1px transparent;
@@ -25,17 +19,23 @@ $glass-no-blur: linear-gradient(
 }
 
 @mixin glass-back-1 {
-  background: $glass-no-blur;
+  background: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2)
+  );
   backdrop-filter: blur(50px);
 }
 
 @mixin glass-back-2 {
+  background: white;
   background: linear-gradient(
-    -45deg,
-    rgba(255, 255, 255, 0.3) 20%,
-    rgba(255, 255, 255, 0.5) 80%
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
   );
-  backdrop-filter: blur(50px);
+  // backdrop-filter: blur(50px);
 }
 
 @mixin big-font-1 {
