@@ -622,11 +622,12 @@ nav li {
   justify-content: center;
   align-items: center;
   margin-bottom: 8rem;
+  min-height: 70vh;
   @media screen and (min-width: 900px) {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-start;
-    max-width: 1020px;
+    max-width: 80em;
     margin: 8rem auto 8rem auto;
   }
 }
@@ -985,6 +986,7 @@ nav li {
   background: rgba(255, 255, 255, 0);
   opacity: 0;
   transition: all 0.7s ease-in-out;
+  border-radius: $radius-one;
   &:hover {
     opacity: 1;
     background: rgba(228, 228, 228, 0.573);
@@ -1176,6 +1178,12 @@ canvas {
   -moz-animation: fadein 1s;
   -ms-animation: fadein 1s;
   animation: fadein 1s;
+}
+.fadehalf {
+  -webkit-animation: fadein 0.3s;
+  -moz-animation: fadein 0.3s;
+  -ms-animation: fadein 0.3s;
+  animation: fadein 0.3s;
 }
 
 @keyframes fadein {

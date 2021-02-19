@@ -50,49 +50,55 @@ class SinglePlaylist extends React.Component {
 
   render() {
     return (
-      <div className="sp-container">
-        <div className={`sp-card ${this.state.loaded ? 'fadeone' : 'empty'}`}>
-          <div className="sp-title-container f jcb aib">
-            <span className="sp-title">
-              <button
-                id="sp-title-button"
-                type="button"
-                onClick={() => this.backToPlaylists()}
-              >
-                {this.state.playlistName}
-              </button>
-            </span>
-            <button
-              type="button"
-              onClick={() => this.backToExplore()}
-              id="sp-add-button"
-            >
-              <Plus />
-            </button>
-          </div>
-          {this.state.playlist.length > 0 ? (
-            <div className="sp-tracklist fadeone">
-              {this.state.playlist.map((track, i) => (
-                <div key={i} className="sp-track-container">
-                  <div className="sp-artist">{track.track.artists[0].name}</div>
-                  <div className="sp-track">{track.track.name}</div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <>
-              {this.state.loaded && this.state.playlist.length === 0 ? (
-                <div className="no-tracks-in-playlist f jcc aic">
-                  Your playlist is empty!
+      <>
+        {this.state.loaded && (
+          <div className="sp-container fadehalf">
+            <div className="sp-card">
+              <div className="sp-title-container f jcb aib">
+                <span className="sp-title">
+                  <button
+                    id="sp-title-button"
+                    type="button"
+                    onClick={() => this.backToPlaylists()}
+                  >
+                    {this.state.playlistName}
+                  </button>
+                </span>
+                <button
+                  type="button"
+                  onClick={() => this.backToExplore()}
+                  id="sp-add-button"
+                >
+                  <Plus />
+                </button>
+              </div>
+              {this.state.playlist.length > 0 ? (
+                <div className="sp-tracklist">
+                  {this.state.playlist.map((track, i) => (
+                    <div key={i} className="sp-track-container">
+                      <div className="sp-artist">
+                        {track.track.artists[0].name}
+                      </div>
+                      <div className="sp-track">{track.track.name}</div>
+                    </div>
+                  ))}
                 </div>
               ) : (
-                ''
+                <>
+                  {this.state.loaded && this.state.playlist.length === 0 ? (
+                    <div className="no-tracks-in-playlist f jcc aic">
+                      Your playlist is empty!
+                    </div>
+                  ) : (
+                    ''
+                  )}
+                </>
               )}
-            </>
-          )}
-        </div>
-        <RdrChart props={this.state.playlistFeat} className="fadeone" />
-      </div>
+            </div>
+            <RdrChart props={this.state.playlistFeat} />
+          </div>
+        )}
+      </>
     )
   }
 }
