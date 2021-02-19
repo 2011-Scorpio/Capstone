@@ -952,9 +952,11 @@ nav li {
   flex-wrap: wrap;
   margin-bottom: $buffer;
   flex-direction: column;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 900px) {
     flex-direction: row;
-    margin-top: 2rem;
+    margin: 2rem auto 0 auto;
+    justify-content: space-evenly;
+    max-width: 70em;
   }
 }
 
