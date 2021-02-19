@@ -24,11 +24,11 @@ class PlayerPage extends Component {
 
   async componentDidMount() {
     const {getRPlaylist} = this.props
-    // await loadInitialData()
     await getRPlaylist(this.props.token)
-    const songsWithUrl = this.props.rPlaylist.tracks.items.filter(
-      track => track.preview_url
-    )
+    const songsWithUrl = this.props.rPlaylist.tracks.items.filter(track => {
+      if (track) return track.preview_url
+    })
+
     this.setState({
       queue: songsWithUrl,
       loaded: true
@@ -114,8 +114,20 @@ class PlayerPage extends Component {
             <div className="player-page-outer-container">
               <div className="player-page-container">
                 <div className="player">
-                  <h4 className="player-artist player-crop">{artistName}</h4>
-                  <p className="player-song player-crop">{songName}</p>
+                  <div className="player-info-container">
+                    <div className="music-box">
+                      <img
+                        className="music-box-logo"
+                        src="/images/soft-black-music.png"
+                      />
+                    </div>
+                    <div className="player-inner-info-container">
+                      <h4 className="player-artist player-crop">
+                        {artistName}
+                      </h4>
+                      <p className="player-song player-crop">{songName}</p>
+                    </div>
+                  </div>
                   <img src={albumImg} className="player-album-cover" />
                   <audio
                     id="player-audio"
@@ -123,27 +135,32 @@ class PlayerPage extends Component {
                     autoPlay
                     onEnded={this.fastForward}
                   />
+
                   <div className="player-buttons">
                     <button
                       type="button"
                       className="player-btn f"
                       onClick={this.addToPlaylist}
                     >
-                      <Plus />
+                      <Plus className="player-btn-icon" />
                     </button>
                     <button
                       className="player-btn f"
                       type="button"
                       onClick={() => this.togglePlay()}
                     >
-                      {this.state.isPlaying ? <Pause /> : <Play />}
+                      {this.state.isPlaying ? (
+                        <Pause className="player-btn-icon" />
+                      ) : (
+                        <Play className="player-btn-icon" />
+                      )}
                     </button>
                     <button
                       type="button"
                       className="player-btn f"
                       onClick={() => this.fastForward()}
                     >
-                      <FastForward />
+                      <FastForward className="player-btn-icon" />
                     </button>
                   </div>
                 </div>

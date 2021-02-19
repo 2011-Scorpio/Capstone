@@ -12,7 +12,7 @@ const NowPlaying = props => {
     <>
       {props.currentPlaylistName ? (
         <div className="now-playing">
-          You're adding to:
+          You're adding to
           <button
             type="button"
             alt={`Go to ${props.currentPlaylistName.name}`}
