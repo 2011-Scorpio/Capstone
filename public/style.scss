@@ -440,7 +440,7 @@ nav li {
 ******************/
 
 .login-form {
-  margin: 10em auto;
+  margin: 10em auto 15em auto;
   margin-top: 8em;
   width: 18em;
   height: 9em;
@@ -549,6 +549,9 @@ nav li {
   display: flex;
   justify-content: center;
   align-items: center;
+  &:active {
+    background-color: $light-grey;
+  }
 }
 
 .plus-icon {
@@ -749,7 +752,7 @@ nav li {
 }
 
 .player-page-container {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -772,12 +775,12 @@ nav li {
 #now-playing-button {
   background: $soft-black;
   color: $light-peach;
-  padding: 0.35em .9em;
+  padding: 0.35em 0.9em;
   border-radius: $radius-one;
   font-weight: 600;
   font-family: 'Poppins', 'san-serif';
   margin-left: 0.625em;
-  font-size: .9rem;
+  font-size: 0.9rem;
   transition: all 0.3s ease-in-out;
   &:hover {
     color: $soft-black;
@@ -786,7 +789,7 @@ nav li {
 }
 
 .last-added {
-  height: 6em;
+  height: 7em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -816,27 +819,27 @@ nav li {
 .player {
   @include glass-back-2();
   border-radius: $radius-one;
-  width: 20rem;
-  height: 35rem;
-  margin-bottom: 2rem;
+  width: 20em;
+  height: 35em;
+  margin-bottom: 3rem;
   @media screen and (min-width: 950px) {
     margin-bottom: 0;
   }
 }
 
 .player-info-container {
-  height: 3.5rem;
-  margin: 1.5rem 0 1.5rem 1.5rem;
+  height: 3.5em;
+  margin: 2em 0 2em 1.5em;
   display: flex;
   align-items: flex-end;
 }
 
 .music-box {
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 3.5em;
+  width: 3.5em;
   @include glass-back-1();
-  border-radius: .5rem;
-  margin-right: 1.125rem;
+  border-radius: 0.5em;
+  margin-right: 1.125em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -844,46 +847,44 @@ nav li {
 .music-box-logo {
   height: 2.5rem;
   width: 2.5rem;
-
 }
 
 .player-artist {
-  margin: 0 0 .125rem;
-  font-size: 1.125rem;
+  margin: 0 0 0.125em;
+  font-size: 1.25rem;
 }
 
 .player-song {
   margin: 0;
-  font-size: .875rem;
-  letter-spacing: 1px;
+  font-size: 0.935rem;
+  letter-spacing: 0.5px;
 }
 
 .player-crop {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 13rem;
+  width: 13.5rem;
 }
 
 .player-album-cover {
   height: 19em;
   width: 19em;
-  margin: 0 .5em;
+  margin: 0 0.5em;
 }
-
 
 .player-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 9rem;
+  height: 8em;
 }
 
 .player-btn {
   border: 2px solid $soft-black;
   border-radius: 50%;
-  padding: .875em;
-  margin: 0 .75rem;
+  padding: 0.875em;
+  margin: 0 0.75em;
   outline: none;
   @include glass-back-2();
   &:active {
