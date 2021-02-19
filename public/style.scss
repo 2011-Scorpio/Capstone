@@ -759,7 +759,7 @@ nav li {
   @media screen and (min-width: 950px) {
     flex-direction: row;
     justify-content: space-around;
-    margin-bottom: $buffer;
+    margin-bottom: 7em;
   }
 }
 
@@ -883,6 +883,7 @@ nav li {
 .player-btn {
   border: 2px solid $soft-black;
   border-radius: 50%;
+  box-sizing: border-box;
   padding: 0.875em;
   margin: 0 0.75em;
   outline: none;
