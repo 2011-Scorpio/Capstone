@@ -116,10 +116,12 @@ class PlayerPage extends Component {
                 <div className="player">
                   <div className="player-info-container">
                     <div className="music-box">
-                      <img
-                        className="music-box-logo"
-                        src="/images/soft-black-music.png"
-                      />
+                      {currentSong && (
+                        <img
+                          className="music-box-logo"
+                          src="/images/sound-bars.gif"
+                        />
+                      )}
                     </div>
                     <div className="player-inner-info-container">
                       <h4 className="player-artist player-crop">
