@@ -621,9 +621,9 @@ nav li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8rem;
   min-height: 70vh;
   @media screen and (min-width: 900px) {
+    margin-bottom: 8rem;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
@@ -637,6 +637,10 @@ nav li {
   min-height: 25rem;
   @include glass-back-2();
   border-radius: 0.875rem;
+  margin-bottom: 3rem;
+  @media screen and (min-width: 900px) {
+    margin-bottom: 0;
+  }
 }
 
 .sp-title-container {
@@ -746,6 +750,12 @@ nav li {
   letter-spacing: 2px;
 }
 
+.sp-rdr {
+  margin-bottom: 3rem;
+  @media screen and (min-width: 900px) {
+    margin-bottom: 0;
+  }
+}
 /*****************
     PLAYER PAGE   
 ******************/

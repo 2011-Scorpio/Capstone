@@ -97,7 +97,9 @@ class SinglePlaylist extends React.Component {
                 )}
               </div>
             )}
-            <RdrChart props={this.state.playlistFeat} />
+            <div className="sp-rdr">
+              <RdrChart props={this.state.playlistFeat} />
+            </div>
           </div>
         )}
       </>
