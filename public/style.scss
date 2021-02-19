@@ -641,6 +641,12 @@ nav li {
   @media screen and (min-width: 900px) {
     margin-bottom: 0;
   }
+  @media screen and (min-width: 1200px) {
+    width: 26rem;
+  }
+  @media screen and (min-width: 1600px) {
+    width: 28rem;
+  }
 }
 
 .sp-title-container {
@@ -715,7 +721,7 @@ nav li {
   border-right: 4px solid white;
   box-sizing: border-box;
   display: inline;
-  height: 2.25rem;
+  height: 2.375rem;
   width: 8rem;
   padding-left: 0.5em;
   font-weight: 600;
@@ -725,13 +731,19 @@ nav li {
   white-space: nowrap;
   text-overflow: ellipsis;
   padding-top: 0.25rem;
+  @media screen and (min-width: 1200px) {
+    width: 9rem;
+  }
+  @media screen and (min-width: 1600px) {
+    width: 10rem;
+  }
 }
 
 .sp-track {
   border: 1.5px solid white;
   box-sizing: border-box;
   display: inline;
-  height: 2.25rem;
+  height: 2.375rem;
   width: 14rem;
   padding-left: 0.5em;
   align-items: center;
@@ -740,6 +752,12 @@ nav li {
   white-space: nowrap;
   text-overflow: ellipsis;
   padding-top: 0.25rem;
+  @media screen and (min-width: 1200px) {
+    width: 15rem;
+  }
+  @media screen and (min-width: 1600px) {
+    width: 16rem;
+  }
 }
 
 .no-tracks-in-playlist {
