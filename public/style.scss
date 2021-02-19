@@ -191,6 +191,7 @@ nav li {
   background: $soft-black;
   color: $light-peach;
   padding: 0;
+  outline: none;
   @media screen and (min-width: 1200px) {
     font-size: 1rem;
   }
@@ -210,7 +211,8 @@ nav li {
     display: block;
   }
 
-  .nav-links:hover::before {
+  .nav-links:hover::before,
+  .nav-links:focus::before {
     transform: scale(0.99, 1);
   }
 
@@ -431,6 +433,7 @@ nav li {
 
 .button-one:hover,
 .button-one:focus {
+  outline: none;
   background-color: whitesmoke;
   color: $soft-black;
 }
@@ -779,11 +782,13 @@ nav li {
   border-radius: $radius-one;
   font-weight: 600;
   font-family: 'Poppins', 'san-serif';
-  margin-left: 0.625em;
+  margin-left: 0.75em;
   font-size: 0.85rem;
   letter-spacing: 0.125em;
   transition: all 0.3s ease-in-out;
-  &:hover {
+  &:hover,
+  &:focus {
+    outline: none;
     color: $soft-black;
     background-color: $light-peach;
   }
