@@ -10,6 +10,8 @@ You can begin using Omakase right away by visiting https://omakasemusic.herokuap
 
 # CREATORS
 
+[Alfred Meng](https://www.linkedin.com/in/alfredfmeng/)
+
 Alfred Meng
 https://www.linkedin.com/in/alfredfmeng/
 
