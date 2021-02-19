@@ -11,7 +11,10 @@ You can begin using Omakase right away by visiting https://omakasemusic.herokuap
 # CREATORS
 
 [Alfred Meng](https://www.linkedin.com/in/alfredfmeng/)
+
 [Azriel Goldman](https://www.linkedin.com/in/azriel-goldman-67193b77/)
+
 [Gabriel Smith](https://www.linkedin.com/in/gabesmithp/)
+
 [Spencer Collins](https://www.linkedin.com/in/smcollins36/)
 
