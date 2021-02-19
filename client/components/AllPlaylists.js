@@ -38,7 +38,7 @@ class AllPlaylists extends React.Component {
     return (
       <div className="playlists-container">
         {this.state.ranOnce ? (
-          <div className="fadeone">
+          <div className="fadehalf">
             <h4 className="playlists-title">Playlists</h4>
             <div>
               <NewPlaylist />

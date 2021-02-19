@@ -6,7 +6,7 @@ $blue: #75d2ff;
 $purple: #b2acf9;
 $radius-one: 1.5rem;
 $buffer: 6em;
-$light-grey: rgb(216, 215, 215);
+$light-grey: rgb(228, 228, 228);
 
 @mixin glass-border {
   border: double 1px transparent;
@@ -37,12 +37,13 @@ $light-grey: rgb(216, 215, 215);
     rgba(255, 255, 255, 0.3)
   );
   backdrop-filter: blur(50px);
+  box-shadow: 0 0 4px 2px #27272710;
 }
 
 @mixin big-font-1 {
   color: $soft-black;
   font-weight: 800;
-  font-size: 2.75rem;
+  font-size: 3rem;
   letter-spacing: 0.03em;
 }
 
@@ -81,16 +82,16 @@ html {
     font-size: 15px;
   }
   @media screen and (min-width: 768px) {
-    font-size: 16px;
+    font-size: 15.5px;
   }
   @media screen and (min-width: 1024px) {
-    font-size: 17px;
+    font-size: 16px;
   }
   @media screen and (min-width: 1200px) {
-    font-size: 17px;
+    font-size: 16.5px;
   }
   @media screen and (min-width: 1600px) {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 
@@ -191,6 +192,7 @@ nav li {
   background: $soft-black;
   color: $light-peach;
   padding: 0;
+  outline: none;
   @media screen and (min-width: 1200px) {
     font-size: 1rem;
   }
@@ -201,7 +203,7 @@ nav li {
     content: '';
     background: $light-peach;
     position: relative;
-    top: -1em;
+    top: -0.8em;
     height: 0.75rem;
     border-radius: 4px;
     width: 100%;
@@ -210,7 +212,8 @@ nav li {
     display: block;
   }
 
-  .nav-links:hover::before {
+  .nav-links:hover::before,
+  .nav-links:focus::before {
     transform: scale(0.99, 1);
   }
 
@@ -221,7 +224,7 @@ nav li {
 
 @media screen and (min-width: 1600px) {
   .nav-links::before {
-    top: -1.125em;
+    top: -1.08em;
   }
 }
 
@@ -347,15 +350,15 @@ nav li {
 .landing-quote {
   text-align: center;
   @include big-font-1();
-  line-height: 115%;
+  line-height: 120%;
   -webkit-animation: delayfadein 3s;
   -moz-animation: delayfadein 3s;
   -ms-animation: delayfadein 3s;
   animation: delayfadein 3s;
   max-width: 5em;
   @media screen and (min-width: 1024px) {
-    max-width: 9em;
-    line-height: 120%;
+    line-height: 125%;
+    font-size: 3.25rem;
   }
 }
 
@@ -431,6 +434,7 @@ nav li {
 
 .button-one:hover,
 .button-one:focus {
+  outline: none;
   background-color: whitesmoke;
   color: $soft-black;
 }
@@ -561,7 +565,7 @@ nav li {
 
 .new-playlist-pill {
   margin: 0.75em auto;
-  max-width: 24em;
+  max-width: 23.75em;
   height: 3.5em;
   @include glass-back-2();
   border-radius: 2em;
@@ -618,12 +622,13 @@ nav li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8rem;
+  min-height: 70vh;
   @media screen and (min-width: 900px) {
+    margin-bottom: 8rem;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-start;
-    max-width: 1020px;
+    max-width: 80em;
     margin: 8rem auto 8rem auto;
   }
 }
@@ -633,6 +638,16 @@ nav li {
   min-height: 25rem;
   @include glass-back-2();
   border-radius: 0.875rem;
+  margin-bottom: 3rem;
+  @media screen and (min-width: 900px) {
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 26rem;
+  }
+  @media screen and (min-width: 1600px) {
+    width: 28rem;
+  }
 }
 
 .sp-title-container {
@@ -707,7 +722,7 @@ nav li {
   border-right: 4px solid white;
   box-sizing: border-box;
   display: inline;
-  height: 2.25rem;
+  height: 2.375rem;
   width: 8rem;
   padding-left: 0.5em;
   font-weight: 600;
@@ -717,13 +732,19 @@ nav li {
   white-space: nowrap;
   text-overflow: ellipsis;
   padding-top: 0.25rem;
+  @media screen and (min-width: 1200px) {
+    width: 9rem;
+  }
+  @media screen and (min-width: 1600px) {
+    width: 10rem;
+  }
 }
 
 .sp-track {
   border: 1.5px solid white;
   box-sizing: border-box;
   display: inline;
-  height: 2.25rem;
+  height: 2.375rem;
   width: 14rem;
   padding-left: 0.5em;
   align-items: center;
@@ -732,6 +753,12 @@ nav li {
   white-space: nowrap;
   text-overflow: ellipsis;
   padding-top: 0.25rem;
+  @media screen and (min-width: 1200px) {
+    width: 15rem;
+  }
+  @media screen and (min-width: 1600px) {
+    width: 16rem;
+  }
 }
 
 .no-tracks-in-playlist {
@@ -742,13 +769,19 @@ nav li {
   letter-spacing: 2px;
 }
 
+.sp-rdr {
+  margin-bottom: 3rem;
+  @media screen and (min-width: 900px) {
+    margin-bottom: 0;
+  }
+}
 /*****************
     PLAYER PAGE   
 ******************/
 
 .player-page-outer-container {
   margin: 0 auto;
-  max-width: 1050px;
+  max-width: 79em;
 }
 
 .player-page-container {
@@ -758,7 +791,7 @@ nav li {
   align-items: center;
   @media screen and (min-width: 950px) {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-bottom: 7em;
   }
 }
@@ -779,10 +812,13 @@ nav li {
   border-radius: $radius-one;
   font-weight: 600;
   font-family: 'Poppins', 'san-serif';
-  margin-left: 0.625em;
-  font-size: 0.9rem;
+  margin-left: 0.75em;
+  font-size: 0.85rem;
+  letter-spacing: 0.125em;
   transition: all 0.3s ease-in-out;
-  &:hover {
+  &:hover,
+  &:focus {
+    outline: none;
     color: $soft-black;
     background-color: $light-peach;
   }
@@ -820,7 +856,7 @@ nav li {
   @include glass-back-2();
   border-radius: $radius-one;
   width: 20em;
-  height: 35em;
+  height: 34.5em;
   margin-bottom: 3rem;
   @media screen and (min-width: 950px) {
     margin-bottom: 0;
@@ -829,7 +865,7 @@ nav li {
 
 .player-info-container {
   height: 3.5em;
-  margin: 2em 0 2em 1.5em;
+  margin: 1.75em 0 1.75em 1.5em;
   display: flex;
   align-items: flex-end;
 }
@@ -839,14 +875,15 @@ nav li {
   width: 3.5em;
   @include glass-back-1();
   border-radius: 0.5em;
-  margin-right: 1.125em;
+  margin-right: 1.25em;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 .music-box-logo {
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 5.125rem;
+  width: 5.125rem;
 }
 
 .player-artist {
@@ -864,7 +901,7 @@ nav li {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 13.5rem;
+  width: 13.25rem;
 }
 
 .player-album-cover {
@@ -875,9 +912,11 @@ nav li {
 
 .player-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  height: 8em;
+  height: 7.5em;
+  margin: 0 1em;
+  z-index: 100;
 }
 
 .player-btn {
@@ -885,11 +924,17 @@ nav li {
   border-radius: 50%;
   box-sizing: border-box;
   padding: 0.875em;
-  margin: 0 0.75em;
-  outline: none;
+  margin: 0 0.75rem;
   @include glass-back-2();
   &:active {
     background: $light-grey;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 3px 3px rgb(255, 255, 255, 0.8);
+  }
+  &:focus:active {
+    box-shadow: 0 0 5px 3px rgb(255, 255, 255, 0.8);
   }
 }
 
@@ -897,6 +942,10 @@ nav li {
   color: $soft-black;
   height: 2.25rem;
   width: 2.25rem;
+  @media screen and (min-width: 1024px) {
+    height: 2.125rem;
+    width: 2.125rem;
+  }
 }
 
 /*****************
@@ -909,9 +958,11 @@ nav li {
   flex-wrap: wrap;
   margin-bottom: $buffer;
   flex-direction: column;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 900px) {
     flex-direction: row;
-    margin-top: 2rem;
+    margin: 2rem auto $buffer auto;
+    justify-content: space-evenly;
+    max-width: 70em;
   }
 }
 
@@ -971,6 +1022,7 @@ nav li {
   background: rgba(255, 255, 255, 0);
   opacity: 0;
   transition: all 0.7s ease-in-out;
+  border-radius: $radius-one;
   &:hover {
     opacity: 1;
     background: rgba(228, 228, 228, 0.573);
@@ -1162,6 +1214,12 @@ canvas {
   -moz-animation: fadein 1s;
   -ms-animation: fadein 1s;
   animation: fadein 1s;
+}
+.fadehalf {
+  -webkit-animation: fadein 0.3s;
+  -moz-animation: fadein 0.3s;
+  -ms-animation: fadein 0.3s;
+  animation: fadein 0.3s;
 }
 
 @keyframes fadein {

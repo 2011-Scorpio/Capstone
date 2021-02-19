@@ -111,65 +111,69 @@ class PlayerPage extends Component {
             <div className="last-added">
               <WorkingPlaylist />
             </div>
-            <div className="player-page-outer-container">
-              <div className="player-page-container">
-                <div className="player">
-                  <div className="player-info-container">
-                    <div className="music-box">
-                      <img
-                        className="music-box-logo"
-                        src="/images/soft-black-music.png"
-                      />
+            {currentSong && (
+              <div className="player-page-outer-container fadehalf">
+                <div className="player-page-container">
+                  <div className="player">
+                    <div className="player-info-container">
+                      <div className="music-box">
+                        {currentSong && (
+                          <img
+                            className="music-box-logo"
+                            src="/images/sound-bars.gif"
+                          />
+                        )}
+                      </div>
+                      <div className="player-inner-info-container">
+                        <h4 className="player-artist player-crop">
+                          {artistName}
+                        </h4>
+                        <p className="player-song player-crop">{songName}</p>
+                      </div>
                     </div>
-                    <div className="player-inner-info-container">
-                      <h4 className="player-artist player-crop">
-                        {artistName}
-                      </h4>
-                      <p className="player-song player-crop">{songName}</p>
-                    </div>
-                  </div>
-                  <img src={albumImg} className="player-album-cover" />
-                  <audio
-                    id="player-audio"
-                    src={currentSong}
-                    autoPlay
-                    onEnded={this.fastForward}
-                  />
+                    <img src={albumImg} className="player-album-cover" />
+                    <audio
+                      id="player-audio"
+                      src={currentSong}
+                      autoPlay
+                      onEnded={this.fastForward}
+                    />
 
-                  <div className="player-buttons">
-                    <button
-                      type="button"
-                      className="player-btn f"
-                      onClick={this.addToPlaylist}
-                    >
-                      <Plus className="player-btn-icon" />
-                    </button>
-                    <button
-                      className="player-btn f"
-                      type="button"
-                      onClick={() => this.togglePlay()}
-                    >
-                      {this.state.isPlaying ? (
-                        <Pause className="player-btn-icon" />
-                      ) : (
-                        <Play className="player-btn-icon" />
-                      )}
-                    </button>
-                    <button
-                      type="button"
-                      className="player-btn f"
-                      onClick={() => this.fastForward()}
-                    >
-                      <FastForward className="player-btn-icon" />
-                    </button>
+                    <div className="player-buttons">
+                      <button
+                        type="button"
+                        className="player-btn f"
+                        onClick={this.addToPlaylist}
+                      >
+                        <Plus className="player-btn-icon" />
+                      </button>
+                      <button
+                        className="player-btn f"
+                        type="button"
+                        onClick={() => this.togglePlay()}
+                      >
+                        {this.state.isPlaying ? (
+                          <Pause className="player-btn-icon" />
+                        ) : (
+                          <Play className="player-btn-icon" />
+                        )}
+                      </button>
+                      <button
+                        type="button"
+                        className="player-btn f"
+                        onClick={() => this.fastForward()}
+                      >
+                        <FastForward className="player-btn-icon" />
+                      </button>
+                    </div>
                   </div>
+                  <RdrChart
+                    id="player-page-chart override"
+                    props={this.props.playlistIn}
+                  />
                 </div>
-                <RdrChart
-                  id="player-page-chart override"
-                  props={this.props.playlistIn}
-                />
               </div>
-            </div>
+            )}
           </div>
         ) : (
           <div>{this.props.isLoggedIn ? <AllPlaylists /> : 'Loading..'}</div>

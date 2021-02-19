@@ -67,7 +67,7 @@ class RdrChart extends React.Component {
     return (
       <>
         {this.state.data.length ? (
-          <div className="rdr-chart fadeone">
+          <div className="rdr-chart fadehalf">
             <h3 className="your-taste dashboard-title">{this.props.title}</h3>
             <RadarChart
               cx={160}
