@@ -37,7 +37,7 @@ $light-grey: rgb(228, 228, 228);
     rgba(255, 255, 255, 0.3)
   );
   backdrop-filter: blur(50px);
-  box-shadow: 0 0 4px 2px #2727270e;
+  box-shadow: 0 0 4px 2px #27272710;
 }
 
 @mixin big-font-1 {
@@ -565,7 +565,7 @@ nav li {
 
 .new-playlist-pill {
   margin: 0.75em auto;
-  max-width: 24em;
+  max-width: 23.75em;
   height: 3.5em;
   @include glass-back-2();
   border-radius: 2em;
