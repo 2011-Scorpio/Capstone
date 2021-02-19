@@ -8,6 +8,11 @@ Oamakase is an app where you can explore new music and see a visual representati
 
 You can begin using Omakase right away by visiting https://omakasemusic.herokuapp.com/ on your mobile phone or computer. Omakase is a progressive web app and can be installed on your device.
 
+If you're using an Android device, you will be prompted to install the app when you visit the website.
+
+iPhone users can add the app to their home screen by tapping the share icon and then add to home screen.
+
+
 # CREATORS
 
 [Alfred Meng](https://www.linkedin.com/in/alfredfmeng/)
