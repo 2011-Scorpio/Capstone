@@ -40,6 +40,7 @@ class RdrChart extends React.Component {
     ]
     if (chartDataArr.length) {
       chartDataArr.map(song => {
+        if (!song) return
         template[0].A += song.danceability * 100
         template[1].A += song.loudness * -3
         template[2].A += song.energy * 80

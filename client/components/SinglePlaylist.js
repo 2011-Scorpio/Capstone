@@ -24,9 +24,10 @@ class SinglePlaylist extends React.Component {
         this.props.currentPlaylistId.id
       )
 
-      const trackId = this.props.playlist.tracks.items.map(track => {
+      const trackId = await this.props.playlist.tracks.items.map(track => {
         return track.track.id
       })
+      console.log(trackId)
       await this.props.getAudioFeat(this.props.token, trackId)
 
       this.setState({
